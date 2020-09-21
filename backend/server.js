@@ -5,7 +5,9 @@ const express = require('express');
 const DB = require('./config/db');
 // init DB
 DB();
-
+// Routes
+const usersRouter = require('./routes/user');
+//
 const app = express();
 const router = express.Router();
 
@@ -19,8 +21,8 @@ app.use(bodyParserURLEncoded);
 app.use(cors());
 
 app.use('/api', router);
+app.use("/users",usersRouter);
 
-authRoutes(router);
 router.get('/', (req, res) => {
   res.send('Hello from home');
 });
