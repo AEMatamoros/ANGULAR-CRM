@@ -1,0 +1,34 @@
+.data{
+    height: 800px;
+    width: 500px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.data-element{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 190px !important;
+    margin-right: auto !important;
+}
+.data-text{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 120px !important;
+    margin-right: auto !important; 
+}
+.data-brand{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 200px !important;
+    margin-right: auto !important;
+}
+
+.btn-success:hover{
+    background-color: 16271A;
+}
+
+body:-webkit-scrollbar{
+    display: none;
+  }

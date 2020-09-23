@@ -4,7 +4,8 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-
+#28A745
+nav-menu
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
 }
@@ -38,7 +39,7 @@ h4 {
 --------------------------------------------------------------*/
 a {
   transition: 0.5s;
-  color: #0069d9;
+  color: #28A745;
 }
 
 a:hover {
@@ -68,7 +69,7 @@ a:hover {
 
 .btn-ghost:hover {
   background-color: #fff;
-  color: #0069d9;
+  color: #28A745;
 }
 
 section {
@@ -96,7 +97,7 @@ a:hover {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #0069d9;
+  background: #28A745;
   color: #fff;
   text-align: center;
   font-size: 24px;
@@ -111,7 +112,7 @@ a:hover {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: #0069d9;
+  background: #28A745;
   height: 70px;
 }
 
@@ -275,7 +276,7 @@ a:hover {
 }
 
 .nav-menu ul li:hover {
-  background: #0069d9;
+  background: #28A745;
   transition: 0.3s;
 }
 
@@ -373,11 +374,11 @@ a:hover {
 }
 
 #mobile-nav ul .menu-has-children i.fa-chevron-up {
-  color: #0069d9;
+  color: #28A745;
 }
 
 #mobile-nav ul .menu-item-active {
-  color: #0069d9;
+  color: #28A745;
 }
 
 #mobile-body-overly {
@@ -468,7 +469,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
   font-weight: 500;
   color: #666;
-  border: 6px solid #0069d9;
+  border: 6px solid #28A745;
   border-radius: 50%;
   padding: 55px 25px 0 25px;
   position: relative;
@@ -571,7 +572,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .features h2 {
-  color: #0069d9;
+  color: #28A745;
 }
 
 .feature-col {
@@ -592,7 +593,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 70px;
   height: 70px;
   margin-bottom: 15px;
-  background: #0069d9;
+  background: #28A745;
   color: #fff;
   font-size: 24px;
   text-align: center;
@@ -602,7 +603,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .feature-col h3 {
-  color: #0069d9;
+  color: #28A745;
 }
 
 .feature-col p {
@@ -615,7 +616,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   Call-to-action Styling
   ================================================== */
 .cta {
-  background-color: #0069d9;
+  background-color: #28A745;
   padding: 25px 0;
 }
 
@@ -647,7 +648,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .portfolio h2 {
-  color: #0069d9;
+  color: #28A745;
   margin-bottom: 25px;
 }
 
@@ -708,7 +709,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   Team Styling
   ================================================== */
 .team h2 {
-  color: #0069d9;
+  color: #28A745;
 }
 
 .team .col-sm-3 {
@@ -756,7 +757,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .team .card:hover .card-title-wrap {
-  background-color: #0069d9;
+  background-color: #28A745;
 }
 
 .team .card:hover .card-title-wrap .card-title,
@@ -812,12 +813,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #contact h2 {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
-  color: #0069d9;
+  color: #28A745;
 }
 
 #contact .info i {
   font-size: 32px;
-  color: #0069d9;
+  color: #28A745;
   float: left;
 }
 
@@ -882,11 +883,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .php-email-form input::focus, #contact .php-email-form textarea::focus {
-  background-color: #0069d9;
+  background-color: #28A745;
 }
 
 #contact .php-email-form button[type="submit"] {
-  background: #0069d9;
+  background: #28A745;
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -969,7 +970,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .site-footer .bottom .list-inline a:hover {
-  color: #0069d9;
+  color: #28A745;
 }
 
 .site-footer .credits {
@@ -977,7 +978,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .site-footer .credits a {
-  color: #0069d9;
+  color: #28A745;
 }
 
 /* ==================================================

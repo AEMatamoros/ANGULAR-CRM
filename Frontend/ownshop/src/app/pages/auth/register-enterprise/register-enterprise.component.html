@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="col-md-6 text-left">
+        <a class="navbar-brand" href="#">Inicio</a>
+    </div>
+    <div class="col-md-6 text-right">
+        <a class="navbar-brand" [routerLink]="['/login']">Iniciar Sesion</a>
+    </div>
+</nav>
+<div class="data">
+<img src="assets/img/LOGODARK.png" alt="" class="img-fluid data-element" height="100px" width="100px">
+<p class="data-brand">OwnsShop</p>
+<h2 class="data-text">Registra Tu Empresa</h2>
+<!--Form-->
+<form>
+    <div class="form-group">
+        <label for="inputAddress">Nombre Empresa</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="Ejem:Amalia Store">
+      </div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="inputEmail4">Nombre</label>
+    <input type="text" class="form-control" id="inputEmail4" placeholder="John">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputPassword4">Apellido</label>
+    <input type="text" class="form-control" id="inputPassword4" placeholder="Doe">
+  </div>
+</div>
+<div class="form-group">
+  <label for="inputAddress">Telefono</label>
+  <input type="text" class="form-control" id="inputAddress" placeholder="9955-6660">
+</div>
+<div class="form-group">
+  <label for="inputAddress2">Correo</label>
+  <input type="email" class="form-control" id="inputAddress2" placeholder="JohnDoe@gmail.com">
+</div>
+<div class="form-group ">
+  <label for="plan">Plan</label>
+  <select id="plan" class="form-control">
+    <option selected>Profesional  <strong>$25</strong></option>
+    <option>Estandar              <strong>$10</strong></option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="inputAddress2">No.Tarjeta de Credito</label>
+  <input type="email" class="form-control" id="inputAddress2" placeholder="5390700823######">
+</div>
+<div class="form-group ">
+  <label for="plan">Tip</label>
+  <select id="plan" class="form-control">
+    <option selected>Visa  </option>
+    <option>Mastercard     </option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="inputAddress2">CSV</label>
+  <input type="email" class="form-control" id="inputAddress2" placeholder="####">
+</div>
+<div class="form-group">
+    <label for="inputAddress2">Contraseña</label>
+    <input type="password" class="form-control" id="inputAddress2" placeholder="MiContraseña">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Confirme su contraseña</label>
+    <input type="password" class="form-control" id="inputAddress2" placeholder="MiContraseña">
+  </div>
+
+<div class="form-group">
+  <div class="form-check">
+    <label class="form-check-label text-center" for="gridCheck">
+        Al crear una cuenta, aceptas nuestros Condiciones de Uso y has leído y comprendido la Política de Privacidad
+    </label>
+  </div>
+</div>
+<button type="submit" class="btn btn-success form-control">Registrar</button>
+<div class="text-center">
+    <p><a [routerLink]="['/register']" >Registra Usuario</a>
+    </p>
+</div>
+</form>
+<!--End Form-->
+</div>

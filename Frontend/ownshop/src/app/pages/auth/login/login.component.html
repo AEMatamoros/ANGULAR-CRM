@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="col-md-6 text-left">
+        <a class="navbar-brand" href="#">Inicio</a>
+    </div>
+    <div class="col-md-6 text-right">
+        <a class="navbar-brand" [routerLink]="['/register']">Registrate</a>
+    </div>
+</nav>
+<div class="data">
+<img src="assets/img/LOGODARK.png" alt="" class="img-fluid data-element" height="100px" width="100px">
+<p class="data-brand">OwnsShop</p>
+<h2 class="data-text">Iniciar Sesion</h2>
+<!--Form-->
+<form>
+<div class="form-group">
+  <label for="inputAddress2">Correo</label>
+  <input type="email" class="form-control" id="inputAddress2" placeholder="JohnDoe@gmail.com">
+</div>
+<div class="form-group">
+    <label for="inputAddress2">Contraseña</label>
+    <input type="password" class="form-control" id="inputAddress2" placeholder="MiContraseña">
+  </div>
+<div class="form-group">
+  <div class="form-check">
+    <label class="form-check-label text-center" for="gridCheck">
+        Al crear una cuenta, aceptas nuestros Condiciones de Uso y has leído y comprendido la Política de Privacidad
+    </label>
+  </div>
+</div>
+<button type="submit" class="btn btn-success form-control">Iniciar Sesion</button>
+</form>
+<!--End Form-->
+</div>
