@@ -9,6 +9,11 @@ body {
     overflow-x:hidden !important;
  }
 
+.center {
+    display: flex;
+    justify-content: center;
+}
+
 html {
     font-family: sans-serif;
     line-height: 1.15;
