@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
   stores:number[]=[1,2,3,4,5,6]
-  data:boolean=false
+  data:boolean=true
   constructor() { }
 
   ngOnInit(): void {

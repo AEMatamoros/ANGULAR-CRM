@@ -1,4 +1,62 @@
+<!-- Container for sidebar(s) + page content -->
+<ng-sidebar-container>
 
+    <!-- A sidebar -->
+    <ng-sidebar [(opened)]="opened">
+        <h2 class="center m-1">Ownshop</h2>
+        <hr>
+        <a class="center mb-4"><button (click)="toggleSidebar()" class="btn-trans"><img class="img-responsive img-rounded"
+                src="assets/img/LOGOWhite.png" alt="User picture" height="50px" width="50px"></button>
+        </a>
+        <hr>
+        
+        <ul>
+            <li >
+                <a href="#">
+                    <i class="fas fa-city"></i>
+                    <span>Mi Empresa</span>
+                </a>
+            </li> <br>
+            <li >
+                <a href="#">
+                    <i class="fas fa-store"></i>
+                    <span>Mis tiendas</span>
+                </a>
+            </li> <br>
+            <li >
+                <a href="#">
+                    <i class="far fa-user"></i>
+                    <span>Mi cuenta</span>
+                </a>
+            </li> <br>
+            <li >
+                <a href="#">
+                    <i class="fas fa-folder-plus"></i>
+                    <span>Nueva tienda</span>
+                </a>
+            </li> <br>
+            
 
+    
 
-<router-outlet></router-outlet>
+        </ul><hr>
+    </ng-sidebar>
+
+    <!-- Page content -->
+    <div ng-sidebar-content>
+        <nav class="navbar navbar-success bg-success m-0 p-0">
+            <a class="navbar-brand">
+                <button (click)="toggleSidebar()" class="btn-trans border-0"><img src="assets/img/LOGOWhite.png" alt=""
+                    height="50px" width="50px"></button>
+            </a>
+            <form class="form-inline my-2 my-lg-0">
+                <label for="" class="text-white">Nombre Usuario</label>
+                <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2" type="submit">Cerrar Sesion</button>
+              </form>
+          </nav>
+        
+        <router-outlet></router-outlet>
+    </div>
+
+</ng-sidebar-container>
+

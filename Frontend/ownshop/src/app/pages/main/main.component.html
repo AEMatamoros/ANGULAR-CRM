@@ -1,10 +1,5 @@
-<div class="container-fluid empty">
-  <div class="row">
-    <div class="col-md-3 p-0"><app-sidebar></app-sidebar></div>
-
-    <ng-container *ngIf="!data">
-    <div class="col-md-9 p-0">
-      <button (click)="changeData()">Cambiar</button>
+<ng-container *ngIf="!data">
+    <div class="col-md-12 p-0">
       <div class="empty">
         <h2 class="center m-0 p-0">Bienvenido a OwnShop</h2> 
         <a href=""class="center m-0 p-0 "><img src="assets/img/empty.png" alt=""  height="500px" width="700px"></a>
@@ -15,8 +10,7 @@
   </ng-container>
 
   <ng-container *ngIf="data">
-    <div class="col-md-9 p-0">
-      <button (click)="changeData()">Cambiar</button>
+    <div class="col-md-12 p-0">
 
       <div class="full ">
         <h2 class="center" >Tiendas de tu empresa</h2>
@@ -42,8 +36,7 @@
 
     </div>
   </ng-container>
-  </div>  
-</div>
+
 
 
 

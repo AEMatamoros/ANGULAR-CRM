@@ -7,8 +7,8 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { RegisterEnterpriseComponent } from './pages/auth/register-enterprise/register-enterprise.component';
-import { SidebarComponent } from './pages/shared/sidebar/sidebar.component';
 import { MainComponent } from './pages/main/main.component';
+import { SidebarModule } from 'ng-sidebar';
 
 
 
@@ -19,12 +19,12 @@ import { MainComponent } from './pages/main/main.component';
     LoginComponent,
     RegisterComponent,
     RegisterEnterpriseComponent,
-    SidebarComponent,
     MainComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
+    ,SidebarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

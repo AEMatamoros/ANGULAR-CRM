@@ -5,7 +5,6 @@ import { LoginComponent} from 'src/app/pages/auth/login/login.component'
 import { RegisterComponent} from 'src/app/pages/auth/register/register.component'
 import { RegisterEnterpriseComponent} from 'src/app/pages/auth/register-enterprise/register-enterprise.component'
 import { MainComponent } from 'src/app/pages/main/main.component'
-import { SidebarComponent } from 'src/app/pages/shared/sidebar/sidebar.component'
 //rutas
 const routes: Routes = [
   {"path":"",component:LandingComponent},

@@ -1,0 +1,53 @@
+ng-sidebar-container{
+    height: 100vh !important;
+}
+
+::ng-deep .ng-sidebar{
+    background-color:#28A745;
+    width: 300px;
+    padding: 2em 3em;
+    box-shadow: 0 0 2.5em  rgba(85,85,85,1);
+}
+
+ng-sidebar li, ul, p, span{
+    color:white;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 0px;
+}
+
+ng-sidebar hr{
+    background-color: #0D3918;
+    
+}
+ng-sidebar h2{
+    color: #0D3918;
+    
+}
+
+ng-sidebar ul{
+    list-style: none;
+}
+ng-sidebar i{
+    color: white;
+}
+ng-sidebar i:hover{
+    color: #0D3918;
+}
+ng-sidebar span:hover{
+    color: #0D3918;
+}
+ng-sidebar a:hover{
+    color: #0D3918;
+}
+.btn-trans { 
+    cursor: pointer; 
+    border:none; 
+    background-color: transparent; 
+    height: 50px; 
+    width: 200px; 
+    color: #3498db; 
+    font-size: 1.5em; 
+} 
+
