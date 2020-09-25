@@ -1,18 +1,50 @@
-<div class="container-fluid">
+<div class="container-fluid empty">
   <div class="row">
     <div class="col-md-3 p-0"><app-sidebar></app-sidebar></div>
+
+    <ng-container *ngIf="!data">
     <div class="col-md-9 p-0">
+      <button (click)="changeData()">Cambiar</button>
+      <div class="empty">
         <h2 class="center m-0 p-0">Bienvenido a OwnShop</h2> 
-        <a href=""class="center m-0 p-0 "><img src="assets/img/LOGODARK.png" alt=""  height="500px" width="500px"></a>
-        <p class="center m-0 p-0">Perrito usted no ha creado nada,</p>
-        <p class="center m-0 p-0">¿Le gustaria crear una tienda nueva para ganar varas?</p>
-        <p class="center m-0 p-0"> <a href="">Claro que si mi dog!</a> </p>
+        <a href=""class="center m-0 p-0 "><img src="assets/img/empty.png" alt=""  height="500px" width="700px"></a>
+        <p class="center m-0 p-0">AL Parecer todavia no creas ninguna tienda,</p>
+        <p class="center m-0 p-0"> <a href="">¿Le gustaria crear una tienda nueva?</a> </p>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="data">
+    <div class="col-md-9 p-0">
+      <button (click)="changeData()">Cambiar</button>
+
+      <div class="full ">
+        <h2 class="center" >Tiendas de tu empresa</h2>
+        <div class="row center">
+          <ng-container *ngFor="store of stores">
+          <div class="card m-2" style="width: 18rem;">
+          <img class="card-img-top" src="assets/img/cover.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Coco Store</h5>
+              <p class="card-text">Descripcion de la tienda</p>
+              <a href="#" class="btn btn-success m-1">Administrar</a>
+            </div>
+          </div>
+        </ng-container>
+        </div>
+        
+        
+
+      </div> 
+
+
 
 
     </div>
-    
+  </ng-container>
   </div>  
 </div>
+
 
 
    
