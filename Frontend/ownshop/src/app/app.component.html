@@ -1,3 +1,4 @@
+<ng-container *ngIf="showNav">
 <!-- Container for sidebar(s) + page content -->
 <ng-sidebar-container>
 
@@ -59,4 +60,7 @@
     </div>
 
 </ng-sidebar-container>
-
+</ng-container>
+<ng-container *ngIf="!showNav">
+    <router-outlet (activate)="changeOfRoutes()"></router-outlet>
+</ng-container>
