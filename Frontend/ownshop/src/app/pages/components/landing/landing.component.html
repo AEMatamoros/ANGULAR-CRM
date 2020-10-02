@@ -18,8 +18,8 @@
 </head>
 
 <body>
-  <div class="row">
-    <div class="col-md-12">
+
+    <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 col-xs-12 d-none d-sm-block">
       <nav class="navbar navbar-dark bg-success fixed-top p-10 m-0">
         <a class="navbar-brand" href="#">
             <img src="assets/img/LOGOWhite.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -31,11 +31,21 @@
           <a class="nav-link text-success btn btn-light " [routerLink]="['registerEnterprise']" >Unete a nosotros</a>
         </form>
     </nav>
-    
     </div>
-  </div>
+    <div class="col-sm-12 bg-success d-block d-sm-none">
+      <nav class="navbar navbar-dark bg-success fixed-top p-10 m-0">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/LOGOWhite.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            OwnShop
+        </a>
+        <form class="form-inline text-white">
+          <a class="nav-link text-success btn btn-light " [routerLink]="['registerEnterprise']" >Unete a nosotros</a>
+        </form>
+    </nav>
+    </div>
+
   
-  <!-- ======= Hero Section ======= -->
+  <!-- ======= Main ======= -->
   <section class="hero">
     <div class="container text-center">
       <div class="row">
@@ -58,9 +68,9 @@
     </div>
 
   </section>
-  <!-- End Hero -->
+  <!-- End Main -->
 
-  <!-- ======= Header ======= -->
+  <!-- ======= Cabecera ======= -->
   <header id="header">
     <div class="container">
 
@@ -99,11 +109,11 @@
         <div class="col-md-5 cent-data ">
           <h2 class="text-center">¿Por que Ownshop?</h2>
           <strong>
-            <p class="cent-data text-center">
+            <p class="cent-data text-center ">
               Combinaciones infinitas, para un mundo lleno de opciones.
               Tu página web nunca se quedará pequeña, edita su copdigo fuente, añade plugins y mucho mas
               todo para que expandas tus limites.</p>
-              <img src="assets/img/LOGO OwnShop.png" height="250" width="250" alt="" class="img-fluid img-lm">
+              <img src="assets/img/LOGO OwnShop.png" height="250" width="250" alt="" class="img-fluid img-lm d-none d-sm-block d-md-none d-lg-block">
           </strong>
 
         </div>
@@ -118,7 +128,7 @@
     <section class="welcome text-center">
       <h2>Crea sitios para distintos dispositivos en segundos</h2>
       <p>
-        No importa si no sabes codificar, nosootrs de brindaremos las herramientas necesarias
+        No importa si no sabes codificar, nosotros de brindaremos las herramientas necesarias
       </p>
       <img alt="Bell - A perfect theme" class="gadgets-img hidden-md-down" src="assets/img/gadgets.png">
     </section><!-- End Welcome Section -->
@@ -127,12 +137,12 @@
     <section class="features" id="features">
 
       <div class="container">
-        <h2 class="text-center">
+        <h1 class="text-center">
           Herramientas
-        </h2>
+        </h1>
 
         <div class="row">
-          <div class="feature-col col-lg-4 col-xs-12">
+          <div class="feature-col col-lg-4 col-xs-12 col-sm-12">
             <div class="card card-block text-center">
               <div>
                 <div class="feature-icon">
@@ -151,7 +161,7 @@
             </div>
           </div>
 
-          <div class="feature-col col-lg-4 col-xs-12">
+          <div class="feature-col col-lg-4 col-xs-12 col-sm-12">
             <div class="card card-block text-center">
               <div>
                 <div class="feature-icon">
@@ -171,7 +181,7 @@
             </div>
           </div>
 
-          <div class="feature-col col-lg-4 col-xs-12">
+          <div class="feature-col col-lg-4 col-xs-12 col-sm-12">
             <div class="card card-block text-center">
               <div>
                 <div class="feature-icon">
@@ -196,7 +206,113 @@
       </div>
 
     </section><!-- End Features Section -->
+    <hr>
+    <!-- ======= Planes ======= -->
+    <section class="features bg-success " id="features">
 
+      <div class="container-fluid">
+        <h1 class="text-center text-white">
+          Planes 
+        </h1>
+
+        <div class="row">
+          <div class="feature-col col-xs-12 col-sm-12 col-md-12 col-xl-4 col-lg-4 ">
+            <div class="card border-success round-border plan-div-size card-img-top " >
+              <div class="card-header"><h1 class="text-success text-center">Client</h1></div>
+              <div class="card-body ">
+                <h4 class="text-center text-success">Los usuarios de tipo cliente tienen acceso a la compra entre nuestros afiliados</h4>
+                <div class="m-2 p-2 round-border bg-danger text-white">
+                  <h3 class="text-white text-center">Almacenamiento</h3>
+                </div>
+                <div class="m-2 p-2 round-border bg-danger text-white">
+                  <h3 class="text-white text-center">Host</h3>
+                </div>
+                <div class="m-2 p-2 round-border bg-danger text-white">
+                  <h3 class="text-white text-center">Plantillas</h3>
+                </div>
+                <div class="m-2 p-2 round-border bg-danger text-white">
+                  <h3 class="text-white text-center">#Paginas</h3>
+                </div>
+                
+                <h2 class="text-sucess text-center m-0 ">Gratis</h2>
+                <button class="form-control p-1 m-2 round-border btn btn-success center">
+                  <h3 class="text-white center">
+                  Comprar
+                  </h3>
+              </button>
+                
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-col col-lg-4 col-xs-12 col-sm-12">
+            <div class="card border-success round-border plan-div-size card-img-top" >
+              <div class="card-header"><h1 class="text-success text-center">Boss</h1></div>
+              <div class="card-body ">
+                <h4 class="text-center text-success">Los usuarios de tipo OwnClient tiene acceso a plantillas y tiendas limitadas</h4>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">Almacenamiento 1GB</h3>
+                </div>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">Host SI</h3>
+                </div>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">Plantillas 2</h3>
+                </div>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">#Paginas 3</h3>
+                </div>
+                
+                <h2 class="text-sucess text-center m-0 ">30$/mes</h2>
+                <button class="form-control p-1 m-2 round-border btn btn-success center">
+                  <h3 class="text-white center">
+                  Comprar
+                  </h3>
+              </button>
+                
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-col col-lg-4 col-xs-12 col-sm-12">
+            <div class="card border-success round-border plan-div-size card-img-top" >
+              <div class="card-header"><h1 class="text-success text-center">Empire</h1></div>
+              <div class="card-body ">
+                <h4 class="text-center text-success">Los usuarios de tipo OwnEmpiret tiene acceso a plantillas ilimitadas</h4>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">Almacenamiento 5GB</h3>
+                </div>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">Host SI</h3>
+                </div>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">Plantillas 5</h3>
+                </div>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">#Paginas 5</h3>
+                </div>
+                
+                <h2 class="text-sucess text-center m-0 ">50$/mes</h2>
+                <button class="form-control p-1 m-2 round-border btn btn-success center">
+                  <h3 class="text-white center">
+                  Comprar
+                  </h3>
+              </button>
+                
+                
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        
+      </div>
+
+    </section><!-- Planes-->
 
     <!-- ======= Team Section ======= -->
     <section class="team" id="team">
@@ -312,52 +428,7 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer class="site-footer">
-    <div class="bottom">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-6 col-xs-12 text-lg-left text-center">
-            <p class="copyright-text">
-              &copy; Copyright <strong>OWNSHOP</strong>.Todos los derechos reservados
-            </p>
-            <div class="credits">
-              <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bell
-            -->
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-xs-12 text-lg-right text-center">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="index.html">Inicio</a>
-              </li>
-
-              <li class="list-inline-item">
-                <a href="#about">Acerca de</a>
-              </li>
-
-              <li class="list-inline-item">
-                <a href="#features">Registro</a>
-              </li>
-
-              <li class="list-inline-item">
-                <a href="#portfolio">Iniciar Sesion</a>
-              </li>
-
-              
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+  
 
   <a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>
 

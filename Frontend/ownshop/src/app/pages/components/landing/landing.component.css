@@ -1,3 +1,15 @@
 .img-lm{
     margin-left: 150px !important;
 }
+
+.round-border{
+    border-radius: 35px;
+}
+
+.plan-div-size{
+    height: 580px;
+}
+
+.card-img-top{
+    width:100%;
+  }
