@@ -17,14 +17,14 @@ export class AppComponent  {
     this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) { 
         this.currentRoute=this.router.url;
-        console.log(this.currentRoute)
+        //console.log(this.currentRoute)
         if(this.currentRoute=='/' || this.currentRoute=='/login' || this.currentRoute=='/register'|| this.currentRoute=='/registerEnterprise'){
           this.showNav=false
         }else{
           this.showNav=true
         }
       }
-      console.log(this.showNav)
+      //console.log(this.showNav)
     })  ;}
    
    opened: boolean = false;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -8,8 +9,6 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
   currentRoute:string=''
   dataChange:boolean
-  constructor(){}
-  /*
   constructor(private router: Router) {
     this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) { 
@@ -21,7 +20,7 @@ export class FooterComponent implements OnInit {
           this.dataChange=false
         }
       }
-    });}*/
+    });}
 
   ngOnInit(): void {
   }

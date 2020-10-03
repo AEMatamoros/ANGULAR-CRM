@@ -47,7 +47,7 @@
                 </a>  
             </li>
             <li>
-                <a class="d-block d-sm-none"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
+                <a class="d-block d-sm-none text-white" [routerLink]="['/login']"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
             </li>
     
 
@@ -63,7 +63,7 @@
             </a>
             <form class="form-inline my-2 my-lg-0">
                 <label for="" class="text-white d-none d-sm-block">Nombre Usuario</label>
-                <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" type="submit">Cerrar Sesion</button>
+                <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" [routerLink]="['/login']">Cerrar Sesion</button>
               </form>
           </nav>
         
