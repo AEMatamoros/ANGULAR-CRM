@@ -1,3 +1,31 @@
-<p>newstore works!</p>
-<h1>Hola</h1>
-<a [routerLink]="['/main']">main</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-2">
+            <h2 class="mb-5 center">Seleccione una plantilla</h2>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" >
+            <div class="m-1 mb-2">
+                <div class="card border" style="width: 22rem; height: 22rem;">
+                    <img class="card-img-top" height="60%" src="assets/img/newTemplate.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Nueva PLantilla</h5>
+                      <a href="#" class="btn btn-primary">Seleccionar</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" *ngFor="let element of elements">
+            <div class="m-1 mb-2">
+                <div class="card border" style="width: 22rem;">
+                    <img class="card-img-top" height="60%" src="assets/img/fake.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Nombre plantilla</h5>
+                      <a href="#" class="btn btn-primary">Seleccionar</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
