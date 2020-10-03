@@ -4,7 +4,8 @@
 
     <!-- A sidebar -->
     <ng-sidebar [(opened)]="opened">
-        <h2 class="center m-1">Ownshop</h2>
+        <h2 class="center m-1 text-white">Ownshop</h2>
+        <h3 class="text-white d-block d-sm-none center m-1">Nombre Usuario</h3>
         <hr>
         <a class="center mb-4"><button (click)="toggleSidebar()" class="btn-trans"><img class="img-responsive img-rounded"
                 src="assets/img/LOGOWhite.png" alt="User picture" height="50px" width="50px"></button>
@@ -36,8 +37,10 @@
                     <span>Nueva tienda</span>
                 </a>
             </li> <br>
-            
-
+            <li><a (click)="toggleSidebar()" >Cerrar Panel</a>  </li>
+            <li>
+                <a class="d-block d-sm-none">Cerrar Sesion</a>
+            </li>
     
 
         </ul><hr>
@@ -46,13 +49,13 @@
     <!-- Page content -->
     <div ng-sidebar-content>
         <nav class="navbar navbar-success bg-success m-0 p-0">
-            <a class="navbar-brand">
+            <a class="">
                 <button (click)="toggleSidebar()" class="btn-trans border-0"><img src="assets/img/LOGOWhite.png" alt=""
-                    height="50px" width="50px"></button>
+                    height="50px" width="50px"><span>Administrar</span></button>
             </a>
             <form class="form-inline my-2 my-lg-0">
-                <label for="" class="text-white">Nombre Usuario</label>
-                <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2" type="submit">Cerrar Sesion</button>
+                <label for="" class="text-white d-none d-sm-block">Nombre Usuario</label>
+                <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" type="submit">Cerrar Sesion</button>
               </form>
           </nav>
         

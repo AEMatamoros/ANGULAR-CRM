@@ -9,6 +9,7 @@ import { RegisterComponent } from './pages/components/auth/register/register.com
 import { RegisterEnterpriseComponent } from './pages/components/auth/register-enterprise/register-enterprise.component';
 import { MainComponent } from './pages/components/main/main.component';
 import { SidebarModule } from 'ng-sidebar';
+import { FooterComponent } from './pages/components/shared/footer/footer.component';
 
 
 
@@ -20,6 +21,7 @@ import { SidebarModule } from 'ng-sidebar';
     RegisterComponent,
     RegisterEnterpriseComponent,
     MainComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

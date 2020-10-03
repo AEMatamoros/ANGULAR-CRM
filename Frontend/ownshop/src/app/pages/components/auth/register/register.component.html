@@ -1,56 +1,59 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="col-md-6 text-left">
-        <a class="navbar-brand" href="#">Inicio</a>
-    </div>
-    <div class="col-md-6 text-right">
-        <a class="navbar-brand" [routerLink]="['/login']">Iniciar Sesion</a>
-    </div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light  m-0 p-0" >
+  <a class="navbar-brand text-lef col-lg-6 col-md-4 d-none d-sm-block" [routerLink]="['/login']">Inicio</a>
+  <a class="navbar-brand text-right col-lg-6 col-md-4 float-right " [routerLink]="['/register']">Registrate</a>
 </nav>
-<div class="data">
-<img src="assets/img/LOGODARK.png" alt="" class="img-fluid data-element" height="100px" width="100px">
-<p class="data-brand">OwnsShop</p>
-<h2 class="data-text">Registra Tu Cuenta</h2>
+<div class="data col-xl-12 col-lg-12 col-dm-12 col-sm-12 col-xs-12">
+<img src="assets/img/LOGODARK.png" alt="" class="img-fluid data-element d-none d-sm-block" height="100px" width="100px">
+<p class="data-brand d-none d-sm-block">OwnsShop</p>
+<h2 class="data-text d-none d-sm-block">Registrate</h2>
+<div class="col-md-12 text-center mt-4 d-block d-sm-none">
+<h2>OwnShop</h2> <p>Registrate</p>  
+</div>
 <!--Form-->
 <form>
-<div class="form-row">
-  <div class="form-group col-md-6">
-    <label for="inputEmail4">Nombre</label>
-    <input type="text" class="form-control" id="inputEmail4" placeholder="John">
-  </div>
-  <div class="form-group col-md-6">
-    <label for="inputPassword4">Apellido</label>
-    <input type="text" class="form-control" id="inputPassword4" placeholder="Doe">
-  </div>
-</div>
-<div class="form-group">
-  <label for="inputAddress">Telefono</label>
-  <input type="text" class="form-control" id="inputAddress" placeholder="9955-6660">
-</div>
-<div class="form-group">
-  <label for="inputAddress2">Correo</label>
-  <input type="email" class="form-control" id="inputAddress2" placeholder="JohnDoe@gmail.com">
-</div>
-<div class="form-group">
-    <label for="inputAddress2">Contraseña</label>
-    <input type="password" class="form-control" id="inputAddress2" placeholder="MiContraseña">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Nombre</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="John">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Apellido</label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Doe">
+    </div>
   </div>
   <div class="form-group">
-    <label for="inputAddress2">Confirme su contraseña</label>
-    <input type="password" class="form-control" id="inputAddress2" placeholder="MiContraseña">
+    <label for="inputAddress">Telefono</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="9955-6660">
   </div>
-
-<div class="form-group">
-  <div class="form-check">
-    <label class="form-check-label text-center" for="gridCheck">
-        Al crear una cuenta, aceptas nuestros Condiciones de Uso y has leído y comprendido la Política de Privacidad
-    </label>
+  <div class="form-group">
+    <label for="inputAddress2">Correo</label>
+    <input type="email" class="form-control" id="inputAddress2" placeholder="JohnDoe@gmail.com">
   </div>
-</div>
-<button type="submit" class="btn btn-success form-control">Registrar</button>
-<div class="text-center">
-  <p><a [routerLink]="['/registerEnterprise']" >Registra Empresa en su lugar</a>
-  </p>
-</div>
+  <div class="form-group">
+      <label for="inputAddress2">Contraseña</label>
+      <input type="password" class="form-control" id="inputAddress2" placeholder="MiContraseña">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Confirme su contraseña</label>
+      <input type="password" class="form-control" id="inputAddress2" placeholder="MiContraseña">
+    </div>
+  
+  <div class="form-group">
+    <div class="form-check">
+      <label class="form-check-label text-center" for="gridCheck">
+          Al crear una cuenta, aceptas nuestros Condiciones de Uso y has leído y comprendido la Política de Privacidad
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success form-control">Registrar</button>
+  <div class="text-center">
+    <p><a [routerLink]="['/registerEnterprise']" >Registra Empresa en su lugar</a>
+    </p>
+  </div>
 </form>
 <!--End Form-->
+</div>
+<div  class="fixed-bottom">
+<app-footer></app-footer>
 </div>

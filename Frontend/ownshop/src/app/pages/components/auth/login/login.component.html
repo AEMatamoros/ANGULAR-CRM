@@ -1,15 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="col-md-6 text-left">
-        <a class="navbar-brand" href="#">Inicio</a>
-    </div>
-    <div class="col-md-6 text-right">
-        <a class="navbar-brand" [routerLink]="['/register']">Registrate</a>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light  m-0 p-0" >
+        <a class="navbar-brand text-lef col-lg-6 col-md-4 d-none d-sm-block" [routerLink]="['/login']">Inicio</a>
+        <a class="navbar-brand text-right col-lg-6 col-md-4 float-right " [routerLink]="['/register']">Registrate</a>
 </nav>
-<div class="data">
-<img src="assets/img/LOGODARK.png" alt="" class="img-fluid data-element" height="100px" width="100px">
-<p class="data-brand">OwnsShop</p>
-<h2 class="data-text">Iniciar Sesion</h2>
+<div class="data col-xl-12 col-lg-12 col-dm-12 col-sm-12 col-xs-12">
+<img src="assets/img/LOGODARK.png" alt="" class="img-fluid data-element d-none d-sm-block" height="100px" width="100px">
+<p class="data-brand d-none d-sm-block">OwnsShop</p>
+<h2 class="data-text d-none d-sm-block">Iniciar Sesion</h2>
+<div class="col-md-12 text-center mt-4 d-block d-sm-none">
+  <h2>OwnShop</h2> <p>Iniciar Sesion</p>  
+</div>
 <!--Form-->
 <form>
 <div class="form-group">
@@ -27,7 +26,11 @@
     </label>
   </div>
 </div>
-<button type="submit" class="btn btn-success form-control">Iniciar Sesion</button>
+<a [routerLink]="['/main']"><button type="submit" class="btn btn-success form-control">Iniciar Sesion</button></a>
+
 </form>
 <!--End Form-->
+</div>
+<div  class="fixed-bottom">
+  <app-footer></app-footer>
 </div>
