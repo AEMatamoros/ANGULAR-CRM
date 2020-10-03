@@ -10,6 +10,7 @@ import { RegisterEnterpriseComponent } from './pages/components/auth/register-en
 import { MainComponent } from './pages/components/main/main.component';
 import { SidebarModule } from 'ng-sidebar';
 import { FooterComponent } from './pages/components/shared/footer/footer.component';
+import { NewstoreComponent } from './pages/components/newstore/newstore.component';
 
 
 
@@ -22,6 +23,7 @@ import { FooterComponent } from './pages/components/shared/footer/footer.compone
     RegisterEnterpriseComponent,
     MainComponent,
     FooterComponent,
+    NewstoreComponent,
   ],
   imports: [
     BrowserModule,

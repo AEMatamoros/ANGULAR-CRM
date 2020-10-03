@@ -1,9 +1,8 @@
-<ng-container *ngIf="showNav">
 <!-- Container for sidebar(s) + page content -->
 <ng-sidebar-container>
 
     <!-- A sidebar -->
-    <ng-sidebar [(opened)]="opened">
+    <ng-sidebar [(opened)]="opened" *ngIf="showNav">
         <h2 class="center m-1 text-white">Ownshop</h2>
         <h3 class="text-white d-block d-sm-none center m-1">Nombre Usuario</h3>
         <hr>
@@ -57,7 +56,7 @@
 
     <!-- Page content -->
     <div ng-sidebar-content>
-        <nav class="navbar navbar-success bg-success m-0 p-0">
+        <nav class="navbar navbar-success bg-success m-0 p-0" *ngIf="showNav">
             <a class="">
                 <button (click)="toggleSidebar()" class="btn-trans border-0"><img src="assets/img/LOGOWhite.png" alt=""
                     height="50px" width="50px"><span>Administrar</span></button>
@@ -72,8 +71,7 @@
     </div>
 
 </ng-sidebar-container>
-</ng-container>
-<ng-container *ngIf="!showNav">
-    <router-outlet ></router-outlet>
-</ng-container>
+
+
+
 
