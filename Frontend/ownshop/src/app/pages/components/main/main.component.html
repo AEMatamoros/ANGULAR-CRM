@@ -12,15 +12,15 @@
     <div class="col-md-12 p-0">
 
       <div class="full ">
-        <h2 class="center" >Tiendas de tu empresa</h2>
+        <h2 class="center mb-3 mt-3" >Tiendas de tu empresa</h2>
         <div class="row center">
           <ng-container *ngFor="store of stores">
-          <div class="card m-2" style="width: 18rem;">
+          <div class="card m-2 col-md-4 col-lg-3 col-xl-3 col-sm-12 col-xs-12 " style="width: 18rem;">
           <img class="card-img-top" src="assets/img/cover.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Coco Store</h5>
               <p class="card-text">Descripcion de la tienda</p>
-              <a href="#" class="btn btn-success m-1">Administrar</a>
+              <a [routerLink]="['/editstore']" class="btn btn-success m-1">Administrar</a>
             </div>
           </div>
         </ng-container>

@@ -5,7 +5,8 @@ import { LoginComponent} from 'src/app/pages/components/auth/login/login.compone
 import { RegisterComponent} from 'src/app/pages/components/auth/register/register.component'
 import { RegisterEnterpriseComponent} from 'src/app/pages/components/auth/register-enterprise/register-enterprise.component'
 import { MainComponent } from 'src/app/pages/components/main/main.component'
-import { NewstoreComponent } from 'src/app/pages/components/newstore/newstore.component'
+import { NewstoreComponent } from 'src/app/pages/components/stores/newstore/newstore.component'
+import { EditstoreComponent } from 'src/app/pages/components/stores/editstore/editstore.component'
 //rutas
 const routes: Routes = [
   {"path":"",component:LandingComponent,},
@@ -14,7 +15,7 @@ const routes: Routes = [
   {"path":"registerEnterprise",component:RegisterEnterpriseComponent},
   {'path':"main",component:MainComponent},
   {'path':"newstore",component:NewstoreComponent},
-
+  {'path':"editstore",component:EditstoreComponent},
 
 ];
 

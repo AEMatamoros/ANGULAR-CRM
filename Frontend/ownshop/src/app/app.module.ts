@@ -10,7 +10,10 @@ import { RegisterEnterpriseComponent } from './pages/components/auth/register-en
 import { MainComponent } from './pages/components/main/main.component';
 import { SidebarModule } from 'ng-sidebar';
 import { FooterComponent } from './pages/components/shared/footer/footer.component';
-import { NewstoreComponent } from './pages/components/newstore/newstore.component';
+import { NewstoreComponent } from './pages/components/stores/newstore/newstore.component';
+import { EditstoreComponent } from './pages/components/stores/editstore/editstore.component';
+import { AddtemplateComponent } from './pages/components/stores/modals/addtemplate/addtemplate.component';
+import { UpdatedataComponent } from './pages/components/stores/updatedata/updatedata.component';
 
 
 
@@ -24,6 +27,9 @@ import { NewstoreComponent } from './pages/components/newstore/newstore.componen
     MainComponent,
     FooterComponent,
     NewstoreComponent,
+    EditstoreComponent,
+    AddtemplateComponent,
+    UpdatedataComponent,
   ],
   imports: [
     BrowserModule,

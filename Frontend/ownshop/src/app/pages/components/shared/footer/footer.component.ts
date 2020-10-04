@@ -15,9 +15,9 @@ export class FooterComponent implements OnInit {
         this.currentRoute=this.router.url;
         //console.log(this.currentRoute)
         if(this.currentRoute=='/' || this.currentRoute=='/login' || this.currentRoute=='/register'|| this.currentRoute=='/registerEnterprise'){
-          this.dataChange=true
-        }else{
           this.dataChange=false
+        }else{
+          this.dataChange=true
         }
       }
     });}
