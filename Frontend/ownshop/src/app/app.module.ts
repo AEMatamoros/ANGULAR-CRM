@@ -16,6 +16,7 @@ import { AddtemplateComponent } from './pages/components/stores/pages/modals/add
 import { UpdatedataComponent } from './pages/components/stores/updatedata/updatedata.component';
 import { DeletetemplateComponent } from './pages/components/stores/pages/modals/deletetemplate/deletetemplate.component';
 import { EditcodeComponent } from './pages/components/stores/pages/editcode/editcode.component';
+import { AceEditorModule } from 'ng2-ace-editor';
 
 
 
@@ -37,8 +38,9 @@ import { EditcodeComponent } from './pages/components/stores/pages/editcode/edit
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-    ,SidebarModule.forRoot()
+    AppRoutingModule,
+    SidebarModule.forRoot(),
+    AceEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,7 +21,11 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "worker-javascript.js", "input": "./node_modules/ace-builds/src-min/", "output": "/" },
+              { "glob": "worker-css.js", "input": "./node_modules/ace-builds/src-min/", "output": "/" },
+              { "glob": "worker-json.js", "input": "./node_modules/ace-builds/src-min/", "output": "/" },
+              { "glob": "worker-html.js", "input": "./node_modules/ace-builds/src-min/", "output": "/" }
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
@@ -29,8 +33,8 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
               "src/assets/vendor/jquery/jquery.min.js",
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/assets/vendor/jquery.easing/jquery.easing.min.js",
@@ -43,6 +47,11 @@
               "src/assets/vendor/waypoints/jquery.waypoints.min.js",
               "src/assets/vendor/superfish/superfish.min.js",
               "src/assets/vendor/hoverIntent/hoverIntent.js",
+              "node_modules/ace-builds/src-min/ace.js",
+              "./node_modules/ace-builds/src-min/ace.js",
+              "./node_modules/ace-builds/src-min/mode-javascript.js",
+              "./node_modules/ace-builds/src-min/mode-html.js",
+              "./node_modules/ace-builds/src-min/mode-css.js"
             ]
           },
           "configurations": {
