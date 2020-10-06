@@ -1,3 +1,4 @@
+<router-outlet>
 <div class="container">
     <div class="row ">
         <div class="col-md-12 ">
@@ -27,21 +28,13 @@
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td><button class="btn btn-success">Editar</button></td>
-                    <td><button class="btn btn-danger">Eliminar</button></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td><button class="btn btn-success">Editar</button></td>
-                    <td><button class="btn btn-danger">Eliminar</button></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td >Larry the Bird</td>
-                    <td><button class="btn btn-success">Editar</button></td>
-                    <td><button class="btn btn-danger">Eliminar</button></td>
+                    <td >Landi</td>
+                    <td>
+                      <a [routerLink]="['/editstore/editcode']" class="btn btn-success">
+                        Editar
+                      </a>
+                    </td>
+                    <td><app-deletetemplate></app-deletetemplate></td>
                   </tr>
                 </tbody>
               </table>
