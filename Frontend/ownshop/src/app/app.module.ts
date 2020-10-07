@@ -17,6 +17,9 @@ import { UpdatedataComponent } from './pages/components/stores/updatedata/update
 import { DeletetemplateComponent } from './pages/components/stores/pages/modals/deletetemplate/deletetemplate.component';
 import { EditcodeComponent } from './pages/components/stores/pages/editcode/editcode.component';
 import { AceEditorModule } from 'ng2-ace-editor';
+import { DeletestoreComponent } from './pages/components/stores/deletestore/deletestore.component';
+import { ProductsComponent } from './pages/components/stores/products/products.component';
+import { PagesComponent } from './pages/components/stores/pages/pages/pages.component';
 
 
 
@@ -35,6 +38,9 @@ import { AceEditorModule } from 'ng2-ace-editor';
     UpdatedataComponent,
     DeletetemplateComponent,
     EditcodeComponent,
+    DeletestoreComponent,
+    ProductsComponent,
+    PagesComponent,
   ],
   imports: [
     BrowserModule,

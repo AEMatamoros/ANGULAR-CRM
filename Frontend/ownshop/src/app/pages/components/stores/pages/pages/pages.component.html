@@ -1,0 +1,38 @@
+<div class="col-md-9 text-success mt-1">
+    <h3> Agregar Pagina</h3>  
+</div>
+<div class="col-md-3 mb-3">
+    <app-addtemplate></app-addtemplate>
+    <button class="btn btn-primary mr-3">Contenido</button>
+</div>
+<div class="col-md-12 text-left">
+  <h2 class="m-0">Paginas</h2>
+</div>
+<div class="col-md-12">
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td >ProductName</td>
+          <td>
+            tipos
+          </td>
+          <td>date</td>
+          <td>
+            <a [routerLink]="['/editstore/editcode']" class="btn btn-success">
+              Editar
+            </a>
+          </td>
+          <td><app-deletetemplate></app-deletetemplate></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

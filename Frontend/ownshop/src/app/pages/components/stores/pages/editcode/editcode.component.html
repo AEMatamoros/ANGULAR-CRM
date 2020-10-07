@@ -1,10 +1,24 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 m-3">
+        <div class="col-md-6 mt-3 mb-0">
             <h2>Editando Nombre Pagina</h2>
-            JS<ace-editor  mode="javascript" style=" min-height: 150px; overflow: auto;" ></ace-editor>
-            HTML<ace-editor  mode="html" style=" min-height: 150px; overflow: auto;" ></ace-editor>
-            CSS<ace-editor  mode="css" style=" min-height: 150px; overflow: auto;" ></ace-editor>
         </div>
+        <div class="col-md-6  m-0">
+            <button class="btn btn-primary m-5">Ver</button>
+            <button class="btn btn-success m-5">Guardar</button>
+            <button class="btn btn-danger m-5">Cancelar</button>
+        </div>
+        <div class="col-md-6  m-0">
+            HTML<ace-editor  mode="html" style=" min-height: 300px; overflow: auto;" ></ace-editor>
+        </div>
+        <div class="col-md-6  m-0">
+            CSS<ace-editor  mode="css" style=" min-height: 300px; overflow: auto;" ></ace-editor>
+        </div>
+        <div class="col-md-6 mb-5">
+            JS<ace-editor  mode="javascript" style=" min-height: 300px; overflow: auto;" ></ace-editor>
+        </div>
+        
     </div>
 </div>
+
+<app-footer></app-footer>
