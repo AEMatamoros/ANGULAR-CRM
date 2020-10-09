@@ -1,0 +1,46 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary  mr-3" data-toggle="modal" data-target="#addProductModal">
+    Agregar Producto
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="addProductModalLabel">Agregar Pagina</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 mb-3">Nombre</div>
+                    <div class="col-md-8 mb-3"><input type="text" class="form form-control"></div>
+                    <div class="col-md-4 mb-3">Precio</div>
+                    <div class="col-md-8 mb-3"><input type="text" class="form form-control"></div>
+                    <div class="col-md-4 mb-3">Categoria</div>
+                    <div class="col-md-8 mb-3">
+                        <Select class="form form-control">
+                            <option value="" selected>C1</option>
+                            <option value="">C2</option>
+                        </Select>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Seleccionar Imagen del producto</label>
+                          </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Agregar Producto</button>
+        </div>
+      </div>
+    </div>
+  </div>
