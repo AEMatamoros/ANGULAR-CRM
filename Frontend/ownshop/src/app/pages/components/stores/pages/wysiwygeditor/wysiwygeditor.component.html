@@ -1,0 +1,18 @@
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-5 m-0">
+        <form [formGroup]="editor" (ngSubmit)="onSubmit()">
+            <div class="editor-div">
+                <quill-editor  formControlName="nombreTienda"></quill-editor>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-7 border preview-div" [innerHTML]="editorContent">
+        Preview
+    </div>
+    </div>
+    
+</div>

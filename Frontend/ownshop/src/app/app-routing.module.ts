@@ -8,6 +8,8 @@ import { MainComponent } from 'src/app/pages/components/main/main.component'
 import { NewstoreComponent } from 'src/app/pages/components/stores/newstore/newstore.component'
 import { EditstoreComponent } from 'src/app/pages/components/stores/editstore/editstore.component'
 import { EditcodeComponent } from 'src/app/pages/components/stores/pages/editcode/editcode.component'
+import { WYSIWYGEditorComponent } from './pages/components/stores/pages/wysiwygeditor/wysiwygeditor.component'
+
 //rutas
 const routes: Routes = [
   {"path":"",component:LandingComponent,},
@@ -18,6 +20,7 @@ const routes: Routes = [
   {'path':"newstore",component:NewstoreComponent},
   {'path':"editstore",component:EditstoreComponent},
   {'path':'editstore/editcode',component:EditcodeComponent},
+  {'path':'newpagew',component:WYSIWYGEditorComponent},
 
 ];
 

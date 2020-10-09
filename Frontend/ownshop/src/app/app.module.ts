@@ -21,6 +21,9 @@ import { DeletestoreComponent } from './pages/components/stores/deletestore/dele
 import { ProductsComponent } from './pages/components/stores/products/products.component';
 import { PagesComponent } from './pages/components/stores/pages/pages/pages.component';
 import { AddproductComponent } from './pages/components/stores/addproduct/addproduct.component';
+import { QuillModule } from 'ngx-quill';
+import { WYSIWYGEditorComponent } from './pages/components/stores/pages/wysiwygeditor/wysiwygeditor.component'
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 
@@ -43,12 +46,15 @@ import { AddproductComponent } from './pages/components/stores/addproduct/addpro
     ProductsComponent,
     PagesComponent,
     AddproductComponent,
+    WYSIWYGEditorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SidebarModule.forRoot(),
-    AceEditorModule
+    AceEditorModule,
+    QuillModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
