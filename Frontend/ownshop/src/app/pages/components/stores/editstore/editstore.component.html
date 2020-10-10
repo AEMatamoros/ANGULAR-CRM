@@ -1,18 +1,19 @@
 <router-outlet>
-<div class="container">
+<div class="container mb-5">
     <div class="row ">
-        <div class="col-md-4 mt-3">
+        <div class="col-md-12 mt-3">
             <h2>Editando -Nombre tienda</h2>
         </div>
-        <div class="col-md-4 text-left mt-3">
-            <button class="btn btn-warning form-control">Ver Tienda</button>
-         </div>
-        <div class="col-md-4 text-left mt-3">
-          <app-deletestore></app-deletestore>
-       </div>
-        <div class="col-md-12 ">
+        <div class="col-md-8 ">
             <app-updatedata ></app-updatedata><!--Enviar id y validar si es una nueva o atualizacion en backend-->
         </div>
+        <div class="col-md-4 text-left ">
+            <button class="btn btn-info form-control mb-3">Ver Tienda</button>
+            <app-deletestore></app-deletestore>
+            <img src="assets/img/LOGODARK.png" alt="" class="img-fluid">
+         </div>
+        
+        
         
         
     </div>
@@ -20,4 +21,4 @@
     <app-products></app-products>
 </div>
 
-<app-footer></app-footer>
+<app-footer class="mt-5"></app-footer>

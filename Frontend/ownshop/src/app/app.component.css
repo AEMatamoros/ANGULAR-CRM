@@ -3,7 +3,7 @@ ng-sidebar-container{
 }
 
 ::ng-deep .ng-sidebar{
-    background-color:#28A745;
+    background-color:#0D3918;
     width: 300px;
     padding: 2em 3em;
     box-shadow: 0 0 2.5em  rgba(85,85,85,1);
@@ -18,11 +18,11 @@ ng-sidebar li, ul, p, span{
 }
 
 ng-sidebar hr{
-    background-color: #0D3918;
+    background-color: white;
     
 }
 ng-sidebar h2{
-    color: #0D3918;
+    color: white;
     
 }
 
@@ -33,13 +33,13 @@ ng-sidebar i{
     color: white;
 }
 ng-sidebar i:hover{
-    color: #0D3918;
+    color: white;
 }
 ng-sidebar span:hover{
     color: #0D3918;
 }
 ng-sidebar a:hover{
-    color: #0D3918;
+    color: white;
 }
 .btn-trans { 
     cursor: pointer; 

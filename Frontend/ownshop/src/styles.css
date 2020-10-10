@@ -48,3 +48,36 @@ html {
     background-color: #007bff;
     border-color: #007bff;
 }
+.bg-success{
+    background-color: #0D3918 !important
+}
+.btn-success{
+    background-color: #0D3918 !important;
+}
+
+.btn-success:hover{
+    background-color: #041408 !important;
+}
+
+.btn-primary{
+    background-color: #FF9501 !important;
+    border: none;
+}
+
+.btn-primary:hover{
+    background-color: #A66100 !important;
+    border: none;
+}
+
+
+.btn-danger{
+    background-color: #823232 !important;
+}
+
+.btn-danger:hover{
+    background-color: #3D1717!important;
+}
+
+.text-success{
+    color:#0D3918 !important;
+}

@@ -1,4 +1,4 @@
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-3 mb-5">
     <div class="row">
         <div class="col-md-5 m-0">
         <form [formGroup]="editor" (ngSubmit)="onSubmit()">
@@ -10,9 +10,11 @@
 
         </form>
     </div>
-    <div class="col-md-7 border preview-div" [innerHTML]="editorContent">
+    <div class="col-md-7 border preview-div mb-5" [innerHTML]="editorContent">
         Preview
     </div>
     </div>
     
 </div>
+
+<app-footer class=" mt-5"></app-footer>

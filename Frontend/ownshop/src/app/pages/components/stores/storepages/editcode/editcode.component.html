@@ -1,22 +1,29 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 mt-3 mb-0">
-            <h2>Editando Nombre Pagina</h2>
+        <div class="col-md-8 mt-3 mb-0 ">
+            <h2 class="mb-0">Editando Nombre Pagina</h2>
         </div>
-        <div class="col-md-6  m-0">
-            <button class="btn btn-primary m-5">Ver</button>
-            <button class="btn btn-success m-5">Guardar</button>
-            <button class="btn btn-danger m-5">Cancelar</button>
+        <div class="col-md-4 mt-3 mb-0 ">
+            <button class="btn btn-success mr-3">Guardar</button>
+            <button class="btn btn-danger mr-3">Cancelar</button>
         </div>
-        <div class="col-md-6  m-0">
-            HTML<ace-editor  mode="html" style=" min-height: 300px; overflow: auto;" ></ace-editor>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12  m-0">
+                    HTML<ace-editor  mode="html" style=" min-height: 300px; overflow: auto;" ></ace-editor>
+                </div>
+                <div class="col-md-12  m-0">
+                    CSS<ace-editor  mode="css" style=" min-height: 300px; overflow: auto;" ></ace-editor>
+                </div>
+                <div class="col-md-12 mb-5">
+                    JS<ace-editor  mode="javascript" style=" min-height: 300px; overflow: auto;" ></ace-editor>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6  m-0">
-            CSS<ace-editor  mode="css" style=" min-height: 300px; overflow: auto;" ></ace-editor>
+        <div class="col-md-6  m-0 div-preview border mt-4">
+            Preview
         </div>
-        <div class="col-md-6 mb-5">
-            JS<ace-editor  mode="javascript" style=" min-height: 300px; overflow: auto;" ></ace-editor>
-        </div>
+        
         
     </div>
 </div>
