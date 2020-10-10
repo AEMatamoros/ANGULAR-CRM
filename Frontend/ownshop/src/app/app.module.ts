@@ -12,17 +12,17 @@ import { SidebarModule } from 'ng-sidebar';
 import { FooterComponent } from './pages/components/shared/footer/footer.component';
 import { NewstoreComponent } from './pages/components/stores/newstore/newstore.component';
 import { EditstoreComponent } from './pages/components/stores/editstore/editstore.component';
-import { AddtemplateComponent } from './pages/components/stores/pages/modals/addtemplate/addtemplate.component';
-import { UpdatedataComponent } from './pages/components/stores/updatedata/updatedata.component';
-import { DeletetemplateComponent } from './pages/components/stores/pages/modals/deletetemplate/deletetemplate.component';
-import { EditcodeComponent } from './pages/components/stores/pages/editcode/editcode.component';
+import { AddtemplateComponent } from './pages/components/stores/storepages/addtemplate/addtemplate.component';
+import { UpdatedataComponent } from './pages/components/stores/updatestore/updatedata.component';
+import { DeletetemplateComponent } from './pages/components/stores/storepages/deletetemplate/deletetemplate.component';
+import { EditcodeComponent } from './pages/components/stores/storepages/editcode/editcode.component';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { DeletestoreComponent } from './pages/components/stores/deletestore/deletestore.component';
-import { ProductsComponent } from './pages/components/stores/products/products.component';
-import { PagesComponent } from './pages/components/stores/pages/pages/pages.component';
-import { AddproductComponent } from './pages/components/stores/addproduct/addproduct.component';
+import { ProductsComponent } from './pages/components/stores/storeproducts/products/products.component';
+import { PagesComponent } from './pages/components/stores/storepages/mypages/pages.component';
+import { AddproductComponent } from './pages/components/stores/storeproducts/addproduct/addproduct.component';
 import { QuillModule } from 'ngx-quill';
-import { WYSIWYGEditorComponent } from './pages/components/stores/pages/wysiwygeditor/wysiwygeditor.component'
+import { WYSIWYGEditorComponent } from './pages/components/stores/storepages/wysiwygeditor/wysiwygeditor.component'
 import { ReactiveFormsModule } from '@angular/forms'
 
 
@@ -51,10 +51,11 @@ import { ReactiveFormsModule } from '@angular/forms'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     SidebarModule.forRoot(),
     AceEditorModule,
     QuillModule.forRoot(),
-    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

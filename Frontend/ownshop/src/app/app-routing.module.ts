@@ -7,8 +7,8 @@ import { RegisterEnterpriseComponent} from 'src/app/pages/components/auth/regist
 import { MainComponent } from 'src/app/pages/components/main/main.component'
 import { NewstoreComponent } from 'src/app/pages/components/stores/newstore/newstore.component'
 import { EditstoreComponent } from 'src/app/pages/components/stores/editstore/editstore.component'
-import { EditcodeComponent } from 'src/app/pages/components/stores/pages/editcode/editcode.component'
-import { WYSIWYGEditorComponent } from './pages/components/stores/pages/wysiwygeditor/wysiwygeditor.component'
+import { EditcodeComponent } from 'src/app/pages/components/stores/storepages/editcode/editcode.component'
+import { WYSIWYGEditorComponent } from './pages/components/stores/storepages/wysiwygeditor/wysiwygeditor.component'
 
 //rutas
 const routes: Routes = [
