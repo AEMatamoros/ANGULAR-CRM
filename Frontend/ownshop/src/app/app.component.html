@@ -25,13 +25,13 @@
                 </a>
             </li> <br>
             <li >
-                <a [routerLink]="['/main']">
+                <a [routerLink]="['/profile']">
                     <i class="far fa-user"></i>
                     <span>Mi cuenta</span>
                 </a>
             </li> <br>
             <li >
-                <a [routerLink]="['/main']">
+                <a [routerLink]="['/newstore']">
                     <i class="fas fa-folder-plus"></i>
                     <span>Nueva tienda</span>
                 </a>
@@ -62,7 +62,7 @@
                     height="50px" width="50px"><span>Administrar</span></button>
             </a>
             <div class="form-inline my-2 my-lg-0">
-                <label for="" class="text-white d-none d-sm-block">Nombre Usuario</label>
+                <label for="" class="text-white d-none d-sm-block" [routerLink]="['/profile']">Nombre Usuario</label>
                 <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" [routerLink]="['/login']">Cerrar Sesion</button>
             </div>
           </nav>

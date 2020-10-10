@@ -23,7 +23,8 @@ import { PagesComponent } from './pages/components/stores/storepages/mypages/pag
 import { AddproductComponent } from './pages/components/stores/storeproducts/addproduct/addproduct.component';
 import { QuillModule } from 'ngx-quill';
 import { WYSIWYGEditorComponent } from './pages/components/stores/storepages/wysiwygeditor/wysiwygeditor.component'
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserprofileComponent } from './pages/components/profile/userprofile/userprofile.component'
 
 
 
@@ -47,6 +48,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     PagesComponent,
     AddproductComponent,
     WYSIWYGEditorComponent,
+    UserprofileComponent,
   ],
   imports: [
     BrowserModule,

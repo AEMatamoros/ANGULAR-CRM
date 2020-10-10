@@ -81,3 +81,15 @@ html {
 .text-success{
     color:#0D3918 !important;
 }
+
+.teal-color {
+    color:teal;
+}
+
+.bg-danger{
+    background-color: #823232 !important;
+}
+
+.text-primary{
+    color: #FF9501  !important;
+}
