@@ -8,7 +8,8 @@
             <app-updatedata ></app-updatedata><!--Enviar id y validar si es una nueva o atualizacion en backend-->
         </div>
         <div class="col-md-4 text-left ">
-            <button class="btn btn-info form-control mb-3">Ver Tienda</button>
+            <a [routerLink]="['/storepage']"><button class="btn btn-info form-control mb-3" >Ver Tienda</button></a>
+            
             <app-deletestore></app-deletestore>
             <img src="assets/img/LOGODARK.png" alt="" class="img-fluid">
          </div>

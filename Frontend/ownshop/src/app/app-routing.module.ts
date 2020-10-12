@@ -10,6 +10,7 @@ import { EditstoreComponent } from 'src/app/pages/components/stores/editstore/ed
 import { EditcodeComponent } from 'src/app/pages/components/stores/storepages/editcode/editcode.component'
 import { WYSIWYGEditorComponent } from './pages/components/stores/storepages/wysiwygeditor/wysiwygeditor.component'
 import { UserprofileComponent } from './pages/components/profile/userprofile/userprofile.component'
+import { ViewpageComponent } from "./pages/components/stores/viewpage/viewpage.component";
 
 //rutas
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {'path':'editstore/editcode',component:EditcodeComponent},
   {'path':'newpagew',component:WYSIWYGEditorComponent},
   {'path':'profile',component:UserprofileComponent},
+  {'path':'storepage',component:ViewpageComponent},
 ];
 
 @NgModule({

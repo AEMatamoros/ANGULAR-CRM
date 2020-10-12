@@ -24,7 +24,10 @@ import { AddproductComponent } from './pages/components/stores/storeproducts/add
 import { QuillModule } from 'ngx-quill';
 import { WYSIWYGEditorComponent } from './pages/components/stores/storepages/wysiwygeditor/wysiwygeditor.component'
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserprofileComponent } from './pages/components/profile/userprofile/userprofile.component'
+import { UserprofileComponent } from './pages/components/profile/userprofile/userprofile.component';
+import { UpdateproductComponent } from './pages/components/stores/storeproducts/updateproduct/updateproduct.component';
+import { DeleteproductComponent } from './pages/components/stores/storeproducts/deleteproduct/deleteproduct.component';
+import { ViewpageComponent } from './pages/components/stores/viewpage/viewpage.component'
 
 
 
@@ -49,6 +52,9 @@ import { UserprofileComponent } from './pages/components/profile/userprofile/use
     AddproductComponent,
     WYSIWYGEditorComponent,
     UserprofileComponent,
+    UpdateproductComponent,
+    DeleteproductComponent,
+    ViewpageComponent,
   ],
   imports: [
     BrowserModule,

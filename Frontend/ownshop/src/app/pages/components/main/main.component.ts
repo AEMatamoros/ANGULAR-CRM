@@ -15,9 +15,9 @@ export class MainComponent implements OnInit {
 
   changeData(){
     if (this.data==false){
-      this.data=true
+        this.data=true
     }else{
-      this.data=false
+        this.data=false
     }
     
   }
