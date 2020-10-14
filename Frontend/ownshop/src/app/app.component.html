@@ -10,7 +10,7 @@
                 src="assets/img/LOGOWhite.png" alt="User picture" height="50px" width="50px"></button>
         </a>
         <hr>
-        
+        <ng-container *ngIf='!admin'>
         <ul>
             <li >
                 <a [routerLink]="['/main']">
@@ -37,6 +37,35 @@
                 </a>
             </li> <br>
         </ul>
+    </ng-container>
+    <ng-container *ngIf='admin'>
+        <ul>
+            <li >
+                <a [routerLink]="['/main']">
+                    <i class="fas fa-city"></i>
+                    <span>Empresas</span>
+                </a>
+            </li> <br>
+            <li >
+                <a [routerLink]="['/main']">
+                    <i class="fas fa-store"></i>
+                    <span>Plantillas</span>
+                </a>
+            </li> <br>
+            <li >
+                <a [routerLink]="['/profile']">
+                    <i class="far fa-user"></i>
+                    <span>Usuarios</span>
+                </a>
+            </li> <br>
+            <li >
+                <a [routerLink]="['/newstore']">
+                    <i class="fas fa-folder-plus"></i>
+                    <span>Planes</span>
+                </a>
+            </li> <br>
+        </ul>
+    </ng-container>
         
             <hr>
         <ul>    

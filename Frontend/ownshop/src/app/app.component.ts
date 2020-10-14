@@ -11,6 +11,7 @@ export class AppComponent  {
    currentRoute:string='';
    showNav:boolean;
    dataChange:boolean
+   admin:boolean=true
    
   constructor(private router: Router) {
 

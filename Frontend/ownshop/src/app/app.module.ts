@@ -27,7 +27,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserprofileComponent } from './pages/components/profile/userprofile/userprofile.component';
 import { UpdateproductComponent } from './pages/components/stores/storeproducts/updateproduct/updateproduct.component';
 import { DeleteproductComponent } from './pages/components/stores/storeproducts/deleteproduct/deleteproduct.component';
-import { ViewpageComponent } from './pages/components/stores/viewpage/viewpage.component'
+import { ViewpageComponent } from './pages/components/stores/viewpage/viewpage.component';
+import { AdminComponent } from './pages/components/admin/main/admin.component';
+import { CompaniesComponent } from './pages/components/admin/companies/companies.component';
+import { TemplatesComponent } from './pages/components/admin/templates/templates.component';
+import { PlansComponent } from './pages/components/admin/plans/plans.component'
 
 
 
@@ -55,6 +59,10 @@ import { ViewpageComponent } from './pages/components/stores/viewpage/viewpage.c
     UpdateproductComponent,
     DeleteproductComponent,
     ViewpageComponent,
+    AdminComponent,
+    CompaniesComponent,
+    TemplatesComponent,
+    PlansComponent,
   ],
   imports: [
     BrowserModule,

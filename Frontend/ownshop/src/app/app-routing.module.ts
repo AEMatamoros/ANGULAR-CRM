@@ -11,7 +11,10 @@ import { EditcodeComponent } from 'src/app/pages/components/stores/storepages/ed
 import { WYSIWYGEditorComponent } from './pages/components/stores/storepages/wysiwygeditor/wysiwygeditor.component'
 import { UserprofileComponent } from './pages/components/profile/userprofile/userprofile.component'
 import { ViewpageComponent } from "./pages/components/stores/viewpage/viewpage.component";
-
+import { AdminComponent } from './pages/components/admin/main/admin.component'
+import { CompaniesComponent } from './pages/components/admin/companies/companies.component'
+import { TemplatesComponent } from './pages/components/admin/templates/templates.component' 
+import { PlansComponent } from './pages/components/admin/plans/plans.component'
 //rutas
 const routes: Routes = [
   {"path":"",component:LandingComponent,},
@@ -25,6 +28,10 @@ const routes: Routes = [
   {'path':'newpagew',component:WYSIWYGEditorComponent},
   {'path':'profile',component:UserprofileComponent},
   {'path':'storepage',component:ViewpageComponent},
+  {'path':'admin',component:AdminComponent},
+  {'path':'admin/companies',component:CompaniesComponent},
+  {'path':'admin/templates',component:TemplatesComponent},
+  {'path':'admin/plans',component:PlansComponent},
 ];
 
 @NgModule({
