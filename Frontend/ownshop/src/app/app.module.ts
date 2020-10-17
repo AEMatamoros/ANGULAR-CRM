@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,7 +32,7 @@ import { ViewpageComponent } from './pages/components/stores/viewpage/viewpage.c
 import { AdminComponent } from './pages/components/admin/main/admin.component';
 import { CompaniesComponent } from './pages/components/admin/companies/companies.component';
 import { TemplatesComponent } from './pages/components/admin/templates/templates.component';
-import { PlansComponent } from './pages/components/admin/plans/plans.component'
+import { PlansComponent } from './pages/components/admin/plans/plans.component';
 
 
 
@@ -67,10 +68,12 @@ import { PlansComponent } from './pages/components/admin/plans/plans.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
     SidebarModule.forRoot(),
     AceEditorModule,
     QuillModule.forRoot(),
+
     
   ],
   providers: [],

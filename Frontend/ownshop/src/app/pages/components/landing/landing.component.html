@@ -215,25 +215,52 @@
         </h1>
 
         <div class="row">
-          <div class="feature-col col-xs-12 col-sm-12 col-md-12 col-xl-4 col-lg-4 ">
+          <div class="feature-col col-xs-12 col-sm-12 col-md-12 col-xl-4 col-lg-4 " *ngFor="let plan of plans">
             <div class="card border-success round-border plan-div-size card-img-top " >
-              <div class="card-header"><h1 class="text-success text-center">Client</h1></div>
+              <div class="card-header"><h1 class="text-success text-center">{{plan.name}}</h1></div>
               <div class="card-body ">
-                <h4 class="text-center text-success">Los usuarios de tipo cliente tienen acceso a la compra entre nuestros afiliados</h4>
-                <div class="m-2 p-2 round-border bg-danger text-white">
-                  <h3 class="text-white text-center">Almacenamiento</h3>
+                <h4 class="text-center text-success">{{plan.description}}</h4>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">Almacenamiento {{plan.saveData}}GB</h3>
                 </div>
-                <div class="m-2 p-2 round-border bg-danger text-white">
-                  <h3 class="text-white text-center">Host</h3>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <h3 class="text-white text-center">Host
+                    <ng-container *ngIf="plan.host">Si
+
+                    </ng-container>
+                    <ng-container *ngIf="!plan.host">No
+ 
+                   </ng-container>
+                  </h3>
                 </div>
-                <div class="m-2 p-2 round-border bg-danger text-white">
-                  <h3 class="text-white text-center">Plantillas</h3>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <ng-container *ngIf="plan.templatesNumber==0">
+                    <h3 class="text-white text-center">Sin Acceso a plantillas</h3>
+
+                  </ng-container>
+                  <ng-container *ngIf="plan.price!=0">
+                    <h3 class="text-white text-center">#Plantillas{{plan.templatesNumber}}</h3>
+                 </ng-container>
+                  
                 </div>
-                <div class="m-2 p-2 round-border bg-danger text-white">
-                  <h3 class="text-white text-center">#Paginas</h3>
+                <div class="m-2 p-2 round-border bg-primary text-white">
+                  <ng-container *ngIf="plan.templatesNumber==0">
+                    <h3 class="text-white text-center">Sin Acceso a crear paginas</h3>
+
+                  </ng-container>
+                  <ng-container *ngIf="plan.price!=0">
+                    <h3 class="text-white text-center">#Paginas{{plan.pagesNumber}}</h3>
+                 </ng-container>
                 </div>
                 
-                <h2 class="text-sucess text-center m-0 ">Gratis</h2>
+                <h2 class="text-sucess text-center m-0 ">
+                   <ng-container *ngIf="plan.price==0">Gratis
+
+                   </ng-container>
+                   <ng-container *ngIf="plan.price!=0">${{plan.price}}
+
+                  </ng-container>
+                </h2>
                 <button class="form-control p-1 m-2 round-border btn btn-success center">
                   <h3 class="text-white center">
                   Comprar
@@ -245,65 +272,8 @@
             </div>
           </div>
 
-          <div class="feature-col col-lg-4 col-xs-12 col-sm-12">
-            <div class="card border-success round-border plan-div-size card-img-top" >
-              <div class="card-header"><h1 class="text-success text-center">Boss</h1></div>
-              <div class="card-body ">
-                <h4 class="text-center text-success">Los usuarios de tipo OwnClient tiene acceso a plantillas y tiendas limitadas</h4>
-                <div class="m-2 p-2 round-border bg-primary text-white">
-                  <h3 class="text-white text-center">Almacenamiento 1GB</h3>
-                </div>
-                <div class="m-2 p-2 round-border bg-primary text-white">
-                  <h3 class="text-white text-center">Host SI</h3>
-                </div>
-                <div class="m-2 p-2 round-border bg-primary text-white">
-                  <h3 class="text-white text-center">Plantillas 2</h3>
-                </div>
-                <div class="m-2 p-2 round-border bg-primary text-white">
-                  <h3 class="text-white text-center">#Paginas 3</h3>
-                </div>
-                
-                <h2 class="text-sucess text-center m-0 ">30$/mes</h2>
-                <button class="form-control p-1 m-2 round-border btn btn-success center">
-                  <h3 class="text-white center">
-                  Comprar
-                  </h3>
-              </button>
-                
-                
-              </div>
-            </div>
-          </div>
 
-          <div class="feature-col col-lg-4 col-xs-12 col-sm-12">
-            <div class="card border-success round-border plan-div-size card-img-top" >
-              <div class="card-header"><h1 class="text-success text-center">Empire</h1></div>
-              <div class="card-body ">
-                <h4 class="text-center text-success">Los usuarios de tipo OwnEmpiret tiene acceso a plantillas ilimitadas</h4>
-                <div class="m-2 p-2 round-border bg-primary text-white">
-                  <h3 class="text-white text-center">Almacenamiento 5GB</h3>
-                </div>
-                <div class="m-2 p-2 round-border bg-primary text-white">
-                  <h3 class="text-white text-center">Host SI</h3>
-                </div>
-                <div class="m-2 p-2 round-border bg-primary text-white">
-                  <h3 class="text-white text-center">Plantillas 5</h3>
-                </div>
-                <div class="m-2 p-2 round-border bg-primary text-white">
-                  <h3 class="text-white text-center">#Paginas 5</h3>
-                </div>
-                
-                <h2 class="text-sucess text-center m-0 ">50$/mes</h2>
-                <button class="form-control p-1 m-2 round-border btn btn-success center">
-                  <h3 class="text-white center">
-                  Comprar
-                  </h3>
-              </button>
-                
-                
-              </div>
-            </div>
-          </div>
+          
 
 
         </div>

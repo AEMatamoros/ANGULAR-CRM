@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlansServiceService} from 'src/app/services/plans/plans-service.service'
+
 
 @Component({
   selector: 'app-landing',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-
-  constructor() { }
+  //Init
+  plans:any
+  constructor(private plansService:PlansServiceService) { }
   
   ngOnInit(): void {
+    this.plansService.getPlans().subscribe(data=>this.plans=data)
   }
 
 }
