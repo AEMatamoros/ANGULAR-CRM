@@ -76,7 +76,7 @@
                 </a>  
             </li>
             <li>
-                <a class="d-block d-sm-none text-white" [routerLink]="['/login']"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
+                <a class="d-block d-sm-none text-white" (click)="logout()"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
             </li>
     
 
@@ -92,7 +92,7 @@
             </a>
             <div class="form-inline my-2 my-lg-0">
                 <label for="" class="text-white d-none d-sm-block" [routerLink]="['/profile']">Nombre Usuario</label>
-                <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" [routerLink]="['/login']">Cerrar Sesion</button>
+                <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" (click)="logout()">Cerrar Sesion</button>
             </div>
           </nav>
         

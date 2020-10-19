@@ -27,6 +27,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true
+  },
+  dateCreated:{
+    type:Date,
+    default:Date.now
+  },
+  plan:{
+    type:String
   }
 });
 

@@ -9,7 +9,8 @@ exports.createUser = (req, res, next) => {
     password: bcrypt.hashSync(req.body.password),
     first_name: req.body.first_name,
     last_name:req.body.last_name,
-    user_type:req.body.user_type
+    user_type:req.body.user_type,
+    plan:req.body.plan
   }
 
   User.create(newUser, (err, user) => {
@@ -25,6 +26,7 @@ exports.createUser = (req, res, next) => {
       first_name:user.first_name,
       last_name:user.last_name,
       user_type:user.user_type,
+      plan:user.plan,
       email: user.email,
       accessToken: accessToken,
       expiresIn: expiresIn
@@ -56,6 +58,7 @@ exports.loginUser = (req, res, next) => {
           first_name:user.first_name,
           last_name:user.last_name,
           user_type:user.user_type,
+          plan:user.plan,
           email: user.email,
           accessToken: accessToken,
           expiresIn: expiresIn
