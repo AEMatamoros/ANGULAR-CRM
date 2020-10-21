@@ -15,8 +15,9 @@ const storesSchema = new mongoose.Schema({
         default: Date.now
     },
     company:{
-        type:mongoose.SchemaTypes.Mixed,
-        required:true
+        type:String,
+        required:true,
+        trim:true
     }
 })
 

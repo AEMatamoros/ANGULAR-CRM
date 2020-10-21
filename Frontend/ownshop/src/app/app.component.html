@@ -4,13 +4,21 @@
     <!-- A sidebar -->
     <ng-sidebar [(opened)]="opened" *ngIf="showNav">
         <h2 class="center m-1 text-white">Ownshop</h2>
-        <h3 class="text-white d-block d-sm-none center m-1">Nombre Usuario</h3>
+        
+        <ng-container *ngIf="companyData" >
+            <h3 class="text-white center">{{companyData.companyName}}</h3>
+            <p class="text-white center">
+                {{userData.first_name}} &nbsp; {{userData.last_name}}
+            </p>
+            
+        </ng-container>
         <hr>
         <a class="center mb-4"><button (click)="toggleSidebar()" class="btn-trans"><img class="img-responsive img-rounded"
                 src="assets/img/LOGOWhite.png" alt="User picture" height="50px" width="50px"></button>
         </a>
         <hr>
-        <ng-container *ngIf='!admin'>
+        <ng-container *ngIf="userData">
+        <ng-container *ngIf="userData.user_type=='company'">
         <ul>
             <li >
                 <a [routerLink]="['/main']">
@@ -38,7 +46,7 @@
             </li> <br>
         </ul>
     </ng-container>
-    <ng-container *ngIf='admin'>
+    <ng-container *ngIf="userData.user_type=='admin'">
         <ul>
             <li >
                 <a [routerLink]="['/main']">
@@ -66,6 +74,7 @@
             </li> <br>
         </ul>
     </ng-container>
+</ng-container>
         
             <hr>
         <ul>    
@@ -88,10 +97,16 @@
         <nav class="navbar navbar-success bg-success m-0 p-0" *ngIf="showNav">
             <a class="">
                 <button (click)="toggleSidebar()" class="btn-trans border-0"><img src="assets/img/LOGOWhite.png" alt=""
-                    height="50px" width="50px"><span>Administrar</span></button>
+                    height="50px" width="50px">
+                    <strong class="text-white">
+                    <ng-container *ngIf="companyData">
+                        {{companyData.companyName}}
+                    </ng-container>
+                    </strong>
+                </button>
             </a>
             <div class="form-inline my-2 my-lg-0">
-                <label for="" class="text-white d-none d-sm-block" [routerLink]="['/profile']">Nombre Usuario</label>
+                <label for="" class="text-white d-none d-sm-block" [routerLink]="['/profile']"> <ng-container *ngIf="userData">{{userData.first_name}} &nbsp; {{userData.last_name}}</ng-container> </label>
                 <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" (click)="logout()">Cerrar Sesion</button>
             </div>
           </nav>

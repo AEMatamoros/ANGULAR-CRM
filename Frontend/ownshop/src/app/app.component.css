@@ -45,8 +45,7 @@ ng-sidebar a:hover{
     cursor: pointer; 
     border:none; 
     background-color: transparent; 
-    height: 50px; 
-    width: 200px; 
+    
     color: #3498db; 
     font-size: 1.5em; 
 } 

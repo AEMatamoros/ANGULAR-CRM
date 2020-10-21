@@ -6,6 +6,9 @@ export interface JwtResponse {
         user_type: string,
         plan:string,
         email: string,
+        cardNum:string,
+        csv:number,
+        owner:string,
         accessToken: string,
         expiresIn: string
     }

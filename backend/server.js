@@ -6,6 +6,8 @@ DB();
 // Routes
 const usersRouter = require('./routes/user');
 const plansRouter = require('./routes/plan')
+const companyRouter = require('./routes/company');
+const storesRouter = require('./routes/store')
 //
 const app = express();
 const router = express.Router();
@@ -21,7 +23,9 @@ app.use(cors());
 
 app.use("/api", router);
 app.use("/users",usersRouter);
-app.use("/plans",plansRouter)
+app.use("/plans",plansRouter);
+app.use("/company",companyRouter);
+app.use("/store",storesRouter)
 
 router.get('/', (req, res) => {
   res.send('OwnShopAPI te da la bienvenida');

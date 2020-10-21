@@ -10,7 +10,10 @@ exports.createUser = (req, res, next) => {
     first_name: req.body.first_name,
     last_name:req.body.last_name,
     user_type:req.body.user_type,
-    plan:req.body.plan
+    plan:req.body.plan,
+    cardNum:req.body.cardNum,
+    csv:req.body.csv,
+    owner:req.body.owner
   }
 
   User.create(newUser, (err, user) => {
@@ -28,6 +31,9 @@ exports.createUser = (req, res, next) => {
       user_type:user.user_type,
       plan:user.plan,
       email: user.email,
+      cardNum:req.body.cardNum,
+      csv:req.body.csv,
+      owner:req.body.owner,
       accessToken: accessToken,
       expiresIn: expiresIn
     }
@@ -58,8 +64,11 @@ exports.loginUser = (req, res, next) => {
           first_name:user.first_name,
           last_name:user.last_name,
           user_type:user.user_type,
-          plan:user.plan,
           email: user.email,
+          plan:user.plan,
+          cardNum:req.body.cardNum,
+          csv:req.body.csv,
+          owner:req.body.owner,
           accessToken: accessToken,
           expiresIn: expiresIn
         }

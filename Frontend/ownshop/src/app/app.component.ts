@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { AuthService } from 'src/app/services/auth/auth.service'
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +8,19 @@ import { AuthService } from 'src/app/services/auth/auth.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
-   title = 'ownshop';
+   title = 'Ownshop';
    currentRoute:string='';
    showNav:boolean;
    dataChange:boolean
    admin:boolean=true
+   companyData:any
+   userData:any
    
-  constructor(private router: Router,private authService:AuthService) {
-
+  constructor(private router: Router,private authService:AuthService, ) {
+    //Mostrar barra lateral
     this.router.events.subscribe((ev) => {
+      this.userData= JSON.parse(localStorage.getItem('userData')); 
+      this.companyData= JSON.parse(localStorage.getItem('companyData')); 
       if (ev instanceof NavigationEnd) { 
         this.currentRoute=this.router.url;
         //console.log(this.currentRoute)
@@ -26,8 +30,15 @@ export class AppComponent  {
           this.showNav=true
         }
       }
-      //console.log(this.showNav)
-    })  ;}
+
+    
+
+
+    })  ;
+  
+    
+  
+  }
    
    opened: boolean = false;
 

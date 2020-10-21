@@ -5,6 +5,9 @@ export interface User {
     user_type:string,
     email:string,
     plan:string,
+    cardNum:string,
+    csv:number,
+    owner:string,
     password:string,
     dateCreated:string
 }

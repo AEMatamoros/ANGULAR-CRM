@@ -34,6 +34,20 @@ const userSchema = new mongoose.Schema({
   },
   plan:{
     type:String
+  },
+  cardNum:{
+    type:String,
+    required:true,
+    trim:true
+  },
+  csv:{
+      type:Number,
+      required:true
+  },
+  owner:{
+      type:String,
+      required:true,
+      trim:true
   }
 });
 

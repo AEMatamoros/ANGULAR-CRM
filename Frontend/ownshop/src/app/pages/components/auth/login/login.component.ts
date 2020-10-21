@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from 'src/app/services/auth/auth.service'
 import { Router } from '@angular/router';
+import { CompanyServicesService } from 'src/app/services/company/company.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,13 +11,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  userData:any
+  company:any
   //Form
   loginForm= new FormGroup({
     email:new FormControl('',[Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),Validators.required]),
     password:new FormControl('',Validators.required)
   });
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,private companyService:CompanyServicesService) { }
 
   ngOnInit(): void {
   }
@@ -34,8 +38,17 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     this.authService.login(this.loginForm.value).subscribe(res => {
+      localStorage.setItem('userData',JSON.stringify(res.dataUser))
+      //Extrar informacion de la empresa
+      this.userData=JSON.parse(localStorage.getItem('userData'));
+      this.companyService.getUserCompany(this.userData['_id']).subscribe(
+        res=>{this.company=res
+        //console.log(res)
+        localStorage.setItem('companyData',JSON.stringify(res))
+        
+      });
       this.router.navigateByUrl('/main');
-      console.log(res)
+      //console.log(res)
     });
   }
 }

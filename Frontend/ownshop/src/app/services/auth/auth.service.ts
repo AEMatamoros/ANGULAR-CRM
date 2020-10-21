@@ -43,6 +43,8 @@ export class AuthService {
     this.token = '';
     localStorage.removeItem("ACCESS_TOKEN");
     localStorage.removeItem("EXPIRES_IN");
+    localStorage.removeItem("userData");
+    localStorage.removeItem("companyData");
   }
 
   private saveToken(token: string, expiresIn: string): void {

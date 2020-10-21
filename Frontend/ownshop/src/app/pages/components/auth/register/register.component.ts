@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
     user_type:new FormControl('user'),
     csv:new FormControl('',Validators.required),
     cardNum:new FormControl('',Validators.required),
+    owner:new FormControl('',Validators.required),
     plan: new FormControl('client')
   });
   constructor(private authService:AuthService, private router:Router) { }
@@ -45,12 +46,19 @@ export class RegisterComponent implements OnInit {
   get cardNum(){
     return this.registerForm.get('cardNum');
   }
+  get owner(){
+    return this.registerForm.get('owner');
+  }
 
   onRegister(): void {
-    console.log(this.registerForm.value)
+    //console.log(this.registerForm.value)
     this.authService.register(this.registerForm.value).subscribe(res => {
+      localStorage.setItem('userData',JSON.stringify(res.dataUser))
       this.router.navigateByUrl('/main');
-      console.log(res)
+      //console.log(res)
+    },
+    err=>{
+      console.log(err)
     });
   }
 }
