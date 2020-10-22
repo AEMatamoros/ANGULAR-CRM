@@ -31,8 +31,9 @@ import { DeleteproductComponent } from './pages/components/stores/storeproducts/
 import { ViewpageComponent } from './pages/components/stores/viewpage/viewpage.component';
 import { AdminComponent } from './pages/components/admin/main/admin.component';
 import { CompaniesComponent } from './pages/components/admin/companies/companies.component';
-import { TemplatesComponent } from './pages/components/admin/templates/templates.component';
+import { TemplatesComponent } from './pages/components/admin/templates/templates/templates.component';
 import { PlansComponent } from './pages/components/admin/plans/plans.component';
+import { AddnewtemplateComponent } from './pages/components/admin/templates/addnewtemplate/addnewtemplate.component';
 
 
 
@@ -64,6 +65,7 @@ import { PlansComponent } from './pages/components/admin/plans/plans.component';
     CompaniesComponent,
     TemplatesComponent,
     PlansComponent,
+    AddnewtemplateComponent,
   ],
   imports: [
     BrowserModule,

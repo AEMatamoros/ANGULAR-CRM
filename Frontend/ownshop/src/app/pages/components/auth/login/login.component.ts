@@ -47,7 +47,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('companyData',JSON.stringify(res))
         
       });
-      this.router.navigateByUrl('/main');
+      if(this.userData.user_type!='admin'){
+        this.router.navigateByUrl('/main');
+      }else{
+        this.router.navigateByUrl('/admin');
+      }
       //console.log(res)
     });
   }
