@@ -17,28 +17,38 @@
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
+            <form [formGroup]='newTemplateForm' class="col-md-12 row">
             <div class="col-md-2 mb-3 text-left">Nombre</div>
-            <div class="col-md-10 mb-3 "><input type="text" class="form form-control"></div>
-            <div class="col-md-2 mb-3 text-left">Descripcion</div>
-            <div class="col-md-10 mb-3 "><input type="text" class="form form-control"></div>
-            <div class="col-md-2 mb-3 text-left">Image de plantilla</div>
+            <div class="col-md-10 mb-3 ">
+              <input type="text" class="form form-control"  formControlName='templateName'required>
+              <span *ngIf="templateName.invalid && templateName.dirty">Campo Obligatorio</span>
+            </div>
+            <div class="col-md-2 mb-3 text-left">Descripcion
+            </div>
+            <div class="col-md-10 mb-3 ">
+              <input type="text" class="form form-control"  formControlName='templateDescription'required>
+              <span *ngIf="templateDescription.invalid && templateDescription.dirty">Campo Obligatorio</span>
+            </div>
+            <div class="col-md-2 mb-3 text-left" >Image de plantilla</div>
             <div class="col-md-10">
               <div class="custom-file">
-                <input type="file" class="custom-file-input text-left" id="customFile">
+                <input type="file" class="custom-file-input text-left" id="customFile" (change)="selectImage($event)">
                 <label class="custom-file-label" for="customFile"></label>
               </div>
             </div>
             <div class="col-md-2 mb-3 text-left">HTML</div>
-            <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+            <textarea name="" id="" cols="30" rows="10" class="form-control"  formControlName='html'required></textarea>
+            <span *ngIf="html.invalid && html.dirty">Campo Obligatorio</span>
             <div class="col-md-2 mb-3 text-left">CSS</div>
-            <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-
+            <textarea name="" id="" cols="30" rows="10" class="form-control"  formControlName='css'required></textarea>
+            <span *ngIf="css.invalid && css.dirty">Campo Obligatorio</span>
+          </form>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Agregar</button>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()"  [disabled]="!newTemplateForm.valid">Agregar</button>
       </div>
     </div>
   </div>

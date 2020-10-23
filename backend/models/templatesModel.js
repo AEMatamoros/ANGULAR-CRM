@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const templateSchema= new mongoose.Schema({
-    nombre:{
+    templateName:{
         type:String,
         required:true,
         trim:true
     },
-    descripcion:{
+    templateDescription:{
         type:String,
         required:true,
         trim:true
@@ -33,4 +33,4 @@ const templateSchema= new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('templates',templateSchema),
+module.exports = mongoose.model('templates',templateSchema)

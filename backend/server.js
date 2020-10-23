@@ -8,24 +8,26 @@ const usersRouter = require('./routes/user');
 const plansRouter = require('./routes/plan')
 const companyRouter = require('./routes/company');
 const storesRouter = require('./routes/store')
+const templatesRouter = require('./routes/templates')
 //
 const app = express();
 const router = express.Router();
 
 const bodyParser = require('body-parser');
-const bodyParserJSON = bodyParser.json();
-const bodyParserURLEncoded = bodyParser.urlencoded({ extended: true });
 
-app.use(bodyParserJSON);
-app.use(bodyParserURLEncoded);
 
-app.use(cors());
+app.use(cors({origin:'*'}));
+app.use(bodyParser.json({limit:'50mb'}));
+app.use(bodyParser.urlencoded({ extended: true ,limit:'50mb'}));
+
+
 
 app.use("/api", router);
 app.use("/users",usersRouter);
 app.use("/plans",plansRouter);
 app.use("/company",companyRouter);
-app.use("/store",storesRouter)
+app.use("/store",storesRouter);
+app.use("/template",templatesRouter);
 
 router.get('/', (req, res) => {
   res.send('OwnShopAPI te da la bienvenida');

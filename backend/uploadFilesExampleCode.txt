@@ -1,0 +1,84 @@
+//Server
+const multer= require('multer');
+
+const storage= multer.diskStorage({
+    destination:(req,file,callBack)=>{
+        callBack(null,'uploads/templatesIMG')
+    },
+    filename:(req,file,callBack)=>{
+        callBack(null,`TEMP${file.originalname}`)
+    },
+})
+
+var upload= multer({storage:storage})
+
+//Single file Upload
+//Node
+app.post('/File',upload.single('file'),(req,res,next)=>{
+    const file= req.file;
+    console.log(file.filename);
+
+    if(!file){
+        const err=new Error('Upload a File!') 
+        err.httpStatusCode=400
+        return next(err);
+    }
+    res.send(file)
+})
+//Angular(remove keyword func)
+function selectImage(event){
+    if(event.target.files.length>0){
+        const file= event.target.files[0];
+        this.images=file;
+    }
+}
+
+function onSubmit(){
+    const formData= new FormData();
+    formData.append('file',this.images);
+
+    this.http.post<any>('url',formData).suscribe(
+        (res)=> console.log(res),
+        (err)=> console.log(err)
+    )   
+}
+
+//Multiple FIle Upload
+//Node
+app.post('/MultipleFile',upload.array('files'),(req,res,next)=>{
+    const files= req.files;
+    console.log(files);
+
+    if(!files){
+        const err=new Error('Upload Files!') 
+        err.httpStatusCode=400
+        return next(err);
+    }
+    res.send(file)
+})
+
+//Angular 
+function selectMultipleImages(event){
+    if(event.target.files>0){
+        this.multipleImages=event.target.files;
+    }
+}
+function onMultipleSubmit(){
+    const formData= new FormData()
+    for(let img of this.multipleImages){
+        formData.append('files',img)
+    }
+    this.http.post<any>('url',formData).suscribe(
+        (res)=> console.log(res),
+        (err)=> console.log(err)
+    )   
+}
+
+/*Input
+(change)="selectImage($event)"
+button
+(click)="onSubmit()"
+*/
+
+//cosntructor form:FormBuilder() y http
+//iit images; multipleImages=[]
