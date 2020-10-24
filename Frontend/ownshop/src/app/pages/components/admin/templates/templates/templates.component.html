@@ -13,22 +13,31 @@
         <div class="col-md-12 text-left">
           <h2 class="m-0">Plantillas</h2>
         </div>
-        <div class="col-md-12 row mt-3 mb-3 border">
-            <div class="col-md-3"><Strong>Nombre</Strong></div>
-            <div class="col-md-3"><Strong>Tipo</Strong></div>
-            <div class="col-md-3"><Strong>Fecha</Strong></div>
-            <div class="col-md-3"><Strong>Opciones</Strong></div>
         
-            <div class="col-md-3">Nombre</div>
-            <div class="col-md-3">Tipo</div>
-            <div class="col-md-3">Fecha</div>
-            <div class="col-md-3 row">
-              
-              <app-deletetemplate class="col-md-6"></app-deletetemplate>
-            </div>
+        <div class="col-md-12 row mt-3 mb-3 border">
+            <div class="col-md-3 mb-1"><Strong>Nombre</Strong></div>
+            <div class="col-md-3 mb-1"><Strong>Tipo</Strong></div>
+            <div class="col-md-3 mb-1"><Strong>Fecha</Strong></div>
+            <div class="col-md-3 mb-1"><Strong>Opciones</Strong></div>
+             
+            <ng-container *ngFor="let template of templates">
+              <div class="col-md-3 mb-1">{{template.templateName}}</div>
+              <div class="col-md-3 mb-1">{{template.templateDescription}}</div>
+              <div class="col-md-3 mb-1">{{template.date}}</div>
+              <div class="col-md-3 mb-1 row">
+                <app-removetemplate class="col-md-6" [template]="template"></app-removetemplate>
+              </div>
+            </ng-container>
+            
+            
         
         </div>
         
         </div>
       </div>
 </div>
+
+<!--h2>oks</h2>
+<button class="btn btn-primary">
+  works
+</button-->

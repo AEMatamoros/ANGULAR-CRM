@@ -7,7 +7,7 @@ const multer= require('multer');
 
 const storage= multer.diskStorage({
     destination:(req,file,callBack)=>{
-        callBack(null,'uploads/templatesIMG')
+        callBack(null,'public/uploads/templatesIMG')
     },
     filename:(req,file,callBack)=>{
         callBack(null,`TEMP${file.originalname}`)
@@ -43,7 +43,7 @@ router.post('/img',upload.single('file'),(req,res,next)=>{
         return next(err);
     }
     
-    res.send({'img_route':`uploads/templatesIMGTEMP${file.originalname}`})
+    res.send({'img_route':`uploads/templatesIMG/TEMP${file.originalname}`})
 })
 router.post('/',(req,res)=>{
     let template= new Templates({

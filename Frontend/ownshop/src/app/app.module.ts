@@ -34,6 +34,7 @@ import { CompaniesComponent } from './pages/components/admin/companies/companies
 import { TemplatesComponent } from './pages/components/admin/templates/templates/templates.component';
 import { PlansComponent } from './pages/components/admin/plans/plans.component';
 import { AddnewtemplateComponent } from './pages/components/admin/templates/addnewtemplate/addnewtemplate.component';
+import { RemovetemplateComponent } from './pages/components/admin/templates/removetemplate/removetemplate.component';
 
 
 
@@ -66,6 +67,7 @@ import { AddnewtemplateComponent } from './pages/components/admin/templates/addn
     TemplatesComponent,
     PlansComponent,
     AddnewtemplateComponent,
+    RemovetemplateComponent,
   ],
   imports: [
     BrowserModule,

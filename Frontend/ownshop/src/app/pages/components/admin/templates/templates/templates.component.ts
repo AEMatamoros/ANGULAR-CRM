@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TemplatesService } from 'src/app/services/templates/templates.service'
 @Component({
   selector: 'app-templates',
   templateUrl: './templates.component.html',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplatesComponent implements OnInit {
 
-  constructor() { }
+  templates
+
+  constructor(private templateService:TemplatesService) { }
 
   ngOnInit(): void {
+      this.templateService.getTemplates().subscribe(
+        res=>(this.templates=res),
+        err=>(console.log(err))
+      )
   }
 
 }
