@@ -13,6 +13,7 @@ import { CompanyServicesService } from 'src/app/services/company/company.service
 export class LoginComponent implements OnInit {
   userData:any
   company:any
+  passErr:boolean=false
   //Form
   loginForm= new FormGroup({
     email:new FormControl('',[Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),Validators.required]),
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
+    this.passErr=false
     this.authService.login(this.loginForm.value).subscribe(res => {
       localStorage.setItem('userData',JSON.stringify(res.dataUser))
       //Extrar informacion de la empresa
@@ -53,6 +55,12 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/admin');
       }
       //console.log(res)
+    },err=>{
+      if(err.status==409){
+        this.passErr=true
+      }
+      /*console.log(err)
+      console.log(this.passErr)*/
     });
   }
 }

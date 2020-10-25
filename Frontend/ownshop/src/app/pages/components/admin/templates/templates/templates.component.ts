@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import { TemplatesService } from 'src/app/services/templates/templates.service'
 @Component({
   selector: 'app-templates',
@@ -9,7 +10,7 @@ export class TemplatesComponent implements OnInit {
 
   templates
 
-  constructor(private templateService:TemplatesService) { }
+  constructor(private templateService:TemplatesService,private router:Router) { }
 
   ngOnInit(): void {
       this.templateService.getTemplates().subscribe(
@@ -18,4 +19,11 @@ export class TemplatesComponent implements OnInit {
       )
   }
 
+
+
+  preview(){
+    console.log('j')
+    this.router.navigateByUrl['/login']
+    
+  }
 }

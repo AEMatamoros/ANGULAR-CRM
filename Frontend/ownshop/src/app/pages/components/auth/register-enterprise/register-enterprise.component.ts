@@ -12,6 +12,7 @@ import { CompanyServicesService } from 'src/app/services/company/company.service
 })
 export class RegisterEnterpriseComponent implements OnInit {
   plans:any
+  passErr:boolean=false
   //RegisterForm
   registerForm= new FormGroup({
     email:new FormControl('',[Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),Validators.required]),
@@ -81,6 +82,10 @@ export class RegisterEnterpriseComponent implements OnInit {
       })
       
       
+    },err=>{
+      if(err.status==409){
+        this.passErr=true
+      }
     });
   }
 

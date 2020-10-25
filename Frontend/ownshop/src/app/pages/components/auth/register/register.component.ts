@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  passErr:boolean=false
   //Form
   registerForm= new FormGroup({
     email:new FormControl('',[Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),Validators.required]),
@@ -58,7 +59,10 @@ export class RegisterComponent implements OnInit {
       //console.log(res)
     },
     err=>{
-      console.log(err)
+      if(err.status==409){
+        this.passErr=true
+      }
+      /*console.log(err)*/
     });
   }
 }

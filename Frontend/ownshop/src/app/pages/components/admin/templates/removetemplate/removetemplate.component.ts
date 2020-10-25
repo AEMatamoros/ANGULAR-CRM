@@ -17,7 +17,7 @@ export class RemovetemplateComponent implements OnInit {
 
   delete(id){
     this.templateService.deleteTemplate(id).subscribe(
-      res=>console.log(res),
+      res=>location.reload(),
       err=>console.log(err)
     )
   }

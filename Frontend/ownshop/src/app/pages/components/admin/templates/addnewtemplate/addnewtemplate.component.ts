@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TemplatesService } from 'src/app/services/templates/templates.service'
 import { FormControl,FormGroup,Validators } from '@angular/forms'
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addnewtemplate',
@@ -19,7 +19,7 @@ export class AddnewtemplateComponent implements OnInit {
     css:new FormControl('',Validators.required),
     
   });
-  constructor(private templatesService:TemplatesService, private router:Router) { }
+  constructor(private templatesService:TemplatesService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -59,7 +59,7 @@ export class AddnewtemplateComponent implements OnInit {
           console.log(this.newTemplateForm.value)
           this.templatesService.postTemplate(this.newTemplateForm.value).subscribe(
             res=>{console.log(res)
-              this.router.navigateByUrl('/admin/templates');
+              location.reload()
             },
             err=>{}
       )

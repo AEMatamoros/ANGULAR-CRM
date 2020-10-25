@@ -28,6 +28,10 @@ export class TemplatesService {
     return this.http.get<Template[]>(this.API_Url_Template,this.httpOptions)
   }
 
+  getTemplate(id){
+    return this.http.get<Template[]>(this.API_Url_Template+`/${id}`,this.httpOptions)
+  }
+
   postTemplate(template){
     return this.http.post<Template[]>(this.API_Url_Template,JSON.stringify(template),this.httpOptions)
   }

@@ -44,3 +44,7 @@ body:-webkit-scrollbar{
     }
     
 }
+
+span{
+    color: red;
+}

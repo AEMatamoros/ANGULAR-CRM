@@ -26,9 +26,11 @@
               <div class="col-md-3 mb-1">{{template.date}}</div>
               <div class="col-md-3 mb-1 row">
                 <app-removetemplate class="col-md-6" [template]="template"></app-removetemplate>
-                <button type="button" class="btn btn-success" data-toggle="modal" >
+                <a [routerLink]="['/admin/templatepreview', template['_id']]"><button type="button" class="btn btn-success" data-toggle="modal" (click)='preview()' >
                   <i class="far fa-eye"></i>
-                </button>
+                </button></a>
+                
+                
               </div>
             </ng-container>
             
