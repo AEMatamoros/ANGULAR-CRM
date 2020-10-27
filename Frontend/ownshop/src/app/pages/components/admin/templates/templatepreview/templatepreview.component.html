@@ -22,9 +22,9 @@
 <div class="Navegacion">
 
 </div>
-<div  [ngStyle]='css' [ngClass]='classes'>
+<div   [ngClass]='classes'>
     <nav class="alert-success text-center">Navegacion</nav>
-    <div [innerHTML]='html'>
+    <div [innerHTML]='html | safehtml'>
 
     </div>
     <div class="row center">

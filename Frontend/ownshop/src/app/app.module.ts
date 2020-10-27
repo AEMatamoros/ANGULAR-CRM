@@ -36,6 +36,7 @@ import { PlansComponent } from './pages/components/admin/plans/plans.component';
 import { AddnewtemplateComponent } from './pages/components/admin/templates/addnewtemplate/addnewtemplate.component';
 import { RemovetemplateComponent } from './pages/components/admin/templates/removetemplate/removetemplate.component';
 import { TemplatepreviewComponent } from './pages/components/admin/templates/templatepreview/templatepreview.component';
+import { SafehtmlPipe } from './pipes/safehtml.pipe';
 
 
 
@@ -70,6 +71,7 @@ import { TemplatepreviewComponent } from './pages/components/admin/templates/tem
     AddnewtemplateComponent,
     RemovetemplateComponent,
     TemplatepreviewComponent,
+    SafehtmlPipe,
   ],
   imports: [
     BrowserModule,
