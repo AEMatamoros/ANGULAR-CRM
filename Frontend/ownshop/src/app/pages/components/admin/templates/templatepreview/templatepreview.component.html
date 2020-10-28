@@ -1,4 +1,5 @@
-<div class="container-fluid mt-2 m-2">
+<ng-container *ngIf='admin'>
+<div class="container-fluid mt-2 m-2" >
   <div class="row">
     <ng-container *ngIf='template'>
       <div class="col-md-12">
@@ -19,15 +20,17 @@
     </ng-container>
   </div>
 </div>
-<div class="Navegacion">
+</ng-container>
 
-</div>
-<div   [ngClass]='classes'>
-    <nav class="alert-success text-center">Navegacion</nav>
+<div class="container-fluid">
     <div [innerHTML]='html | safehtml'>
 
     </div>
-    <div class="row center">
+    <ng-container *ngIf='isProductTemp'> 
+      <div class="row center" >
+        <div class="col-md-12 tex-center">
+          <h2 class="center">Productos</h2>
+        </div>
         <ng-container *ngFor="let store of products">
         <div class="card m-2 col-md-4 col-lg-3 col-xl-3 col-sm-12 col-xs-12 " style="width: 18rem;">
         <img class="card-img-top" src="assets/img/cover.jpg" alt="Card image cap">
@@ -40,6 +43,13 @@
         </div>
       </ng-container>
     </div>
+    </ng-container>
+
+    <div [innerHTML]='html2 | safehtml'>
+
+    </div>
+    
+    
 </div>
 
 <!--Compras-->
