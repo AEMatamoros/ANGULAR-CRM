@@ -14,7 +14,7 @@ import { ViewpageComponent } from "./pages/components/stores/viewpage/viewpage.c
 import { AdminComponent } from './pages/components/admin/main/admin.component'
 import { CompaniesComponent } from './pages/components/admin/companies/companies.component'
 import { TemplatesComponent } from './pages/components/admin/templates/templates/templates.component' 
-import { PlansComponent } from './pages/components/admin/plans/plans.component'
+import { PlansComponent } from './pages/components/admin/plans/plans/plans.component'
 import { TemplatepreviewComponent } from './pages/components/admin/templates/templatepreview/templatepreview.component'
 import { Template } from '@angular/compiler/src/render3/r3_ast';
 //rutas
@@ -36,7 +36,7 @@ const routes: Routes = [
   {'path':'admin/plans',component:PlansComponent},
   {'path':'admin/templatepreview/:id',component:TemplatepreviewComponent},
 ];
-
+ 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

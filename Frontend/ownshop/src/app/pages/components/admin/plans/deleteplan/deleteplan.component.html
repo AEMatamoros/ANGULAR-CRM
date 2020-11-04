@@ -1,0 +1,25 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-toggle="modal" [attr.data-target]="'#deleteModal'+plan['_id']">
+    <i class="fas fa-trash-alt fa-1x"></i>
+</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" [attr.id]="'deleteModal'+plan['_id']" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar plantilla &nbsp; {{plan.planName}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Esta seguro de eliminar la plantilla {{plan.name}}?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" (click)="delete(plan['_id'])" >Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>

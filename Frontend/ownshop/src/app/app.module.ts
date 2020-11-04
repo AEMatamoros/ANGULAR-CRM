@@ -32,11 +32,14 @@ import { ViewpageComponent } from './pages/components/stores/viewpage/viewpage.c
 import { AdminComponent } from './pages/components/admin/main/admin.component';
 import { CompaniesComponent } from './pages/components/admin/companies/companies.component';
 import { TemplatesComponent } from './pages/components/admin/templates/templates/templates.component';
-import { PlansComponent } from './pages/components/admin/plans/plans.component';
+import { PlansComponent } from './pages/components/admin/plans/plans/plans.component';
 import { AddnewtemplateComponent } from './pages/components/admin/templates/addnewtemplate/addnewtemplate.component';
 import { RemovetemplateComponent } from './pages/components/admin/templates/removetemplate/removetemplate.component';
 import { TemplatepreviewComponent } from './pages/components/admin/templates/templatepreview/templatepreview.component';
 import { SafehtmlPipe } from './pipes/safehtml.pipe';
+import { NewplanComponent } from './pages/components/admin/plans/newplan/newplan.component';
+import { EditplanComponent } from './pages/components/admin/plans/editplan/editplan.component';
+import { DeleteplanComponent } from './pages/components/admin/plans/deleteplan/deleteplan.component';
 
 
 
@@ -72,6 +75,9 @@ import { SafehtmlPipe } from './pipes/safehtml.pipe';
     RemovetemplateComponent,
     TemplatepreviewComponent,
     SafehtmlPipe,
+    NewplanComponent,
+    EditplanComponent,
+    DeleteplanComponent,
   ],
   imports: [
     BrowserModule,

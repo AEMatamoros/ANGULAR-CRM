@@ -22,4 +22,13 @@ export class PlansServiceService {
   getPlans(){
     return this.http.get<PlanModel[]>(this.API_Url_Plans,this.httpOptions)
   }
+  postPlan(plan){
+    return this.http.post<PlanModel[]>(this.API_Url_Plans,JSON.stringify(plan),this.httpOptions)
+  }
+  deletePlan(planId){
+    return this.http.delete<PlanModel[]>(this.API_Url_Plans+`/${planId}`,this.httpOptions)
+  }
+  putPlan(planId,plan){
+    return this.http.put<PlanModel[]>(this.API_Url_Plans+`/${planId}`,JSON.stringify(plan),this.httpOptions)
+  }
 }

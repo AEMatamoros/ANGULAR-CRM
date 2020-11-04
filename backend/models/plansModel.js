@@ -30,6 +30,10 @@ const planSchema = new mongoose.Schema({
   price:{
       type:Number,
       required:true
+  },
+  dateCreated:{
+    type:Date,
+    default:Date.now
   }
 });
 

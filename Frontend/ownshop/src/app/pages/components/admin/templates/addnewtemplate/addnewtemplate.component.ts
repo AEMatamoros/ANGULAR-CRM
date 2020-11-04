@@ -61,7 +61,7 @@ export class AddnewtemplateComponent implements OnInit {
             res=>{console.log(res)
               location.reload()
             },
-            err=>{}
+            err=>{console.log(err)}
       )
         },
         err=>console.log(err))  
