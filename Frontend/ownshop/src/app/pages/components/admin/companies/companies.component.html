@@ -5,12 +5,23 @@
         </div>
     </div>
     <div class="col-md-12 border row">
-        <div class="col-md-4"><strong>Empresas</strong></div>
-        <div class="col-md-4"><strong>Usuario</strong></div>
-        <div class="col-md-4"><strong>Fecha Creacion</strong></div>
-        <div class="col-md-4"><a [routerLink]="['/profile']">Nombre Empresa </a></div>
-        <div class="col-md-4">Nombre Usuario</div>
-        <div class="col-md-4">Fecha</div>
+        <div class="col-md-5"><strong>Empresas</strong></div>
+        <div class="col-md-5"><strong>Fecha Creacion</strong></div>
+        <div class="col-md-2"><strong>Opciones</strong></div>
+
+        <ng-container *ngFor="let company of companies">
+        <div class="col-md-5"><a [routerLink]="['/profile', company]">{{company.companyName}}</a></div>
+        <div class="col-md-5">{{company.date | date:"MM/dd/yy"}}</div>
+        <div class="col-md-2 row ">
+            <div class="col-md-6 mb-1 ">
+                delete
+              </div>
+              <div class="col-md-6 mb-1 ">
+                edit
+              </div>
+
+        </div>
+    </ng-container>
     </div>
 </div>
 

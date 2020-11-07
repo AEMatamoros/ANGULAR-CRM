@@ -1,6 +1,9 @@
 <div class="container">
     <div class="container-fluid">
         <div class="row">
+          <div class="col-md-12 text-left">
+            <h2 class="m-0">Plantillas</h2>
+          </div>
           <div class="col-md-8  text-success mt-1">
             <h3> Agregar Plantilla</h3>  
         </div>
@@ -10,11 +13,9 @@
         <div class="col-md-12">
           <hr>
         </div>
-        <div class="col-md-12 text-left">
-          <h2 class="m-0">Plantillas</h2>
-        </div>
         
-        <div class="col-md-12 row mt-3 mb-3 border">
+        
+        <div class="col-md-12 row mt-3 mb-5 border">
             <div class="col-md-3 mb-1"><Strong>Nombre</Strong></div>
             <div class="col-md-3 mb-1"><Strong>Tipo</Strong></div>
             <div class="col-md-3 mb-1"><Strong>Fecha</Strong></div>
@@ -25,9 +26,12 @@
               <div class="col-md-3 mb-1">{{template.templateDescription}}</div>
               <div class="col-md-3 mb-1">{{template.date}}</div>
               <div class="col-md-3 mb-1 row">
-                <app-removetemplate class="col-md-6" [template]="template"></app-removetemplate>
-                <a [routerLink]="['/admin/templatepreview', template['_id']]"><button type="button" class="btn btn-success" data-toggle="modal" (click)='preview()' >
+                <app-removetemplate class="col-md-4" [template]="template"></app-removetemplate>
+                <a [routerLink]="['/admin/templatepreview', template['_id']]" class="col-md-4"><button type="button" class="btn btn-info" data-toggle="modal" (click)='preview()' >
                   <i class="far fa-eye"></i>
+                </button></a>
+                <a [routerLink]="['/admin/templateedit', template['_id']]" class="col-md-4"><button type="button" class="btn btn-success" data-toggle="modal" (click)='preview()' >
+                  <i class="far fa-edit"></i>
                 </button></a>
                 
                 

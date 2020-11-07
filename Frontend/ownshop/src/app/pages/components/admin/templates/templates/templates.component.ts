@@ -22,8 +22,6 @@ export class TemplatesComponent implements OnInit {
 
 
   preview(){
-    console.log('j')
     this.router.navigateByUrl['/login']
-    
   }
 }

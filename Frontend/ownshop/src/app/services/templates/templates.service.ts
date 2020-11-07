@@ -39,5 +39,8 @@ export class TemplatesService {
   deleteTemplate(tempId){
     return this.http.delete(this.API_Url_Template+`/${tempId}`,this.httpOptions)
   }
+  putTemplate(tempId,template){
+    return this.http.put(this.API_Url_Template+`/${tempId}`,JSON.stringify(template),this.httpOptions)
+  }
 
 }

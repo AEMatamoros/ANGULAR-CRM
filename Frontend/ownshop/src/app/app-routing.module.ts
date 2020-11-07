@@ -16,6 +16,7 @@ import { CompaniesComponent } from './pages/components/admin/companies/companies
 import { TemplatesComponent } from './pages/components/admin/templates/templates/templates.component' 
 import { PlansComponent } from './pages/components/admin/plans/plans/plans.component'
 import { TemplatepreviewComponent } from './pages/components/admin/templates/templatepreview/templatepreview.component'
+import { EdittemplateComponent } from './pages/components/admin/templates/edittemplate/edittemplate.component'
 import { Template } from '@angular/compiler/src/render3/r3_ast';
 //rutas
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   {'path':'admin/templates',component:TemplatesComponent},
   {'path':'admin/plans',component:PlansComponent},
   {'path':'admin/templatepreview/:id',component:TemplatepreviewComponent},
+  {'path':'admin/templateedit/:id',component:EdittemplateComponent}
 ];
  
 @NgModule({

@@ -62,16 +62,14 @@ router.post('/',(req,res)=>{
 })
 
 router.put('/:id',(req,res)=>{
-
+    console.log(req.body.js)
     Templates.updateOne(
          {"_id":req.params.id},
          {
-          "name":req.body.name,
-          "description":req.body.description,
-          "saveData":req.body.saveData,
-          "host":req.body.host,
-          "templatesNumber":req.body.templatesNumber,
-          "pagesNumber":req.body.pagesNumber,
+          "html":req.body.html,
+          "css":req.body.css,
+          "js":req.body.js,
+          
         })
          .then(result=>res.send(result))
          .catch(err=>res.send(err))
@@ -83,6 +81,7 @@ router.delete('/:id',(req,res)=>{
          .then(result=>res.send(result))
          .catch(err=>res.send(err))
 })
+
 
 
 

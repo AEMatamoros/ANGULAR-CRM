@@ -30,8 +30,8 @@ export class CompanyServicesService {
   getUserCompany(userId){
     return this.http.get<Company>(this.API_Url_Company+'/user/'+userId,this.httpOptions)
   }
-  putCompany(id){
-    return this.http.post<Company[]>(this.API_Url_Company+'/'+id,this.httpOptions)
+  putCompany(id,company){
+    return this.http.post<Company[]>(this.API_Url_Company+'/'+id,JSON.stringify(company),this.httpOptions)
   }
   deleteCompany(id){
     return this.http.post<Company[]>(this.API_Url_Company+'/'+id,this.httpOptions)

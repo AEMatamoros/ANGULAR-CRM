@@ -40,6 +40,7 @@ import { SafehtmlPipe } from './pipes/safehtml.pipe';
 import { NewplanComponent } from './pages/components/admin/plans/newplan/newplan.component';
 import { EditplanComponent } from './pages/components/admin/plans/editplan/editplan.component';
 import { DeleteplanComponent } from './pages/components/admin/plans/deleteplan/deleteplan.component';
+import { EdittemplateComponent } from './pages/components/admin/templates/edittemplate/edittemplate.component';
 
 
 
@@ -78,6 +79,7 @@ import { DeleteplanComponent } from './pages/components/admin/plans/deleteplan/d
     NewplanComponent,
     EditplanComponent,
     DeleteplanComponent,
+    EdittemplateComponent,
   ],
   imports: [
     BrowserModule,

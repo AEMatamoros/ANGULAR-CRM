@@ -14,6 +14,10 @@ const companySchema = new mongoose.Schema({
         type:String,
         required:false,
         trim:true
+    },
+    date:{
+        type:Date,
+        default:Date.now
     }
 });
 
