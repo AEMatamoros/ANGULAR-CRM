@@ -17,14 +17,14 @@
         
         <div class="col-md-12 row mt-3 mb-5 border">
             <div class="col-md-3 mb-1"><Strong>Nombre</Strong></div>
-            <div class="col-md-3 mb-1"><Strong>Tipo</Strong></div>
+            <div class="col-md-3 mb-1"><Strong>Descripcion</Strong></div>
             <div class="col-md-3 mb-1"><Strong>Fecha</Strong></div>
             <div class="col-md-3 mb-1"><Strong>Opciones</Strong></div>
              
             <ng-container *ngFor="let template of templates">
               <div class="col-md-3 mb-1">{{template.templateName}}</div>
               <div class="col-md-3 mb-1">{{template.templateDescription}}</div>
-              <div class="col-md-3 mb-1">{{template.date}}</div>
+              <div class="col-md-3 mb-1">{{template.date | date:"MM/dd/yy" }}</div>
               <div class="col-md-3 mb-1 row">
                 <app-removetemplate class="col-md-4" [template]="template"></app-removetemplate>
                 <a [routerLink]="['/admin/templatepreview', template['_id']]" class="col-md-4"><button type="button" class="btn btn-info" data-toggle="modal" (click)='preview()' >

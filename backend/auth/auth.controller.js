@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const SECRET_KEY = 'Secret78945612';
 
 exports.createUser = (req, res, next) => {
+  console.log(req.body)
   const newUser = {
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password),

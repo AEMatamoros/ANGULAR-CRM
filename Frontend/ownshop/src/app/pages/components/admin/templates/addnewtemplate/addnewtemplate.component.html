@@ -36,12 +36,15 @@
                 <label class="custom-file-label" for="customFile"></label>
               </div>
             </div>
-            <div class="col-md-2 mb-3 text-left">HTML</div>
-            <textarea name="" id="" cols="30" rows="10" class="form-control"  formControlName='html'required></textarea>
-            <span *ngIf="html.invalid && html.dirty">Campo Obligatorio</span>
-            <div class="col-md-2 mb-3 text-left">CSS</div>
-            <textarea name="" id="" cols="30" rows="10" class="form-control"  formControlName='css'required></textarea>
-            <span *ngIf="css.invalid && css.dirty">Campo Obligatorio</span>
+            <div class="col-md-12  m-0">
+              HTML<ace-editor  mode="html" style=" min-height: 300px;"  formControlName='html' ></ace-editor>
+          </div>
+          <div class="col-md-12  m-0">
+              CSS<ace-editor  mode="css" style=" min-height: 300px; overflow: auto;"  formControlName='css'></ace-editor>
+          </div>
+          <div class="col-md-12 mb-5">
+              JS<ace-editor  mode="javascript" style=" min-height: 300px; overflow: auto;"  formControlName='js'></ace-editor>
+          </div>
           </form>
           </div>
         </div>

@@ -1,9 +1,20 @@
 <div class="container">
+    <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h4>Empresas</h4>
+            <h2 class="m-0">Empresas</h2>
         </div>
+    
+    <div class="col-md-8  text-success mt-1">
+        <h3>Agregar Empresa</h3>  
     </div>
+    <div class="col-md-4 mt-1  text-right">
+          <app-newcompany></app-newcompany>
+    </div>
+    <div class="col-md-12">
+      <hr>
+    </div>
+</div>
     <div class="col-md-12 border row">
         <div class="col-md-5"><strong>Empresas</strong></div>
         <div class="col-md-5"><strong>Fecha Creacion</strong></div>
@@ -13,16 +24,17 @@
         <div class="col-md-5"><a [routerLink]="['/profile', company]">{{company.companyName}}</a></div>
         <div class="col-md-5">{{company.date | date:"MM/dd/yy"}}</div>
         <div class="col-md-2 row ">
-            <div class="col-md-6 mb-1 ">
-                delete
+            <div class="col-md-6 mb-1  ">
+                <app-deletecompany [company]="company"></app-deletecompany>
               </div>
               <div class="col-md-6 mb-1 ">
-                edit
+                <app-editcompany [company]="company"></app-editcompany>
               </div>
 
         </div>
     </ng-container>
     </div>
+</div>
 </div>
 
 

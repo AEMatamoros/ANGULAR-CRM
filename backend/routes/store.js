@@ -28,6 +28,7 @@ router.post('',(req,res)=>{
     let store= new Store({
         "storeName":req.body.storeName,
         "storeDescription":req.body.storeDescription,
+        "category":req.body.category,
         "company":req.body.company
     });
     

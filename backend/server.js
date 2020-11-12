@@ -5,10 +5,11 @@ const DB = require('./config/db');
 DB();
 // Routes
 const usersRouter = require('./routes/user');
-const plansRouter = require('./routes/plan')
+const plansRouter = require('./routes/plan');
 const companyRouter = require('./routes/company');
-const storesRouter = require('./routes/store')
-const templatesRouter = require('./routes/templates')
+const storesRouter = require('./routes/store');
+const templatesRouter = require('./routes/templates');
+const storePagesRouter = require('./routes/storePage');
 //
 const app = express();
 const router = express.Router();
@@ -29,6 +30,7 @@ app.use("/plans",plansRouter);
 app.use("/company",companyRouter);
 app.use("/store",storesRouter);
 app.use("/template",templatesRouter);
+app.use("/storepage",storePagesRouter);
 
 router.get('/', (req, res) => {
   res.send('OwnShopAPI te da la bienvenida');

@@ -12,7 +12,7 @@ const storePagesSchema = new mongoose.Schema({
         trim:true
     },
     store:{
-        type:mogoose.SchemaTypes.Mixed,
+        type:mongoose.SchemaTypes.Mixed,
         required:true
     },
     html:{

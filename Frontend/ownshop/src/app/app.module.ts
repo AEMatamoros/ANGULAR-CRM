@@ -30,7 +30,7 @@ import { UpdateproductComponent } from './pages/components/stores/storeproducts/
 import { DeleteproductComponent } from './pages/components/stores/storeproducts/deleteproduct/deleteproduct.component';
 import { ViewpageComponent } from './pages/components/stores/viewpage/viewpage.component';
 import { AdminComponent } from './pages/components/admin/main/admin.component';
-import { CompaniesComponent } from './pages/components/admin/companies/companies.component';
+import { CompaniesComponent } from './pages/components/admin/companies/companies/companies.component';
 import { TemplatesComponent } from './pages/components/admin/templates/templates/templates.component';
 import { PlansComponent } from './pages/components/admin/plans/plans/plans.component';
 import { AddnewtemplateComponent } from './pages/components/admin/templates/addnewtemplate/addnewtemplate.component';
@@ -41,6 +41,13 @@ import { NewplanComponent } from './pages/components/admin/plans/newplan/newplan
 import { EditplanComponent } from './pages/components/admin/plans/editplan/editplan.component';
 import { DeleteplanComponent } from './pages/components/admin/plans/deleteplan/deleteplan.component';
 import { EdittemplateComponent } from './pages/components/admin/templates/edittemplate/edittemplate.component';
+import { DeletecompanyComponent } from './pages/components/admin/companies/deletecompany/deletecompany.component';
+import { EditcompanyComponent } from './pages/components/admin/companies/editcompany/editcompany.component';
+import { NewcompanyComponent } from './pages/components/admin/companies/newcompany/newcompany.component';
+import { UsersComponent } from './pages/components/admin/users/users/users.component';
+import { NewuserComponent } from './pages/components/admin/users/newuser/newuser.component';
+import { DeleteuserComponent } from './pages/components/admin/users/deleteuser/deleteuser.component';
+import { EdituserComponent } from './pages/components/admin/users/edituser/edituser.component';
 
 
 
@@ -80,6 +87,13 @@ import { EdittemplateComponent } from './pages/components/admin/templates/editte
     EditplanComponent,
     DeleteplanComponent,
     EdittemplateComponent,
+    DeletecompanyComponent,
+    EditcompanyComponent,
+    NewcompanyComponent,
+    UsersComponent,
+    NewuserComponent,
+    DeleteuserComponent,
+    EdituserComponent,
   ],
   imports: [
     BrowserModule,

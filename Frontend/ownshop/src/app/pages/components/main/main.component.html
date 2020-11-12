@@ -18,8 +18,8 @@
           <div class="card m-2 col-md-4 col-lg-3 col-xl-3 col-sm-12 col-xs-12 " style="width: 18rem;">
           <img class="card-img-top" src="assets/img/cover.jpg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Coco Store</h5>
-              <p class="card-text">Descripcion de la tienda</p>
+              <h5 class="card-title">{{store.storeName}}</h5>
+              <p class="card-text">{{store.storeDescription}}</p>
               <a [routerLink]="['/editstore']" class="btn btn-success m-1">Administrar</a>
             </div>
           </div>

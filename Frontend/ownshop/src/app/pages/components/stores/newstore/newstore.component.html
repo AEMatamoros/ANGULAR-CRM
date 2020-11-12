@@ -3,32 +3,59 @@
         <div class="col-md-12 text-left">
             <h2 class="mb-3">Nueva Tienda</h2>
         </div>
-       <app-updatedata></app-updatedata>
+            <form [formGroup]="newStoreForm" class="col-md-12 row">
+                <div class="col-md-2 mb-3"><label for="">Nombre de la tienda</label> </div>
+                <div class="col-md-10 mb-3"><input type="text" class="form form-control" formControlName='storeName'
+                        required></div>
+                <div class="col-md-2 mb-3"><label for="">Categoria</label> </div>
+                <div class="col-md-10 mb-3">
+                    <select name="" id="" class="form-control float-left" formControlName='category' required>
+                        <option value="Cat1" selected>Cat1</option>
+                        <option value="Cat2">Cat2</option>
+                    </select>
+                </div>
+                <div class="col-md-12 mb-3">Descripcion</div>
+                <div class="col-md-12 mb-3">
+                    <textarea name="" id="" cols="30" rows="5" class="form form-control"
+                        formControlName='storeDescription' required></textarea>
+                </div>
+            </form>
         <div class="col-md-12 mt-2">
-            <h2 class="mb-5 text-left">Seleccione una plantilla</h2>
+            <h2 class="mb-5 text-left">Seleccione una plantilla para su pagina principal</h2>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" >
+        <form [formGroup]="newPageForm" class="col-md-12 row">
+            <div class="col-md-2 mb-3"><label for="">Nombre de la pagina</label> </div>
+            <div class="col-md-4 mb-3"><input type="text" class="form form-control" formControlName='pageName'
+                    required></div>
+            <div class="col-md-2 mb-3"><label for="">Tipo de la pagina</label></div>
+            <div class="col-md-4 mb-3"><input type="text" class="form form-control" formControlName='pageType'
+                required></div>
+
+        </form>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
             <div class="m-1 mb-2">
                 <div class="card border" style="width: 22rem; height: 22rem;">
-                    <img class="card-img-top" height="60%" src="assets/img/newTemplate.jpg" alt="Card image cap">
+                    <img class="card-img-top" height="250px" width="100%" src="assets/img/newTemplate.jpg"
+                        alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">Nueva PLantilla</h5>
-                      <a href="#" class="btn btn-primary">Seleccionar</a>
+                        <h5 class="card-title">Plantilla en blanco</h5>
+                        <a href="#" class="btn btn-primary">Seleccionar</a>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
 
 
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" *ngFor="let element of elements">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" *ngFor="let template of templates">
             <div class="m-1 mb-2">
                 <div class="card border" style="width: 22rem;">
-                    <img class="card-img-top" height="60%" src="assets/img/fake.jpg" alt="Card image cap">
+                    <img class="card-img-top" height="250px" width="100%"
+                        src="http://127.0.0.1:8888/{{template.img_route}}" alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">Nombre plantilla</h5>
-                      <a href="#" class="btn btn-primary">Seleccionar</a>
+                        <h5 class="card-title">{{template.templateName}}</h5>
+                        <a class="btn btn-primary" (click)="newStore(template['_id'])">Seleccionar</a>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>

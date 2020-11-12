@@ -15,8 +15,9 @@ export class AddnewtemplateComponent implements OnInit {
   newTemplateForm= new FormGroup({
     templateName:new FormControl('',Validators.required),
     templateDescription:new FormControl('',Validators.required),
-    html:new FormControl('',Validators.required),
-    css:new FormControl('',Validators.required),
+    html:new FormControl(''),
+    css:new FormControl(''),
+    js:new FormControl(''),
     
   });
   constructor(private templatesService:TemplatesService, private router: Router) { }
@@ -30,12 +31,17 @@ export class AddnewtemplateComponent implements OnInit {
   get templateDescription(){
     return this.newTemplateForm.get('templateDescription');
   }
+  
   get html(){
-    return this.newTemplateForm.get('html');
+    return this.newTemplateForm.get('html').value;
   }
   get css(){
     return this.newTemplateForm.get('css');
   }
+  get js(){
+    return this.newTemplateForm.get('js');
+  }
+  
 
   selectImage(event){
       if(event.target.files.length>0){

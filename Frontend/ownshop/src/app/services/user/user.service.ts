@@ -25,4 +25,12 @@ export class UserService {
     console.log(this.API_Url_Users+`/${userId}`)
     return this.http.get<User[]>(this.API_Url_Users+`/${userId}`,this.httpOptions)
   }
+
+  deleteUser(userId){
+    return this.http.delete<User[]>(this.API_Url_Users+`/${userId}`,this.httpOptions)
+  }
+
+  putUser(userId,user){
+    return this.http.put<User[]>(this.API_Url_Users+`/${userId}`,JSON.stringify(user),this.httpOptions)
+  }
 }

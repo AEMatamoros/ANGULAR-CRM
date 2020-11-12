@@ -1,0 +1,90 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-toggle="modal" [attr.data-target]="'#updateUserModal'+user['_id']">
+    <i class="fas fa-edit fa-1x"></i>
+</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" [attr.id]="'updateUserModal'+user['_id']" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar usuario &nbsp; {{user.first_name}} &nbsp; {{user.last_name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!--Form-->
+          <form [formGroup]='editUserForm'>
+            <div class="form-row">
+                <div class="form-group col-md-6 text-left">
+                    <label for="first_name">Nombre</label>
+                    <input type="text" class="form-control" id="first_name" placeholder="John"
+                        formControlName='first_name' required>
+                    <span *ngIf="first_name.invalid && first_name.dirty">Campo Obligatorio</span>
+                </div>
+                <div class="form-group col-md-6 text-left">
+                    <label for="last_name">Apellido</label>
+                    <input type="text" class="form-control" id="last_name" placeholder="Doe"
+                        formControlName='last_name' required>
+                    <span *ngIf="last_name.invalid && last_name.dirty">Campo Obligatorio</span>
+                </div>
+                <div class="form-group col-md-6 text-left">
+                    <label for="companyName">Tipo de Usuario</label>
+                    <select name="" id="user_type" class="form-control" formControlName='user_type' required>
+                        <option value="user">Usuario Comun</option>
+                        <option value="company">Empresa</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                    <span *ngIf="user_type.invalid && user_type.dirty">Campo Obligatorio</span>
+                </div>
+                <div class="form-group col-md-6 text-left">
+                    <label for="companyName">Tipo de Plan</label>
+                    <select name="" id="plan" class="form-control" formControlName='plan' required>
+                        <ng-container *ngFor="let plan of plans">
+                            <option value="{{plan.name}}">{{plan.name}}</option>
+                        </ng-container>
+                    </select>
+                    <span *ngIf="plan.invalid && plan.dirty">Campo Obligatorio</span>
+                </div>
+                <div class="form-group col-md-6 text-left">
+                    <label for="email">Correo</label>
+                    <input type="email" class="form-control" id="email" placeholder="JohnDoe@gmail.com"
+                        formControlName='email' required>
+                    <span *ngIf="email.invalid && email.dirty">Ingrese un correo valido</span>
+                    <span *ngIf="passErr">Este correo ya se ha registrado</span>
+                </div>
+                <div class="form-group col-md-6 text-left">
+                    <label for="cardNum">No.Tarjeta de Credito</label>
+                    <input type="email" class="form-control" id="cardNum" placeholder="5390700823######"
+                        formControlName='cardNum' required>
+                    <span *ngIf="cardNum.invalid && cardNum.dirty">Campo Obligatorio</span>
+                </div>
+                <div class="form-group col-md-6 text-left">
+                    <label for="csv">CSV</label>
+                    <input type="email" class="form-control" id="csv" placeholder="####" formControlName='csv'
+                        required>
+                    <span *ngIf="csv.invalid && csv.dirty">Campo Obligatorio</span>
+                </div>
+                <div class="form-group col-md-6 text-left">
+                    <label for="csv">Propietario</label>
+                    <input type="email" class="form-control" id="owner" placeholder="####" formControlName='owner'
+                        required>
+                    <span *ngIf="owner.invalid && owner.dirty">Campo Obligatorio</span>
+                </div>
+                
+
+
+            </div>
+        </form>
+        <!--End Form-->
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" (click)="update(user['_id'])" >Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>

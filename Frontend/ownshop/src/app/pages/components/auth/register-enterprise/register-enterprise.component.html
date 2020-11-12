@@ -31,7 +31,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="companyName">Tipo de Plan</label>
-      <select name="" id="plan" class="form-control" formControlName='plan'>
+      <select name="" id="plan" class="form-control" formControlName='plan' required>
         <ng-container *ngFor="let plan of plans">
           <ng-container *ngIf="plan.price!=0">
           <option value="{{plan.name}}">{{plan.name}}</option>
@@ -50,6 +50,11 @@
       <label for="cardNum">No.Tarjeta de Credito</label>
       <input type="email" class="form-control" id="cardNum" placeholder="5390700823######" formControlName='cardNum' required>
       <span *ngIf="cardNum.invalid && cardNum.dirty">Campo Obligatorio</span>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="owner">Propietario</label>
+      <input type="email" class="form-control" id="cardNum" placeholder="John" formControlName='owner' required>
+      <span *ngIf="owner.invalid && owner.dirty">Campo Obligatorio</span>
     </div>
     <div class="form-group col-md-6">
       <label for="csv">CSV</label>

@@ -5,4 +5,7 @@ export class User {
     public email:string
     public dateCreated:string
     public plan:string
+    public csv:string
+    public cardNum:string
+    public owner:string
 }

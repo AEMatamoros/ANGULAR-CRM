@@ -14,6 +14,10 @@ const storesSchema = new mongoose.Schema({
         type:Date,
         default: Date.now
     },
+    category:{
+        type:String,
+        trim:true
+    },
     company:{
         type:String,
         required:true,

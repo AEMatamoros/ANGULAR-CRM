@@ -23,7 +23,8 @@ export class RegisterEnterpriseComponent implements OnInit {
     csv:new FormControl('',Validators.required),
     cardNum:new FormControl('',Validators.required),
     plan: new FormControl('',Validators.required),
-    companyName:new FormControl('',Validators.required)
+    companyName:new FormControl('',Validators.required),
+    owner:new FormControl('',Validators.required)
   });
   //CreateCompanyInitData
   company={companyName:'',owner:''}
@@ -59,6 +60,10 @@ export class RegisterEnterpriseComponent implements OnInit {
 
   get companyName(){
     return this.registerForm.get('companyName')
+  }
+
+  get owner(){
+    return this.registerForm.get('owner')
   }
 
   onRegister(): void {
