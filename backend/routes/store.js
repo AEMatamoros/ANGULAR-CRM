@@ -39,7 +39,7 @@ router.post('',(req,res)=>{
 })
 
 router.put('/:id',(req,res)=>{
-
+    console.log(req.body)
     Store.updateOne(
          {"_id":req.params.id},
          {

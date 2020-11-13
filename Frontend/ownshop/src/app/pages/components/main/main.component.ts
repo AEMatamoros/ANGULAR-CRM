@@ -8,30 +8,22 @@ import { StoreService } from 'src/app/services/store/store.service'
 })
 export class MainComponent implements OnInit {
   stores:any
-  data:boolean
+  data:boolean=false
   companyData:any
   constructor(private storeService:StoreService) { }
 
   ngOnInit(): void {
     this.companyData= JSON.parse(localStorage.getItem('companyData'));
+    console.log(this.companyData)
       this.storeService.getCompanyStores(this.companyData['_id']).subscribe(
         res=>{
           this.stores=res
-          if(res){
-            this.data=true
-          }else{
-            this.data=false
-          }
+          if(this.stores.length >0)
+              this.data=true
+         
       }
       )
   }
 
-  changeData(){
-    if (this.data==false){
-        this.data=true
-    }else{
-        this.data=false
-    }
-    
-  }
+  
 }

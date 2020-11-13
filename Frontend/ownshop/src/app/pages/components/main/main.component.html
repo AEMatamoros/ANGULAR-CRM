@@ -1,14 +1,5 @@
-<ng-container *ngIf="!data">
-    <div class="col-md-12 p-0">
-      <div class="empty">
-        <h1 class="center m-0 p-0 mt-5">Bienvenido a OwnShop</h1> 
-        <p class="center m-0 p-0">Al parecer todavia no creas ninguna tienda,</p>
-        <p class="center m-0 p-0"> <a [routerLink]="['/newstore']">¿Le gustaria crear una tienda nueva?</a> </p>
-      </div>
-    </div>
-  </ng-container>
 
-  <ng-container *ngIf="data" >
+<ng-container *ngIf="data" >
     <div class="col-md-12 p-0 mb-5">
 
       <div class="full ">
@@ -20,7 +11,7 @@
             <div class="card-body">
               <h5 class="card-title">{{store.storeName}}</h5>
               <p class="card-text">{{store.storeDescription}}</p>
-              <a [routerLink]="['/editstore']" class="btn btn-success m-1">Administrar</a>
+              <a [routerLink]="['/editstore', store['_id']]" class="btn btn-success m-1">Administrar</a>
             </div>
           </div>
         </ng-container>
@@ -30,11 +21,19 @@
 
       </div> 
 
-
-
-
     </div>
-  </ng-container >
+</ng-container >
+
+
+<ng-container *ngIf="!data">
+  <div class="col-md-12 p-0">
+    <div class="empty">
+      <h1 class="center m-0 p-0 mt-5">Bienvenido a OwnShop</h1> 
+      <p class="center m-0 p-0">Al parecer todavia no creas ninguna tienda,</p>
+      <p class="center m-0 p-0"> <a [routerLink]="['/newstore']">¿Le gustaria crear una tienda nueva?</a> </p>
+    </div>
+  </div>
+</ng-container>
 
 
 <app-footer class="mt-5 fixed-bottom"></app-footer>

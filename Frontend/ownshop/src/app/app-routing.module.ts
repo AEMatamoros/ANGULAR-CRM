@@ -26,7 +26,7 @@ const routes: Routes = [
   {"path":"registerEnterprise",component:RegisterEnterpriseComponent},
   {'path':"main",component:MainComponent},
   {'path':"newstore",component:NewstoreComponent},
-  {'path':"editstore",component:EditstoreComponent},
+  {'path':"editstore/:id",component:EditstoreComponent},
   {'path':'editstore/editcode',component:EditcodeComponent},
   {'path':'newpagew',component:WYSIWYGEditorComponent},
   {'path':'profile',component:UserprofileComponent},

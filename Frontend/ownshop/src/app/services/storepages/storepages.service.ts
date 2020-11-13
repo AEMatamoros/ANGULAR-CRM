@@ -21,6 +21,12 @@ export class StorepagesService {
   getStoresPages(){
     return this.http.get<Storepage[]>(this.API_Url_StorePage,this.httpOptions)
   }
+  getStorePage(pageId){
+    return this.http.get<Storepage[]>(this.API_Url_StorePage+`/${pageId}`,this.httpOptions)
+  }
+  getStorePages(storeId){
+    return this.http.get<Storepage[]>(this.API_Url_StorePage+`/store/${storeId}`,this.httpOptions)
+  }
   postStorePage(storePage){
     return this.http.post<Storepage[]>(this.API_Url_StorePage,JSON.stringify(storePage),this.httpOptions)
   }

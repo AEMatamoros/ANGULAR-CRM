@@ -5,20 +5,39 @@
             <h2>Editando -Nombre tienda</h2>
         </div>
         <div class="col-md-8 ">
-            <app-updatedata ></app-updatedata><!--Enviar id y validar si es una nueva o atualizacion en backend-->
+            <form [formGroup]="newEditForm" class="col-md-12 row">
+                <div class="col-md-2 mb-3"><label for="">Nombre de la tienda</label> </div>
+                <div class="col-md-10 mb-3"><input type="text" class="form form-control" formControlName='storeName'
+                        required></div>
+                <div class="col-md-2 mb-3"><label for="">Categoria</label> </div>
+                <div class="col-md-10 mb-3">
+                    <select name="" id="" class="form-control float-left" formControlName='category' required>
+                        <option value="Cat1" selected>Cat1</option>
+                        <option value="Cat2">Cat2</option>
+                    </select>
+                </div>
+                <div class="col-md-12 mb-3">Descripcion</div>
+                <div class="col-md-12 mb-3">
+                    <textarea name="" id="" cols="30" rows="5" class="form form-control"
+                        formControlName='storeDescription' required></textarea>
+                </div>
+            </form>
         </div>
         <div class="col-md-4 text-left ">
+            <button class="btn btn-primary form-control mb-3" (click)="updateStore()">Actualizar informacion de la tienda</button>
             <a [routerLink]="['/storepage']"><button class="btn btn-info form-control mb-3" >Ver Tienda</button></a>
-            
-            <app-deletestore></app-deletestore>
-            <img src="assets/img/LOGODARK.png" alt="" class="img-fluid">
+            <ng-container *ngIf="store">
+            <app-deletestore [store]='store'></app-deletestore>
+            </ng-container>
          </div>
         
         
         
         
     </div>
-    <app-pages></app-pages>
+    <ng-container *ngIf="store">
+    <app-pages [store]='store'></app-pages>
+    </ng-container>
     <app-products></app-products>
 </div>
 

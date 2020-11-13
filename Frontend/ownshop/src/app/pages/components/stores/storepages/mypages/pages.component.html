@@ -19,10 +19,11 @@
       <div class="col-md-3"><Strong>Tipo</Strong></div>
       <div class="col-md-3"><Strong>Fecha</Strong></div>
       <div class="col-md-3"><Strong>Opciones</Strong></div>
-  
-      <div class="col-md-3">Nombre</div>
-      <div class="col-md-3">Tipo</div>
-      <div class="col-md-3">Fecha</div>
+      <ng-container *ngFor="let page of pages">
+        <div class="col-md-3">{{page.pageName}}</div>
+        <div class="col-md-3">{{page.pageType}}</div>
+        <div class="col-md-3">{{page.date | date:"MM/dd/yy"}}</div>
+      </ng-container>
       <div class="col-md-3 row">
         <a [routerLink]="['/editstore/editcode']" class="col-md-6">
             <i class="fa fa-code fa-lg  text-success" aria-hidden="true"></i>

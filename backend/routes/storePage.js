@@ -13,16 +13,17 @@ router.get('',(req,res)=>{
 })
 
 router.get('/:id',(req,res)=>{
-    Store.find({"_id":req.params.id})
+    StorePage.find({"_id":req.params.id})
          .then(result=>res.send(result[0]))
          .catch(err=>res.send(err))
 })
 
 router.get('/store/:storeId',(req,res)=>{
-    Store.find({"store":req.params.companyId})
+    StorePage.find({"store":req.params.storeId})
          .then(result=>res.send(result))
          .catch(err=>res.send(err))
 })
+
 
 router.post('',(req,res)=>{
     let storePage= new StorePage({
@@ -58,7 +59,7 @@ router.put('/:id',(req,res)=>{
 })
 
 router.delete('/:id',(req,res)=>{
-    Store.remove({"_id":req.params.id})
+    StorePage.remove({"_id":req.params.id})
          .then(result=>res.send(result))
          .catch(err=>res.send(err))
 })

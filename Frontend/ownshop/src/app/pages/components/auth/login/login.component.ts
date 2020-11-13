@@ -48,12 +48,14 @@ export class LoginComponent implements OnInit {
         //console.log(res)
         localStorage.setItem('companyData',JSON.stringify(res))
         
+        if(this.userData.user_type!='admin'){
+          this.router.navigateByUrl('/main');
+        }else{
+          this.router.navigateByUrl('/admin');
+        }
+        
       });
-      if(this.userData.user_type!='admin'){
-        this.router.navigateByUrl('/main');
-      }else{
-        this.router.navigateByUrl('/admin');
-      }
+      
       //console.log(res)
     },err=>{
       if(err.status==409){

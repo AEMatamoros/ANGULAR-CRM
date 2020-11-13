@@ -21,8 +21,8 @@ export class StoreService {
   getStores(){
     return this.http.get<Store[]>(this.API_Url_Store,this.httpOptions)
   }
-  postStore(Store){
-    return this.http.post<Store[]>(this.API_Url_Store,JSON.stringify(Store),this.httpOptions)
+  postStore(store){
+    return this.http.post<Store[]>(this.API_Url_Store,JSON.stringify(store),this.httpOptions)
   }
   getStore(id){
     return this.http.get<Store>(this.API_Url_Store+'/'+id,this.httpOptions)
@@ -30,10 +30,10 @@ export class StoreService {
   getCompanyStores(companyId){
     return this.http.get<Store>(this.API_Url_Store+'/company/'+companyId,this.httpOptions)
   }
-  putStore(id){
-    return this.http.post<Store[]>(this.API_Url_Store+'/'+id,this.httpOptions)
+  putStore(id,store){
+    return this.http.put<Store[]>(this.API_Url_Store+'/'+id,JSON.stringify(store),this.httpOptions)
   }
   deleteStore(id){
-    return this.http.post<Store[]>(this.API_Url_Store+'/'+id,this.httpOptions)
+    return this.http.delete<Store[]>(this.API_Url_Store+'/'+id,this.httpOptions)
   }
 }
