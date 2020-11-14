@@ -30,4 +30,7 @@ export class StorepagesService {
   postStorePage(storePage){
     return this.http.post<Storepage[]>(this.API_Url_StorePage,JSON.stringify(storePage),this.httpOptions)
   }
+  deleteStorePage(id){
+    return this.http.delete<Storepage[]>(this.API_Url_StorePage+`/${id}`,this.httpOptions)
+  }
 }

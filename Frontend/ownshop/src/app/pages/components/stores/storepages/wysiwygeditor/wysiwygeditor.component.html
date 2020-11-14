@@ -1,20 +1,39 @@
 <div class="container-fluid mt-3 mb-5">
     <div class="row">
-        <div class="col-md-5 m-0">
-        <form [formGroup]="editor" (ngSubmit)="onSubmit()">
-            <div class="editor-div">
-                <quill-editor  formControlName="nombreTienda"></quill-editor>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                
+        <div class="col-md-12  m-0 row">
+            <form [formGroup]="newPageForm" class="col-md-12 row">
+                <div class="col-md-4 mb-3">Nombre</div>
+                    <div class="col-md-6 mb-3">
+                      <input type="text" class="form form-control" formControlName="pageName" required>
+                      <span *ngIf="pageName.invalid && pageName.dirty">Campo Obligatorio</span>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary form-control" (click)="onSubmit()">Guardar</button>
+                    </div>
+                    <div class="col-md-4 mb-3">Tipo</div>
+                    <div class="col-md-6 mb-3">
+                      <input type="text" class="form form-control" formControlName="pageType" required>
+                      <span *ngIf="pageType.invalid && pageType.dirty">Campo Obligatorio</span>
+                    </div>
+                    <div class="col-md-2">
+                        <a [routerLink]="['/admin/templatepreview']" >
+                            <button type="button" class="btn btn-info form-control" data-toggle="modal" (click)="preview()" >
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </a>
+                    </div>
+                </form>
+        <form [formGroup]="editor" (ngSubmit)="onSubmit()" class="col-md-12 row">
+            <div class="editor-div col-md-12">
+                <quill-editor  formControlName="nombreTienda"></quill-editor>                
             </div>
 
         </form>
     </div>
-    <div class="col-md-7 border preview-div mb-5" [innerHTML]="editorContent">
-        Preview
-    </div>
+    
     </div>
     
 </div>
-
-<app-footer class=" mt-5"></app-footer>
+<div class="mt-5">
+<app-footer class=" fixed-bottom"></app-footer>
+</div>

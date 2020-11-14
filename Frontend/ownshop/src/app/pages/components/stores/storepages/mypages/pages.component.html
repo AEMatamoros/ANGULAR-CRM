@@ -4,9 +4,10 @@
       <h3> Agregar Pagina</h3>  
   </div>
   <div class="col-md-4 mt-1 row ">
-      <app-addtemplate class="col-md-6"></app-addtemplate>
-      
-        <i class="fa fa-plus-square-o fa-2x col-md-6 text-success" aria-hidden="true" [routerLink]="['/newpagew']"></i>
+      <ng-container *ngIf="store">
+        <app-addtemplate [store]="store" class="col-md-6"></app-addtemplate>
+        <i class="fa fa-plus-square-o fa-2x col-md-6 text-success" aria-hidden="true" [routerLink]="['/newpagew',store]"></i>
+      </ng-container>
   </div>
   <div class="col-md-12">
     <hr>
@@ -23,13 +24,14 @@
         <div class="col-md-3">{{page.pageName}}</div>
         <div class="col-md-3">{{page.pageType}}</div>
         <div class="col-md-3">{{page.date | date:"MM/dd/yy"}}</div>
+        <div class="col-md-3 row">
+          <a [routerLink]="['/editstore/code/editcode']" class="col-md-6">
+              <i class="fa fa-code fa-lg  text-success" aria-hidden="true"></i>
+          </a>
+          <app-deletetemplate class="col-md-6" [page]="page"></app-deletetemplate>
+        </div>
       </ng-container>
-      <div class="col-md-3 row">
-        <a [routerLink]="['/editstore/editcode']" class="col-md-6">
-            <i class="fa fa-code fa-lg  text-success" aria-hidden="true"></i>
-        </a>
-        <app-deletetemplate class="col-md-6"></app-deletetemplate>
-      </div>
+      
   
   </div>
   

@@ -1,13 +1,13 @@
 <!-- Button trigger modal -->
-
-  <i class="fa fa-eraser fa-lg col-md-6 text-danger" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"></i>
+<ng-container *ngIf="page">
+  <i class="fa fa-eraser fa-lg col-md-6 text-danger" aria-hidden="true" data-toggle="modal" [attr.data-target]="'#deletePageModal'+page['_id']"></i>
   
   <!-- Modal -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal fade" [attr.id]="'deletePageModal'+page['_id']" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-danger text-white ">
-          <h5 class="modal-title" id="deleteModalLabel">Eliminar Pagina</h5>
+          <h5 class="modal-title" id="deleteModalLabel">Eliminar Pagina &nbsp; {{page.pageName}}</h5>
           <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -17,8 +17,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger">Eliminar</button>
+          <button type="button" class="btn btn-danger" (click)="delete()">Eliminar</button>
         </div>
       </div>
     </div>
   </div>
+
+</ng-container>

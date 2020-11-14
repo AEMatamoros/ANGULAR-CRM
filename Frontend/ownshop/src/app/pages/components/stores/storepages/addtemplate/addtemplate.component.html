@@ -15,36 +15,41 @@
         <div class="modal-body">
             <div class="container-fluid">
                 <div class="row">
+                  
+                  <form [formGroup]="newPageForm" class="col-md-12 row">
                     <div class="col-md-4 mb-3">Nombre</div>
-                    <div class="col-md-8 mb-3"><input type="text" class="form form-control"></div>
+                    <div class="col-md-8 mb-3">
+                      <input type="text" class="form form-control" formControlName="pageName" required>
+                      <span *ngIf="pageName.invalid && pageName.dirty">Campo Obligatorio</span>
+                    </div>
                     <div class="col-md-4 mb-3">Tipo</div>
                     <div class="col-md-8 mb-3">
-                        <Select class="form form-control">
-                            <option value="" selected>T1</option>
-                            <option value="">T2</option>
-                        </Select>
+                      <input type="text" class="form form-control" formControlName="pageType" required>
+                      <span *ngIf="pageType.invalid && pageType.dirty">Campo Obligatorio</span>
                     </div>
-                    <ng-container *ngFor="let store of stores" class="row">
+                    <ng-container *ngFor="let template of templates" class="row">
                         <div class="card  col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12 m-3 " style="width: 14rem;">
-                        <img class="card-img-top" src="assets/img/cover.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="http://127.0.0.1:8888/{{template.img_route}}" alt="Card image cap">
                           <div class="card-body">
-                            <h5 class="card-title">Nombre Plantilla</h5>
-                            <p class="card-text">Descripcion plantilla</p>
+                            <h5 class="card-title">{{template.templateName}}</h5>
+                            <p class="card-text">{{template.templateDescription}}</p>
                             <div class="radio radio-primary">
                                 <label >
-                                    Seleccionar<input type="radio" name="survey" id="Radios2" value="No" class="ml-4">
+                                    Seleccionar<input type="radio" name="tempId" id="Radios2" value="{{template['_id']}}" class="ml-4" formControlName="tempId" required>
+                                    <span *ngIf="tempId.invalid && tempId.dirty">Campo Obligatorio</span>
                                 </label>
                                
                               </div>
                           </div>
                         </div>
                       </ng-container>
+                      </form>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Crear</button>
+          <button type="button" class="btn btn-primary" (click)="newPage()">Crear</button>
         </div>
       </div>
     </div>
