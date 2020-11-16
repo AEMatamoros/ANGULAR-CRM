@@ -1,5 +1,8 @@
 <div class="container-fluid">
   <div class="row">
+    <div class="col-md-12 text-left">
+      <h2 class="m-0">Paginas</h2>
+    </div>
     <div class="col-md-8  text-success mt-1">
       <h3> Agregar Pagina</h3>  
   </div>
@@ -12,9 +15,6 @@
   <div class="col-md-12">
     <hr>
   </div>
-  <div class="col-md-12 text-left">
-    <h2 class="m-0">Paginas</h2>
-  </div>
   <div class="col-md-12 row mt-3 mb-3 border">
       <div class="col-md-3"><Strong>Nombre</Strong></div>
       <div class="col-md-3"><Strong>Tipo</Strong></div>
@@ -25,7 +25,7 @@
         <div class="col-md-3">{{page.pageType}}</div>
         <div class="col-md-3">{{page.date | date:"MM/dd/yy"}}</div>
         <div class="col-md-3 row">
-          <a [routerLink]="['/editstore/code/editcode']" class="col-md-6">
+          <a [routerLink]="['/editstore/code/editcode',page['_id']]" class="col-md-6">
               <i class="fa fa-code fa-lg  text-success" aria-hidden="true"></i>
           </a>
           <app-deletetemplate class="col-md-6" [page]="page"></app-deletetemplate>

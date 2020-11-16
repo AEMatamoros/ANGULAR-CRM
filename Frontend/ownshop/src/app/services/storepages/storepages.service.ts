@@ -33,4 +33,7 @@ export class StorepagesService {
   deleteStorePage(id){
     return this.http.delete<Storepage[]>(this.API_Url_StorePage+`/${id}`,this.httpOptions)
   }
+  putStorePage(id,page){
+    return this.http.put<Storepage[]>(this.API_Url_StorePage+`/${id}`,JSON.stringify(page), this.httpOptions)
+  }
 }

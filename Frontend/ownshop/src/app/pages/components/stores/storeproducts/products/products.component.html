@@ -1,31 +1,33 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-8 text-success mt-1">
+    <div class="col-md-12 text-left">
+      <h2 class="m-0">Productos</h2>
+    </div>
+    <div class="col-md-10 text-success mt-1">
       <h3> Agregar Producto</h3>  
   </div>
-  <div class="col-md-4 mt-1  row">
-      <div class="col-md-6"></div>
-      <app-addproduct class="col-md-6"></app-addproduct>
+  <div class="col-md-2 mt-1  row">
+      <app-addproduct [store]="store"></app-addproduct>
   </div>
   <div class="col-md-12">
     <hr>
   </div>
-  <div class="col-md-12 text-left">
-      <h2 class="m-0">Productos</h2>
-  </div>
   <div class="col-md-12 row mt-3 mb-3 border">
     <div class="col-md-3"><Strong>Nombre</Strong></div>
-    <div class="col-md-3"><Strong>Categoria</Strong></div>
+    <div class="col-md-3"><Strong>Price</Strong></div>
     <div class="col-md-3"><Strong>Fecha</Strong></div>
     <div class="col-md-3"><Strong>Opciones</Strong></div>
-  
-    <div class="col-md-3">Nombre</div>
-    <div class="col-md-3">Categoria</div>
-    <div class="col-md-3">Fecha</div>
+    <ng-container *ngIf="store">
+    <ng-container *ngFor="let product of products">
+    <div class="col-md-3">{{product.productName}}</div>
+    <div class="col-md-3">{{product.price}}</div>
+    <div class="col-md-3">{{product.date | date:"dd-mm-yy"}}</div>
     <div class="col-md-3 row">
       <app-updateproduct class="col-md-6"></app-updateproduct>
       <app-deletetemplate></app-deletetemplate>
     </div>
+  </ng-container>
+</ng-container>
   
   </div>
   

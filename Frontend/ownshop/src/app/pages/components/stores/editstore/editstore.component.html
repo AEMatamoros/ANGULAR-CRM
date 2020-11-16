@@ -1,8 +1,9 @@
 <router-outlet>
+<ng-container *ngIf="store">
 <div class="container">
     <div class="row ">
         <div class="col-md-12 mt-3">
-            <h2>Editando -Nombre tienda</h2>
+            <h2>{{store.storeName}}</h2>
         </div>
         <div class="col-md-8 ">
             <form [formGroup]="newEditForm" class="col-md-12 row">
@@ -35,10 +36,11 @@
         
         
     </div>
-    <ng-container *ngIf="store">
+    
     <app-pages [store]='store'></app-pages>
-    </ng-container>
-    <app-products></app-products>
+    <app-products [store]='store'></app-products>
+    
+    
 </div>
-
+</ng-container>
 <app-footer class="mt-5"></app-footer>

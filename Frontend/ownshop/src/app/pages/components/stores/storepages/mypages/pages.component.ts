@@ -12,7 +12,7 @@ export class PagesComponent implements OnInit {
   constructor(private storePagesService:StorepagesService) { }
 
   ngOnInit(): void {
-    console.log(this.store)
+    //console.log(this.store)
     this.storePagesService.getStorePages(this.store['_id']).subscribe(res=>this.pages=res)
   }
 

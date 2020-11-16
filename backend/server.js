@@ -10,13 +10,12 @@ const companyRouter = require('./routes/company');
 const storesRouter = require('./routes/store');
 const templatesRouter = require('./routes/templates');
 const storePagesRouter = require('./routes/storePage');
-//
+const productRouter = require('./routes/products')
+//Confs
 const app = express();
 const router = express.Router();
 
 const bodyParser = require('body-parser');
-
-
 app.use(cors({origin:'*'}));
 app.use(bodyParser.json({limit:'50mb'}));
 app.use(bodyParser.urlencoded({ extended: true ,limit:'50mb'}));
@@ -31,6 +30,7 @@ app.use("/company",companyRouter);
 app.use("/store",storesRouter);
 app.use("/template",templatesRouter);
 app.use("/storepage",storePagesRouter);
+app.use("/product",productRouter);
 
 router.get('/', (req, res) => {
   res.send('OwnShopAPI te da la bienvenida');

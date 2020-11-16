@@ -27,7 +27,7 @@ const routes: Routes = [
   {'path':"main",component:MainComponent},
   {'path':"newstore",component:NewstoreComponent},
   {'path':"editstore/:id",component:EditstoreComponent},
-  {'path':'editstore/code/editcode',component:EditcodeComponent},
+  {'path':'editstore/code/editcode/:id',component:EditcodeComponent},
   {'path':'newpagew',component:WYSIWYGEditorComponent},
   {'path':'profile',component:UserprofileComponent},
   {'path':'storepage',component:ViewpageComponent},

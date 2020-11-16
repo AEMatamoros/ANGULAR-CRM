@@ -7,7 +7,7 @@ const productSchema= new mongoose.Schema({
         trim:true
     },
     productDesc:{
-        tyoe:String,
+        type:String,
         required:false,
         trim:true
     },
@@ -16,18 +16,17 @@ const productSchema= new mongoose.Schema({
         required:true,
         trim:true
     },
-    category:{
-        type:String,
-        required:true
-    },
     imgRoute:{
         type:String,
         required:true
     },
     store:{
-        type:mogoose.SchemaTypes.Mixed,
-        required:true
+        type:String
     },
+    date:{
+        type:Date,
+        default:Date.now
+    }
 });
 
 module.exports = mongoose.model('product', productSchema);
