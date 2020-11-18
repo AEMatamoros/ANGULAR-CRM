@@ -8,8 +8,13 @@
 @import '~quill/dist/quill.bubble.css';
 @import '~quill/dist/quill.snow.css';
 
+@font-face {
+    font-family: "Google-Font";
+    src: local("Google-Font"), url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap') format("truetype");
+}
 body {
     overflow-x:hidden !important;
+    font-family: "Google-Font"
  }
 
 .center {
