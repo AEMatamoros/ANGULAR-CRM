@@ -24,7 +24,7 @@ export class AppComponent  {
       if (ev instanceof NavigationEnd) { 
         this.currentRoute=this.router.url;
         //console.log(this.currentRoute)
-        if(this.currentRoute=='/' || this.currentRoute=='/login' || this.currentRoute=='/register'|| this.currentRoute=='/registerEnterprise' || this.currentRoute.includes('/templatepreview')){
+        if(this.currentRoute=='/' || this.currentRoute=='/login' || this.currentRoute=='/register'|| this.currentRoute=='/registerEnterprise' || this.currentRoute.includes('/templatepreview')|| this.currentRoute.includes("/storepage")){
           this.showNav=false
           console.log(this.currentRoute)
         }else{

@@ -30,7 +30,7 @@ const routes: Routes = [
   {'path':'editstore/code/editcode/:id',component:EditcodeComponent},
   {'path':'newpagew',component:WYSIWYGEditorComponent},
   {'path':'profile',component:UserprofileComponent},
-  {'path':'storepage',component:ViewpageComponent},
+  {'path':'storepage/:id',component:ViewpageComponent},
   {'path':'admin',component:AdminComponent},
   {'path':'admin/companies',component:CompaniesComponent},
   {'path':'admin/templates',component:TemplatesComponent},
