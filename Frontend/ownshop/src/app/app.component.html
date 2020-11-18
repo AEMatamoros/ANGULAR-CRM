@@ -27,13 +27,13 @@
                 </a>
             </li> <br>
             <li >
-                <a [routerLink]="['/main']">
+                <a [routerLink]="['/profile', companyData]">
                     <i class="fas fa-store"></i>
                     <span>Mis tiendas</span>
                 </a>
             </li> <br>
             <li >
-                <a [routerLink]="['/profile']">
+                <a [routerLink]="['/profile', companyData]">
                     <i class="far fa-user"></i>
                     <span>Mi cuenta</span>
                 </a>
@@ -106,7 +106,7 @@
                 </button>
             </a>
             <div class="form-inline my-2 my-lg-0">
-                <label for="" class="text-white d-none d-sm-block" [routerLink]="['/profile']"> <ng-container *ngIf="userData">{{userData.first_name}} &nbsp; {{userData.last_name}}</ng-container> </label>
+                <label for="" class="text-white d-none d-sm-block" [routerLink]="['/profile', companyData]"> <ng-container *ngIf="userData">{{userData.first_name}} &nbsp; {{userData.last_name}}</ng-container> </label>
                 <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" (click)="logout()">Cerrar Sesion</button>
             </div>
           </nav>

@@ -11,18 +11,20 @@
             </ng-container>
         </ng-container>
         </div>
+        <ng-container *ngIf="user">
         <div class="col-md-8 border text-center">
-            <ng-container *ngIf="user">
+            
             <h3 class="mt-5">{{user.first_name}} &nbsp; {{user.last_name}}</h3>
             <h4>Correo:{{user.email}}</h4>
             <h6>Tipo de plan:{{user.plan}}</h6>
             <p>Se unio:{{user.dateCreated | date:"MM/dd/yy"}}</p>
-            </ng-container>
+            
         </div>
         
         <div class="col-md-12 text-right">
             <i class="fa fa-edit teal-color fa-3x" data-toggle="modal" [attr.data-target]="'#updateUserModal'+user['_id']"></i>
         </div>
+    </ng-container>
         <div class="col-md-12">
             <h4>Tiendas</h4>
         </div>
@@ -30,9 +32,13 @@
             <div class="col-md-4"><strong>Nombre TIenda</strong></div>
             <div class="col-md-4"><strong>Categoria</strong></div>
             <div class="col-md-4"><strong>Fecha Creacion</strong></div>
-            <div class="col-md-4"><a [routerLink]="['/editstore']">Nombre TIenda</a></div>
+            <ng-container *ngIf="stores">
+                <ng-container *ngFor="let store of stores">
+            <div class="col-md-4"><a [routerLink]="['/editstore', store['_id']]">{{store.storeName}}</a></div>
             <div class="col-md-4">Categoria</div>
             <div class="col-md-4">Fecha</div>
+                </ng-container>
+            </ng-container>
         </div>
     </div>
     

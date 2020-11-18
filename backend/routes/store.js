@@ -19,8 +19,9 @@ router.get('/:id',(req,res)=>{
 })
 
 router.get('/company/:companyId',(req,res)=>{
+    //console.log(req.params.companyId)
     Store.find({"company":req.params.companyId})
-         .then(result=>res.send(result))
+         .then(result=>{/*console.log(result),*/res.send(result)})
          .catch(err=>res.send(err))
 })
 

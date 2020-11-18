@@ -5,6 +5,7 @@ import { FormGroup,FormControl,Validators } from '@angular/forms'
 import { UserService } from 'src/app/services/user/user.service'
 import { PlansServiceService } from 'src/app/services/plans/plans-service.service'
 import { CompanyServicesService } from 'src/app/services/company/company.service'
+import { StoreService } from 'src/app/services/store/store.service'
 
 @Component({
   selector: 'app-userprofile',
@@ -13,11 +14,12 @@ import { CompanyServicesService } from 'src/app/services/company/company.service
 })
 export class UserprofileComponent implements OnInit {
   user
-  constructor(private router:Router,private route:ActivatedRoute,private userService:UserService,private plansService:PlansServiceService,private companyService:CompanyServicesService) { }
+  constructor(private router:Router,private route:ActivatedRoute,private userService:UserService,private plansService:PlansServiceService,private companyService:CompanyServicesService,private storeService:StoreService) { }
   plans:any
   passErr:boolean=false
   company:any
   userData:any
+  stores
   //editUserForm
   editUserForm= new FormGroup({
     email:new FormControl('',[Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),Validators.required]),
@@ -46,7 +48,10 @@ export class UserprofileComponent implements OnInit {
         this.editUserForm.controls['cardNum'].setValue(this.user.cardNum);
         this.editUserForm.controls['plan'].setValue(this.user.plan);
         this.editUserForm.controls['user_type'].setValue(this.user.user_type);
-        this.editUserForm.controls['owner'].setValue(this.user.owner);})
+        this.editUserForm.controls['owner'].setValue(this.user.owner);
+      })
+      this.storeService.getCompanyStores(this.company['_id']).subscribe(res=>{this.stores=res
+    })
     
     })
   }
