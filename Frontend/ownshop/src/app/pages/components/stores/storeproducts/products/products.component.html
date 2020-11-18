@@ -23,8 +23,8 @@
     <div class="col-md-3">{{product.price}}</div>
     <div class="col-md-3">{{product.date | date:"dd-mm-yy"}}</div>
     <div class="col-md-3 row">
-      <app-updateproduct class="col-md-6"></app-updateproduct>
-      <app-deletetemplate></app-deletetemplate>
+      <app-updateproduct class="col-md-6" [product]="product"></app-updateproduct>
+      <app-deleteproduct class="col-md-6" [product]="product"></app-deleteproduct>
     </div>
   </ng-container>
 </ng-container>
