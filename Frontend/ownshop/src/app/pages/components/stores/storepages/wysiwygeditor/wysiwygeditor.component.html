@@ -16,11 +16,14 @@
                       <span *ngIf="pageType.invalid && pageType.dirty">Campo Obligatorio</span>
                     </div>
                     <div class="col-md-2">
-                        <a [routerLink]="['/admin/templatepreview']" >
+                        <!--a [routerLink]="['/admin/templatepreview']" >
                             <button type="button" class="btn btn-info form-control" data-toggle="modal" (click)="preview()" >
                                 <i class="far fa-eye"></i>
                             </button>
-                        </a>
+                        </a-->
+                        <button type="button" class="btn btn-info form-control"  (click)="preview()" >
+                            <i class="far fa-eye"></i>
+                        </button>
                     </div>
                 </form>
         <form [formGroup]="editor" (ngSubmit)="onSubmit()" class="col-md-12 row">
@@ -30,7 +33,9 @@
 
         </form>
     </div>
-    
+    <div [innerHTML]="editorContent">
+        
+    </div>
     </div>
     
 </div>
