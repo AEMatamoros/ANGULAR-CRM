@@ -18,6 +18,7 @@ import { PlansComponent } from './pages/components/admin/plans/plans/plans.compo
 import { TemplatepreviewComponent } from './pages/components/admin/templates/templatepreview/templatepreview.component'
 import { EdittemplateComponent } from './pages/components/admin/templates/edittemplate/edittemplate.component'
 import { Template } from '@angular/compiler/src/render3/r3_ast';
+import { DatabankComponent } from './pages/components/stores/databank/databank.component';
 //rutas
 const routes: Routes = [
   {"path":"",component:LandingComponent,},
@@ -36,7 +37,8 @@ const routes: Routes = [
   {'path':'admin/templates',component:TemplatesComponent},
   {'path':'admin/plans',component:PlansComponent},
   {'path':'admin/templatepreview/:id',component:TemplatepreviewComponent},
-  {'path':'admin/templateedit/:id',component:EdittemplateComponent}
+  {'path':'admin/templateedit/:id',component:EdittemplateComponent},
+  {'path':'databank/:id',component:DatabankComponent}
   
 ];
  

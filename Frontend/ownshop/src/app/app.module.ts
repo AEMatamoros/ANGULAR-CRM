@@ -48,6 +48,7 @@ import { UsersComponent } from './pages/components/admin/users/users/users.compo
 import { NewuserComponent } from './pages/components/admin/users/newuser/newuser.component';
 import { DeleteuserComponent } from './pages/components/admin/users/deleteuser/deleteuser.component';
 import { EdituserComponent } from './pages/components/admin/users/edituser/edituser.component';
+import { DatabankComponent } from './pages/components/stores/databank/databank.component'
 
 
 
@@ -94,6 +95,7 @@ import { EdituserComponent } from './pages/components/admin/users/edituser/editu
     NewuserComponent,
     DeleteuserComponent,
     EdituserComponent,
+    DatabankComponent,
   ],
   imports: [
     BrowserModule,
