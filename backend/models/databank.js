@@ -14,6 +14,10 @@ const dataBankSchema = new mongoose.Schema({
     store:{
         type:String,
         required:true
+    },
+    parent:{
+        type:String,
+        default:"",
     }
 })
 

@@ -28,6 +28,10 @@ export class DatabankService {
     return this.http.post<Databank[]>(this.API_Url_DataBank,JSON.stringify(data),this.httpOptions)
   }
 
+  postDataBankFolder(storeId,folder){
+    return this.http.post<any[]>(this.API_Url_DataBank+`/folder/${storeId}`,JSON.stringify(folder),this.httpOptions)
+  }
+
   getBankImgs(storeId){
     return this.http.get<Databank[]>(this.API_Url_DataBank+`/img/${storeId}`,this.httpOptions)
   }
@@ -46,6 +50,10 @@ export class DatabankService {
 
   getBankOther(storeId){
     return this.http.get<Databank[]>(this.API_Url_DataBank+`/other/${storeId}`,this.httpOptions)
+  }
+
+  getBankFolders(storeId,parent){
+    return this.http.get<any>(this.API_Url_DataBank+`/folder/${storeId}/${parent}`,this.httpOptions)
   }
 
 }
