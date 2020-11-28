@@ -48,7 +48,10 @@ import { UsersComponent } from './pages/components/admin/users/users/users.compo
 import { NewuserComponent } from './pages/components/admin/users/newuser/newuser.component';
 import { DeleteuserComponent } from './pages/components/admin/users/deleteuser/deleteuser.component';
 import { EdituserComponent } from './pages/components/admin/users/edituser/edituser.component';
-import { DatabankComponent } from './pages/components/stores/databank/databank.component'
+import { DatabankComponent } from './pages/components/stores/databank/databank.component';
+import { CategoriesComponent } from './pages/components/stores/category/categories/categories.component';
+import { AddcategoryComponent } from './pages/components/stores/category/addcategory/addcategory.component';
+import { DeletecategoryComponent } from './pages/components/stores/category/deletecategory/deletecategory.component'
 
 
 
@@ -96,6 +99,9 @@ import { DatabankComponent } from './pages/components/stores/databank/databank.c
     DeleteuserComponent,
     EdituserComponent,
     DatabankComponent,
+    CategoriesComponent,
+    AddcategoryComponent,
+    DeletecategoryComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+<!-- Button trigger modal -->
+
+<i class="fa fa-eraser fa-lg col-md-6 text-danger" aria-hidden="true" data-toggle="modal" [attr.data-target]="'#deletecategoryModal'+category['_id']"></i>
+  
+<!-- Modal -->
+<div class="modal fade" [attr.id]="'deletecategoryModal'+category['_id']" tabindex="-1" role="dialog" aria-labelledby="deletecategoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white ">
+        <h5 class="modal-title" id="deletecategoryModalLabel">Eliminar categoria &nbsp; {{category.name}}</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h4 >¿Esta seguro de eliminar este categoria?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="delete()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

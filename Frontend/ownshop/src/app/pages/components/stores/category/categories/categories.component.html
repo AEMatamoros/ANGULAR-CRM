@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        <h2 class="m-0">Categorias</h2>
+      </div>
+      <div class="col-md-10 text-success mt-1">
+        <h3> Agregar Categoria</h3>  
+    </div>
+    <div class="col-md-2 mt-1  row">
+        <app-addcategory [store]="store"></app-addcategory>
+    </div>
+    <div class="col-md-12">
+      <hr>
+    </div>
+    <div class="col-md-12 row mt-3 mb-3 border">
+      <div class="col-md-3"><Strong>Nombre</Strong></div>
+      <div class="col-md-3"><Strong>Descripcion</Strong></div>
+      <div class="col-md-3"><Strong>Fecha</Strong></div>
+      <div class="col-md-3"><Strong>Opciones</Strong></div>
+      <ng-container *ngIf="store">
+      <ng-container *ngFor="let category of categories">
+      <div class="col-md-3">{{category.name}}</div>
+      <div class="col-md-3">{{category.description}}</div>
+      <div class="col-md-3">{{category.date | date:"dd-mm-yy"}}</div>
+      <div class="col-md-3 row">
+        <app-deletecategory [category]="category"></app-deletecategory>
+      </div>
+    </ng-container>
+  </ng-container>
+    
+    </div>
+    
+    </div>
+  </div>
+  
