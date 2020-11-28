@@ -123,13 +123,14 @@ export class DatabankComponent implements OnInit {
   }
 
   callData(folderId){
-    this.databankService.getBankImgs(this.storeId+`/${folderId}`).subscribe(res=>{this.images=res})
-      this.databankService.getBankVids(this.storeId+`/${folderId}`).subscribe(res=>this.videos=res)
-      this.databankService.getBankPdf(this.storeId+`/${folderId}`).subscribe(res=>this.pdfs=res)
-      this.databankService.getBankRar(this.storeId+`/${folderId}`).subscribe(res=>this.rars=res)
-      this.databankService.getBankOther(this.storeId+`/${folderId}`).subscribe(res=>this.others=res)
-      this.databankService.getBankFolders(this.storeId,folderId).subscribe(res=>this.folders=res);
-      this.currentFolder=folderId
+    this.databankService.getBankImgs(this.storeId+`/${folderId}`).subscribe(res=>{this.images=res,this.addShortCutImages(this.images);})
+    this.databankService.getBankVids(this.storeId+`/${folderId}`).subscribe(res=>{this.videos=res,this.addShortCutVideos(this.videos)})
+    this.databankService.getBankPdf(this.storeId+`/${folderId}`).subscribe(res=>{this.pdfs=res,this.addShortCutPdfs(this.pdfs)})
+    this.databankService.getBankRar(this.storeId+`/${folderId}`).subscribe(res=>{this.rars=res,this.addShortCutRars(this.rars)})
+    this.databankService.getBankOther(this.storeId+`/${folderId}`).subscribe(res=>{this.others=res,this.addShortCutOthers(this.others)})
+    this.databankService.getBankFolders(this.storeId,folderId).subscribe(res=>this.folders=res);
+    this.products=''
+    this.currentFolder=folderId
       
   }
 
