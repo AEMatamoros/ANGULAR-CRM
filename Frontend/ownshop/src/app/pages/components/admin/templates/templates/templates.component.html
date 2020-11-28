@@ -16,10 +16,10 @@
         
         
         <div class="col-md-12 row mt-3 mb-5 border">
-            <div class="col-md-3 mb-1"><Strong>Nombre</Strong></div>
-            <div class="col-md-3 mb-1"><Strong>Descripcion</Strong></div>
-            <div class="col-md-3 mb-1"><Strong>Fecha</Strong></div>
-            <div class="col-md-3 mb-1"><Strong>Opciones</Strong></div>
+            <div class="col-md-3 mb-1  bg-success text-white"><Strong>Nombre</Strong></div>
+            <div class="col-md-3 mb-1  bg-success text-white"><Strong>Descripcion</Strong></div>
+            <div class="col-md-3 mb-1  bg-success text-white"><Strong>Fecha</Strong></div>
+            <div class="col-md-3 mb-1  bg-success text-white"><Strong>Opciones</Strong></div>
              
             <ng-container *ngFor="let template of templates">
               <div class="col-md-3 mb-1">{{template.templateName}}</div>
@@ -35,6 +35,9 @@
                 </button></a>
                 
                 
+              </div>
+              <div class="col-md-12 m-0 p-0">
+                <hr>
               </div>
             </ng-container>
             

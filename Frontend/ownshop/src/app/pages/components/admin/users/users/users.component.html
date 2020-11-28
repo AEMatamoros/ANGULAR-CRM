@@ -1,7 +1,7 @@
 <div class="container">
     <div class="container-fluid">
         <div class="row">
-          <div class="col-md-12 text-left">
+          <div class="col-md-12 text-left ">
           <h2 class="m-0">Usuarios</h2>
         </div>
           <div class="col-md-8  text-success mt-1">
@@ -14,12 +14,12 @@
           <hr>
         </div>
         <div class="col-md-12 row mt-3 mb-3 border">
-            <div class="col-md-2 mb-1"><Strong>Nombre</Strong></div>
-            <div class="col-md-2 mb-1"><Strong>Tipo</Strong></div>
-            <div class="col-md-2 mb-1"><Strong>Plan</Strong></div>
-            <div class="col-md-2"><Strong>Se Creo</Strong></div>
-            <div class="col-md-2"><Strong>Eliminar</Strong></div>
-            <div class="col-md-2"><Strong>Actualizar</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Nombre</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Tipo</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Plan</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Se Creo</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Eliminar</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Actualizar</Strong></div>
             <ng-container *ngFor="let user of users">
             <div class="col-md-2 mb-1">{{user.first_name}} &nbsp; {{user.last_name}}</div>
             <div class="col-md-2 mb-1">{{user.user_type | titlecase}}</div>
@@ -37,6 +37,9 @@
             </div>
             <div class="col-md-2 mb-1 ">
               <app-edituser [user]="user"></app-edituser>
+            </div>
+            <div class="col-md-12 m-0 p-0">
+              <hr>
             </div>
           </ng-container>
         

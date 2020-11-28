@@ -1,141 +1,173 @@
 <div class="container">
-    <div class="row">
-        <h2 class="text-left col-md-12 mb-0 pb-0">Bienvenido a tu banco de datos</h2>
-        <p class="text-left col-md-12 mb-0">Aqui tendras disponible los archivos necesarios para crear atajos.</p>
-        <hr class="col-md-12">
-        <div class="col-md-12 text-right">
-            <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-x3 fa-plus"></i></button>
-            <button class="btn btn-success ml-2" data-toggle="modal" data-target="#exampleModalFolder"><i class="fas fa-x3 fa-folder"></i></button>
+  <div class="row">
+    <h2 class="text-left col-md-12 mb-0 pb-0">Bienvenido a tu banco de datos</h2>
+    <p class="text-left col-md-12 mb-0">Aqui tendras disponible los archivos necesarios para crear atajos.</p>
+    <hr class="col-md-12">
+    <div class="col-md-12 text-right">
+      <ng-container *ngIf="isFolder">
+        <button class="btn btn-info text-white mr-1" (click)="goBack()">
+          <i class="fas fa-arrow-circle-left"></i>
+        </button>
 
-        </div>
-        <ng-container *ngIf="!isFolder">
-        <div class="col-md-12 row">
-            <ng-container *ngIf="folders">
-                <h3 class="text-left col-md-12 mb-0">Carpetas </h3>
-                <hr class="col-md-12">
-                <ng-container *ngFor="let folder of folders">
-                    <div class="col-md-3 mb-2" (click)="openFolder(folder._id)">
-                    <img class="rounded " src="assets/img/folder.png" height="200px" width="210px" alt="">
-                    <p>{{folder.name}}</p>
-                    </div>
-                </ng-container>
-            </ng-container>
-        </div>
-        <div class="col-md-12 row">
-            <ng-container *ngIf="images">
-                <h3 class="text-left col-md-12 mb-0">Imagenes </h3>
-                <hr class="col-md-12">
-                <ng-container *ngFor="let image of images">
-                    <div class="col-md-3 mb-2">
-                    <img class="rounded border" src="http://127.0.0.1:8888/{{image.route}}" height="200px" width="210px" alt="">
-                    </div>
-                </ng-container>
-            </ng-container>
-        </div>
-        <div class="col-md-12 row">
-            <ng-container *ngIf="videos">
-                <h3 class="text-left col-md-12 mb-0">Videos</h3>
-                <hr class="col-md-12">
-                <ng-container *ngFor="let video of videos">
-                    <video width="228" height="218" controls class="ml-3 border">
-                        <source src="http://127.0.0.1:8888/{{video.route}}" type="video/mp4">
-                      Your browser does not support the video tag.
-                      </video>
-                </ng-container>
-            </ng-container>
-        </div>
-        <div class="col-md-12 row">
-            <ng-container *ngIf="pdfs">
-                <h3 class="text-left col-md-12 mb-0">PDF</h3>
-                <hr class="col-md-12"> 
-                <ng-container *ngFor="let pdf of pdfs">
-                    <div class="col-md-3">
-                        <img class="rounded " src="assets/img/pdf.png" height="200px" width="210px" alt="">
-                        {{pdf._id}}
-                    </div>
-                </ng-container>
-            </ng-container>
-        </div>
-        <div class="col-md-12 row">
-            <ng-container *ngIf="rars">
-                <h3 class="text-left col-md-12 mb-0">RAR</h3>
-                <hr class="col-md-12"> 
-                <ng-container *ngFor="let rar of rars">
-                    <div class="col-md-3">
-                        <img class="rounded " src="assets/img/rar.png" height="200px" width="210px" alt="">
-                        {{rar._id}}
-                    </div>
-                </ng-container>
-            </ng-container>
-        </div>
-        <div class="col-md-12 row">
-            <ng-container *ngIf="others">
-                <h3 class="text-left col-md-12 mb-0">Otros</h3>
-                <hr class="col-md-12">
-                <ng-container *ngFor="let other of others">
-                    <div class="col-md-3">
-                        <img class="rounded " src="assets/img/other.png" height="200px" width="210px" alt="">
-                        {{other._id}}
-                    </div>
-                </ng-container>
-            </ng-container>
-        </div>
-    </ng-container>
+      </ng-container>
+      <ng-container *ngIf="store">
+        <app-addproduct [store]="store"></app-addproduct>
+      </ng-container>
+      <button class="btn btn-success ml-2" data-toggle="modal" data-target="#exampleModal"><i
+          class="fas fa-x3 fa-plus"></i></button>
+      <button class="btn btn-warning text-white ml-2" data-toggle="modal" data-target="#exampleModalFolder"><i
+          class="fas fa-x3 fa-folder"></i></button>
+
     </div>
+    <ng-container>
+      <div class="col-md-12 row">
+        <ng-container *ngIf="folders">
+          <h3 class="text-left col-md-12 mb-0">Carpetas </h3>
+          <hr class="col-md-12">
+          <ng-container *ngFor="let folder of folders">
+            <div class="col-md-3 mb-2" (click)="openFolder(folder._id)">
+              <img class="rounded " src="assets/img/folder.png" height="200px" width="210px" alt="">
+              <p>{{folder.name}}</p>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-md-12 row">
+        <ng-container *ngIf="products">
+          <h3 class="text-left col-md-12 mb-0">Productos </h3>
+          <hr class="col-md-12">
+          <ng-container *ngFor="let product of products">
+            <div class="col-md-3 mb-2">
+              <p>{{product.productName}}</p>
+              <img class="rounded border" src="http://127.0.0.1:8888/{{product.imgRoute}}" height="200px" width="210px"
+                alt="">
+              <label for="" class="form-control">{{product.shortcut}}</label>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-md-12 row">
+        <ng-container *ngIf="images">
+          <h3 class="text-left col-md-12 mb-0">Imagenes </h3>
+          <hr class="col-md-12">
+          <ng-container *ngFor="let image of images">
+            <div class="col-md-3 mb-2">
+              <img class="rounded border" src="http://127.0.0.1:8888/{{image.route}}" height="200px" width="210px"
+                alt="">
+              <label for="" class="form-control">{{image.shortcut}}</label>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-md-12 row">
+        <ng-container *ngIf="videos">
+          <h3 class="text-left col-md-12 mb-0">Videos</h3>
+          <hr class="col-md-12">
+          <ng-container *ngFor="let video of videos">
+            <div class="col-md-3 mb-2">
+              <video width="228" height="218" controls class="ml-3 border">
+                <source src="http://127.0.0.1:8888/{{video.route}}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <label for="" class="form-control">{{video.shortcut}}</label>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-md-12 row">
+        <ng-container *ngIf="pdfs">
+          <h3 class="text-left col-md-12 mb-0">PDF</h3>
+          <hr class="col-md-12">
+          <ng-container *ngFor="let pdf of pdfs">
+            <div class="col-md-3">
+              <img class="rounded " src="assets/img/pdf.png" height="200px" width="210px" alt="">
+              <label for="" class="form-control">{{pdf.shortcut}}</label>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-md-12 row">
+        <ng-container *ngIf="rars">
+          <h3 class="text-left col-md-12 mb-0">RAR</h3>
+          <hr class="col-md-12">
+          <ng-container *ngFor="let rar of rars">
+            <div class="col-md-3">
+              <img class="rounded " src="assets/img/rar.png" height="200px" width="210px" alt="">
+              <label for="" class="form-control">{{rar.shortcut}}</label>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-md-12 row">
+        <ng-container *ngIf="others">
+          <h3 class="text-left col-md-12 mb-0">Otros</h3>
+          <hr class="col-md-12">
+          <ng-container *ngFor="let other of others">
+            <div class="col-md-3">
+              <img class="rounded " src="assets/img/other.png" height="200px" width="210px" alt="">
+              <label for="" class="form-control">{{other.shortcut}}</label>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar Archivo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="container-fluid">
-              <div class="row">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input text-left" id="customFile" (change)="selectFile($event)">
-                    <label class="custom-file-label" for="customFile"></label>
-                  </div>
-              </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Archivo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input text-left" id="customFile" (change)="selectFile($event)">
+              <label class="custom-file-label" for="customFile"></label>
+            </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" (click)="upload()">Agregar al Banco</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="upload()">Agregar al Banco</button>
       </div>
     </div>
   </div>
+</div>
 
 <!-- Modal Folder-->
-<div class="modal fade" id="exampleModalFolder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar Carpeta</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="container-fluid">
-              <div class="row">
-                  <form [formGroup]="newFolderForm" class="col-md-12 row">
-                      <label for="">Nombre</label>
-                        <input type="text" class="form-control col-md-12" formControlName='folderName' >
-                  </form>
-                    </div>
+<div class="modal fade" id="exampleModalFolder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Carpeta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <form [formGroup]="newFolderForm" class="col-md-12 row">
+              <label for="">Nombre</label>
+              <input type="text" class="form-control col-md-12" formControlName='folderName'>
+            </form>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" (click)="newFolder()">Agregar al Banco</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="newFolder()">Agregar al Banco</button>
       </div>
     </div>
   </div>
+</div>

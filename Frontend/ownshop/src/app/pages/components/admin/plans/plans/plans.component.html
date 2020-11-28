@@ -14,14 +14,14 @@
           <hr>
         </div>
         <div class="col-md-12 row mt-3 mb-3 border">
-            <div class="col-md-2 mb-1"><Strong>Nombre</Strong></div>
-            <div class="col-md-2 mb-1"><Strong>Host</Strong></div>
-            <div class="col-md-2 mb-1"><Strong>Almacenamiento(GB)</Strong></div>
-            <div class="col-md-1 mb-1"><Strong>#Paginas</Strong></div>
-            <div class="col-md-1 mb-1"><Strong>#Tiendas</Strong></div>
-            <div class="col-md-2"><Strong>Se Creo</Strong></div>
-            <div class="col-md-1"><Strong>Eliminar</Strong></div>
-            <div class="col-md-1"><Strong>Actualizar</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Nombre</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Host</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Almacenamiento(GB)</Strong></div>
+            <div class="col-md-1 mb-1 bg-success text-white"><Strong>#Paginas</Strong></div>
+            <div class="col-md-1 mb-1 bg-success text-white"><Strong>#Tiendas</Strong></div>
+            <div class="col-md-2 mb-1 bg-success text-white"><Strong>Se Creo</Strong></div>
+            <div class="col-md-1 mb-1 bg-success text-white"><Strong>Eliminar</Strong></div>
+            <div class="col-md-1 mb-1 bg-success text-white"><Strong>Actualizar</Strong></div>
             <ng-container *ngFor="let plan of plans">
             <div class="col-md-2 mb-1">{{plan.name}}</div>
             <div class="col-md-2 mb-1">
@@ -37,6 +37,9 @@
             </div>
             <div class="col-md-1 mb-1 ">
               <app-editplan  [plan]="plan" class="col-md-6"></app-editplan>
+            </div>
+            <div class="col-md-12 m-0 p-0">
+              <hr>
             </div>
           </ng-container>
         
