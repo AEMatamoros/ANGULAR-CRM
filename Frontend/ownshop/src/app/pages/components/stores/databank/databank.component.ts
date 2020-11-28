@@ -32,6 +32,7 @@ export class DatabankComponent implements OnInit {
   folderOrder=[]
   products
   //Shortcuts
+  
 
   newFolderForm= new FormGroup({
     folderName: new FormControl('',Validators.required),
@@ -136,38 +137,41 @@ export class DatabankComponent implements OnInit {
 
   addShortCutImages(images){
     images.forEach(img => {
-      img['shortcut']=`{imagen:${img['_id']}}`
+      img['shortcut']=`{"tipo":"imagen","imagen":"${img['_id']}"}`
     });
   }
 
   addShortCutVideos(videos){
     videos.forEach(vid => {
-      vid['shortcut']=`{video:${vid['_id']}}`
+      vid['shortcut']=`{"tipo":"video","video":"${vid['_id']}"}`
     });
   }
 
   addShortCutPdfs(pdfs){
     pdfs.forEach(pdf => {
-      pdf['shortcut']=`{pdf:${pdf['_id']}}`
+      pdf['shortcut']=`{"tipo":"pdf","pdf":"${pdf['_id']}"}`
     });
   }
 
   addShortCutRars(rars){
     rars.forEach(rar => {
-      rar['shortcut']=`{rar:${rar['_id']}}`
+      rar['shortcut']=`{"tipo":"rar","rar":"${rar['_id']}"}`
     });
   }
 
   addShortCutOthers(others){
     others.forEach(other => {
-      other['shortcut']=`{other:${other['_id']}}`
+      other['shortcut']=`{"tipo":"other","other":"${other['_id']}"}`
     });
   }
 
   addShortCutProducts(products){
     products.forEach(product => {
-      product['shortcut']=`{product:${product['_id']}}`
+      product['shortcut']=`{"tipo":"producto","producto":"${product['_id']}"}`
+      //product['shortcut']=JSON.parse(product['shortcut'])
     });
+    console.log(products)
   }
+  
   
 }
