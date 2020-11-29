@@ -58,6 +58,7 @@ router.post('',(req,res)=>{
         "price":req.body.price,
         "imgRoute":req.body.imgRoute,
         "store":req.body.store,
+        "category":req.body.category
     });
 
     product.save()
@@ -75,6 +76,7 @@ router.put('/:id',(req,res)=>{
             "productDesc":req.body.productDesc,
             "price":req.body.price,
             "imgRoute":req.body.imgRoute,
+            "category":req.body.category
         })
          .then(result=>res.send(result))
          .catch(err=>res.send(err))

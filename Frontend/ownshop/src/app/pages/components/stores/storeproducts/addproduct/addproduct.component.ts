@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ProductService } from 'src/app/services/product/product.service'
+import { CategoryService} from 'src/app/services/category/category.service'
 
 @Component({
   selector: 'app-addproduct',
@@ -10,17 +11,20 @@ import { ProductService } from 'src/app/services/product/product.service'
 export class AddproductComponent implements OnInit {
   @Input() store
   images
+  categories 
 
   newProductForm= new FormGroup({
     productName:new FormControl('',Validators.required),
     productDesc:new FormControl('',Validators.required),
     price:new FormControl('',Validators.required),
     imgRoute:new FormControl('',Validators.required),
-    store: new FormControl('',Validators.required)
+    store: new FormControl('',Validators.required),
+    category: new FormControl('',Validators.required)
   })
-  constructor(private productService:ProductService) { }
+  constructor(private productService:ProductService, private categoryService:CategoryService) { }
 
   ngOnInit(): void {
+    this.categoryService.getStoreCategories(this.store['_id']).subscribe(res=>this.categories=res)
   }
 
   //gets
@@ -32,6 +36,9 @@ export class AddproductComponent implements OnInit {
   }
   get price(){
     return this.newProductForm.get('price')
+  }
+  get category(){
+    return this.newProductForm.get('category')
   }
   
   selectImage(event){

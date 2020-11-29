@@ -5,4 +5,5 @@ export class Product {
     public store:string
     public date:string
     public price:string
+    public category:string
 }

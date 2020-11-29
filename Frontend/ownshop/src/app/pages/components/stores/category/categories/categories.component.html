@@ -23,7 +23,8 @@
       <div class="col-md-3">{{category.description}}</div>
       <div class="col-md-3">{{category.date | date:"dd-mm-yy"}}</div>
       <div class="col-md-3 row">
-        <app-deletecategory [category]="category"></app-deletecategory>
+        <app-editcategory [category]="category" class="col-md-6"></app-editcategory>
+        <app-deletecategory [category]="category" class="col-md-6"></app-deletecategory>
       </div>
     </ng-container>
   </ng-container>

@@ -28,8 +28,16 @@
             <div class="col-md-4 mb-3"><input type="text" class="form form-control" formControlName='pageName'
                     required></div>
             <div class="col-md-2 mb-3"><label for="">Tipo de la pagina</label></div>
-            <div class="col-md-4 mb-3"><input type="text" class="form form-control" formControlName='pageType'
-                required></div>
+            <div class="col-md-4 mb-3">
+                <select name="" id=""formControlName='pageType' required class="form-control">
+                    <option value="main">Pagina Principal</option>
+                    <option value="products">Productos</option>
+                    <option value="about">Acerca de</option>
+                    <option value="sells">Ventas</option>
+                    <option value="other">Otros</option>
+
+                </select>
+            </div>
 
         </form>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">

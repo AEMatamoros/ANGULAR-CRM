@@ -23,6 +23,17 @@
                   <div class="col-md-4 mb-3">Precio</div>
                   <div class="col-md-8 mb-3"><input type="text" class="form-control" formControlName="price" required></div>
                   <div class="col-md-4 mb-3">Categoria</div>
+                  <div class="col-md-8 mb-3">
+                    <ng-container *ngIf="categories">
+                      <select name="" id="" formControlName="category" required class="form-control">
+                        <ng-container *ngFor="let cat of categories">
+                          <option value="{{cat.name}}">{{cat.name}}</option>
+                        </ng-container>
+                      </select>
+                    </ng-container>
+                    
+                    <span *ngIf="category.invalid && category.dirty">Campo Obligatorio</span>
+                  </div>
                   <div class="col-md-12">
                       <div class="custom-file">
                           <input type="file" class="custom-file-input" id="customFile" (change)="selectImage($event)">

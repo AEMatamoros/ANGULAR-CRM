@@ -51,7 +51,8 @@ import { EdituserComponent } from './pages/components/admin/users/edituser/editu
 import { DatabankComponent } from './pages/components/stores/databank/databank.component';
 import { CategoriesComponent } from './pages/components/stores/category/categories/categories.component';
 import { AddcategoryComponent } from './pages/components/stores/category/addcategory/addcategory.component';
-import { DeletecategoryComponent } from './pages/components/stores/category/deletecategory/deletecategory.component'
+import { DeletecategoryComponent } from './pages/components/stores/category/deletecategory/deletecategory.component';
+import { EditcategoryComponent } from './pages/components/stores/category/editcategory/editcategory.component'
 
 
 
@@ -102,6 +103,7 @@ import { DeletecategoryComponent } from './pages/components/stores/category/dele
     CategoriesComponent,
     AddcategoryComponent,
     DeletecategoryComponent,
+    EditcategoryComponent,
   ],
   imports: [
     BrowserModule,
