@@ -1,0 +1,38 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="assets/img/user.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      OWNSHOP
+    </a>
+    <div class="form-inline">
+        {{user.first_name}} &nbsp; {{user.last_name}}
+        <button class="btn btn-success my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" (click)="logout()">Cerrar Sesion</button>
+    </div> 
+</nav>
+<div class="container">
+    <div class="row">
+        <ng-container *ngIf="ok">
+            <ng-container   *ngFor="let store of stores">
+                <h3 class="col-md-12">Tiendas disponibles</h3>
+                <div class="col-md-6 ">
+                    <p>Nombre de la Tienda</p>
+                </div>
+                <div class="col-md-6 ">
+                    <p>Disponible desde:</p>
+                </div>
+                <div class="col-md-6 ">
+                    <a [routerLink]="['/storepage',store['_id']]" class="col-md-12"> {{store.storeName}}</a> <br>
+                </div>
+                <div class="col-md-6 ">
+                    <a  class="col-md-12"> {{store.dateCreated | date:'yyyy-mm-dd'}}</a> <br>
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="!ok" >
+            <div  class="center">
+                <h1>No hay tiendas creadas</h1>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
