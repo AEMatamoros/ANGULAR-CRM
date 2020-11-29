@@ -6,6 +6,10 @@
         </ng-container>
       </ng-container>
     </div>
+    <ng-container *ngIf="!html">
+      <h1>No tiene una pagina principal configurada</h1>
+    </ng-container>
+      <ng-container *ngIf="html">
       <div [innerHTML]='html | safehtml'>
   
       </div>
@@ -33,6 +37,7 @@
       <div [innerHTML]='html2 | safehtml'>
   
       </div>
+    </ng-container>
       
       
   </div>

@@ -21,20 +21,28 @@ export class ViewpageComponent implements OnInit {
     this.route.params.subscribe(params=>{
       this.storeId=params.id
       this.storePageService.getStorePages(this.storeId).subscribe(res=>{this.pages=res
-      if(this.pages[0].html.indexOf('<products>') > -1){
-        this.isProductTemp=true
-        this.tempManage=this.pages[0].html.split('<products>');
-        this.html=`<head><style>${this.pages[0].css}</style></head>`+this.tempManage[0];
-        this.html2=this.tempManage[1]
-        this.isProductTemp=true
-      }else{
-        this.html=`<head><style>${this.pages[0].css}</style></head>`+this.pages[0].html
-        this.html2=""
-        this.isProductTemp=false
-      }
+      this.pages.forEach(page => {
+        if(page.pageType=='main'){
+          if(page.html.indexOf('<products>') > -1){
+            this.isProductTemp=true
+            this.tempManage=page.html.split('<products>');
+            this.html=`<head><style>${page.css}</style></head>`+this.tempManage[0];
+            this.html2=this.tempManage[1]
+            this.isProductTemp=true
+          }else{
+            this.html=`<head><style>${page.css}</style></head>`+this.pages[0].html
+            this.html2=""
+            this.isProductTemp=false
+          }
+    
+
+        }
+      });
+     
       this.productService.getStoreProducts(this.storeId).subscribe(res=>{
         this.products=res
-        console.log(this.products)})
+        //console.log(this.products)
+      })
       })
     })
 
