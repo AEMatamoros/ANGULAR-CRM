@@ -19,6 +19,7 @@ import { TemplatepreviewComponent } from './pages/components/admin/templates/tem
 import { EdittemplateComponent } from './pages/components/admin/templates/edittemplate/edittemplate.component'
 import { DatabankComponent } from './pages/components/stores/databank/databank.component';
 import { ClientComponent } from './pages/components/client/client.component'
+import { ProductpreviewComponent } from './pages/components/client/productpreview/productpreview.component'
 //rutas
 const routes: Routes = [
   {"path":"",component:LandingComponent,},
@@ -39,7 +40,8 @@ const routes: Routes = [
   {'path':'admin/templatepreview/:id',component:TemplatepreviewComponent},
   {'path':'admin/templateedit/:id',component:EdittemplateComponent},
   {'path':'databank/:id',component:DatabankComponent},
-  {'path':'client',component:ClientComponent}
+  {'path':'client',component:ClientComponent},
+  {'path':'products/:id',component:ProductpreviewComponent}
   
 ];
  

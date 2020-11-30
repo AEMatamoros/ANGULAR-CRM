@@ -12,7 +12,6 @@
 <div class="container">
     <div class="row">
         <ng-container *ngIf="ok">
-            <ng-container   *ngFor="let store of stores">
                 <h3 class="col-md-12">Tiendas disponibles</h3>
                 <div class="col-md-6 ">
                     <p>Nombre de la Tienda</p>
@@ -20,6 +19,7 @@
                 <div class="col-md-6 ">
                     <p>Disponible desde:</p>
                 </div>
+                <ng-container   *ngFor="let store of stores">
                 <div class="col-md-6 ">
                     <a [routerLink]="['/storepage',store['_id']]" class="col-md-12"> {{store.storeName}}</a> <br>
                 </div>

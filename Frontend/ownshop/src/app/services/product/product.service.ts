@@ -23,6 +23,10 @@ export class ProductService {
   getStoreProducts(storeId){
     return this.http.get(this.API_Url_Product+`/store/${storeId}`,this.httpOptions)
   }
+   
+  getProduct(productId){
+    return this.http.get(this.API_Url_Product+`/${productId}`,this.httpOptions)
+  }
 
   postProductImg(form){
     return this.http.post<any>(this.API_Url_Product+'/img',form)

@@ -33,24 +33,41 @@
                       </select>
                       <span *ngIf="pageType.invalid && pageType.dirty">Campo Obligatorio</span>
                   </div>
-                    
-                    <ng-container *ngFor="let template of templates" class="row">
-                        <div class="card  col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12 m-3 " style="width: 14rem;">
-                        <img class="card-img-top" src="http://127.0.0.1:8888/{{template.img_route}}" alt="Card image cap">
-                          <div class="card-body">
-                            <h5 class="card-title">{{template.templateName}}</h5>
-                            <p class="card-text">{{template.templateDescription}}</p>
+                  
+                    <div class="row">
+                      <div class="card  col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12 m-3 " style="width: 14rem;">
+                        <img class="card-img-top" height="250px" width="100%" src="assets/img/newTemplate.jpg" alt="Card image cap">
+                          <div class="card-body p-2">
+                            <h5 class="card-title">Plantilla en blanco</h5>
+                            <p class="card-text">Plantilla vacia</p>
                             <div class="radio radio-primary">
                                 <label >
-                                    Seleccionar<input type="radio" name="tempId" id="Radios2" value="{{template['_id']}}" class="ml-4" formControlName="tempId" required>
+                                    Seleccionar<input type="radio" name="tempId" id="Radios2" value="blank" class="ml-4" formControlName="tempId" required>
                                     <span *ngIf="tempId.invalid && tempId.dirty">Campo Obligatorio</span>
                                 </label>
                                
                               </div>
                           </div>
                         </div>
-                      </ng-container>
-                      </form>
+                        <ng-container *ngFor="let template of templates" >
+                          <div class="card  col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12 m-3 " style="width: 14rem;">
+                          <img class="card-img-top" height="250px" width="100%" src="http://127.0.0.1:8888/{{template.img_route}}" alt="Card image cap">
+                            <div class="card-body p-2">
+                              <h5 class="card-title">{{template.templateName}}</h5>
+                              <p class="card-text">{{template.templateDescription}}</p>
+                              <div class="radio radio-primary">
+                                  <label >
+                                      Seleccionar<input type="radio" name="tempId" id="Radios2" value="{{template['_id']}}" class="ml-4" formControlName="tempId" required>
+                                      <span *ngIf="tempId.invalid && tempId.dirty">Campo Obligatorio</span>
+                                  </label>
+                                 
+                                </div>
+                            </div>
+                          </div>
+                        </ng-container>
+                    </div>
+                  
+                    </form>
                 </div>
             </div>
         </div>

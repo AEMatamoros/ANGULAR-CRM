@@ -53,7 +53,8 @@ import { CategoriesComponent } from './pages/components/stores/category/categori
 import { AddcategoryComponent } from './pages/components/stores/category/addcategory/addcategory.component';
 import { DeletecategoryComponent } from './pages/components/stores/category/deletecategory/deletecategory.component';
 import { EditcategoryComponent } from './pages/components/stores/category/editcategory/editcategory.component';
-import { ClientComponent } from './pages/components/client/client.component'
+import { ClientComponent } from './pages/components/client/client.component';
+import { ProductpreviewComponent } from './pages/components/client/productpreview/productpreview.component'
 
 
 
@@ -106,6 +107,7 @@ import { ClientComponent } from './pages/components/client/client.component'
     DeletecategoryComponent,
     EditcategoryComponent,
     ClientComponent,
+    ProductpreviewComponent,
   ],
   imports: [
     BrowserModule,

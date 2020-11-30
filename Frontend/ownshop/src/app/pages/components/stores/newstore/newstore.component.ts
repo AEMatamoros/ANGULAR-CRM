@@ -64,4 +64,23 @@ export class NewstoreComponent implements OnInit {
   
     },err=>console.log(err))
   }
+  newBlankStore(){
+    this.company=JSON.parse(localStorage.getItem('companyData'))
+    this.newStoreForm.controls['company'].setValue(this.company['_id']);
+
+    this.newPageForm.controls['html'].setValue('');
+    this.newPageForm.controls['css'].setValue('');
+    this.newPageForm.controls['js'].setValue('');
+    
+    //console.log(this.newStoreForm.value)
+    //console.log(this.newPageForm.value)
+    this.StoreService.postStore(this.newStoreForm.value).subscribe(store=>{
+      this.store=store
+      this.newPageForm.controls['store'].setValue(this.store['_id']);
+      this.storePageService.postStorePage(this.newPageForm.value).subscribe(
+        res=>{this.router.navigateByUrl('/main')},
+        err=>{console.log(err)})
+  
+    },err=>console.log(err))
+  }
 }

@@ -50,6 +50,10 @@ export class AddtemplateComponent implements OnInit {
         this.newPageForm.controls['html'].setValue(template.html)
         this.newPageForm.controls['css'].setValue(template.css)
         this.newPageForm.controls['js'].setValue(template.js)
+      }else{
+        this.newPageForm.controls['html'].setValue('html')
+        this.newPageForm.controls['css'].setValue('css')
+        this.newPageForm.controls['js'].setValue('js')
       }
     });
     this.storePagesService.postStorePage(this.newPageForm.value).subscribe(res=>location.reload(),err=>console.log(err))
