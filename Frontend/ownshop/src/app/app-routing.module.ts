@@ -20,6 +20,8 @@ import { EdittemplateComponent } from './pages/components/admin/templates/editte
 import { DatabankComponent } from './pages/components/stores/databank/databank.component';
 import { ClientComponent } from './pages/components/client/client.component'
 import { ProductpreviewComponent } from './pages/components/client/productpreview/productpreview.component'
+import { CartComponent } from './pages/components/client/cart/cart.component'
+import { BuysComponent } from './pages/components/client/buys/buys.component'
 //rutas
 const routes: Routes = [
   {"path":"",component:LandingComponent,},
@@ -41,7 +43,9 @@ const routes: Routes = [
   {'path':'admin/templateedit/:id',component:EdittemplateComponent},
   {'path':'databank/:id',component:DatabankComponent},
   {'path':'client',component:ClientComponent},
-  {'path':'products/:id',component:ProductpreviewComponent}
+  {'path':'products/:id',component:ProductpreviewComponent},
+  {'path':'cart',component:CartComponent},
+  {'path':'buys',component:BuysComponent},
   
 ];
  

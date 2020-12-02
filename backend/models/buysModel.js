@@ -5,13 +5,12 @@ const buysSchema = new mongoose.Schema({
         type: Date,
         default:Date.now
     },
-    store:{
-        type: String,
-        required:true,
-        trim:true
-    },
     products:{
         type:Array,
+        required:true
+    },
+    userId:{
+        type:String,
         required:true
     }
 })

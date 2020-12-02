@@ -1,10 +1,16 @@
+<ng-container *ngIf="store">
 <ng-container *ngIf="product">
     <div class="col-md-12 alert-success">
         top
     </div>
 <div class="container mt-5">
-
-    <div class="row">
+     <div class="row">
+       <div class="col-md-12 text-right">
+         <a [routerLink]="['/cart']">
+           <button class="btn btn-success">Carrito de Compras</button>
+         </a>
+          
+       </div>
         <div class="col-md-12 center">
             <h1>{{store.storeName}}</h1>
         </div>
@@ -32,12 +38,12 @@
           
         </div>
         <div class="col-md-6 pl-4 pr-4">
-            <button type="Button" class="btn btn-carrito  lg-2 form-control" >
+            <button type="Button" class="btn btn-carrito  lg-2 form-control" data-toggle="modal" data-target="#cArtModalLong">
                 <i class="fa fa-shopping-cart"></i>
             </button>
         </div>
         <div class="col-md-6 pl-4 pr-4">
-            <button type="Button" class="btn btn-carrito  lg-2 form-control" >
+            <button type="Button" class="btn btn-carrito  lg-2 form-control" (click)="buy()" >
                 Comprar
             </button>
         </div>
@@ -47,7 +53,50 @@
       </div>
     </div>
   </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="cArtModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">¿Desea agregar el producto &nbsp; {{product.productName}} ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form class="row" [formGroup]="newProductForm">
+            <label for="" class="col-md-8 mb-1" >{{product.productDesc}}</label>
+            <label for="" class="col-md-4 mb-1"><strong>{{product.price}} L.</strong></label>
+            <div class="col-md-8 mb-1">
+              <label for="" >Cantidad</label>
+            </div>
+            <div class="col-md-4 mb-1">
+              <input type="number" class="form-control" formControlName="units" required>
+            </div>
+            <div class="col-md-8 mb-1">
+              <label for="">Total</label>
+            </div>
+            <div class="col-md-3">
+              <input type="text" class="form-control" readonly>
+            </div>
+            <div class="col-md-1">
+              <h3>L.</h3>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Clancelar</button>
+        <button type="button" class="btn btn-primary" (click)="addToCart()">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
 </ng-container>
-<div class="col-md-12 alert-success fixed-bottom">
-    BOt
+</ng-container>
+<div class="col-md-12 alert-success ">
+  BOt
 </div>

@@ -54,7 +54,9 @@ import { AddcategoryComponent } from './pages/components/stores/category/addcate
 import { DeletecategoryComponent } from './pages/components/stores/category/deletecategory/deletecategory.component';
 import { EditcategoryComponent } from './pages/components/stores/category/editcategory/editcategory.component';
 import { ClientComponent } from './pages/components/client/client.component';
-import { ProductpreviewComponent } from './pages/components/client/productpreview/productpreview.component'
+import { ProductpreviewComponent } from './pages/components/client/productpreview/productpreview.component';
+import { CartComponent } from './pages/components/client/cart/cart.component';
+import { BuysComponent } from './pages/components/client/buys/buys.component'
 
 
 
@@ -108,6 +110,8 @@ import { ProductpreviewComponent } from './pages/components/client/productprevie
     EditcategoryComponent,
     ClientComponent,
     ProductpreviewComponent,
+    CartComponent,
+    BuysComponent,
   ],
   imports: [
     BrowserModule,

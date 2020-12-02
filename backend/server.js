@@ -13,6 +13,7 @@ const storePagesRouter = require('./routes/storePage');
 const productRouter = require('./routes/products');
 const dataBankRouter = require('./routes/dataBank');
 const categoryRouter = require('./routes/category');
+const buysRouter = require('./routes/buys');
 //Confs
 const app = express();
 const router = express.Router();
@@ -35,6 +36,7 @@ app.use("/storepage",storePagesRouter);
 app.use("/product",productRouter);
 app.use("/databank",dataBankRouter);
 app.use("/category",categoryRouter);
+app.use("/buys",buysRouter);
 
 router.get('/', (req, res) => {
   res.send('OwnShopAPI te da la bienvenida');
