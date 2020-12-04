@@ -22,30 +22,34 @@ import { ClientComponent } from './pages/components/client/client.component'
 import { ProductpreviewComponent } from './pages/components/client/productpreview/productpreview.component'
 import { CartComponent } from './pages/components/client/cart/cart.component'
 import { BuysComponent } from './pages/components/client/buys/buys.component'
+
+//Guard
+import {AuthGuard} from 'src/app/guard/auth/auth.guard'
+import {AdminGuard} from 'src/app/guard/auth/admin.guard'
 //rutas
 const routes: Routes = [
   {"path":"",component:LandingComponent,},
   {"path":"login",component:LoginComponent},
   {"path":"register",component:RegisterComponent},
   {"path":"registerEnterprise",component:RegisterEnterpriseComponent},
-  {'path':"main",component:MainComponent},
-  {'path':"newstore",component:NewstoreComponent},
-  {'path':"editstore/:id",component:EditstoreComponent},
-  {'path':'editstore/code/editcode/:id',component:EditcodeComponent},
-  {'path':'newpagew',component:WYSIWYGEditorComponent},
-  {'path':'profile',component:UserprofileComponent},
-  {'path':'storepage/:id',component:ViewpageComponent},
-  {'path':'admin',component:AdminComponent},
-  {'path':'admin/companies',component:CompaniesComponent},
-  {'path':'admin/templates',component:TemplatesComponent},
-  {'path':'admin/plans',component:PlansComponent},
-  {'path':'admin/templatepreview/:id',component:TemplatepreviewComponent},
-  {'path':'admin/templateedit/:id',component:EdittemplateComponent},
-  {'path':'databank/:id',component:DatabankComponent},
-  {'path':'client',component:ClientComponent},
-  {'path':'products/:id',component:ProductpreviewComponent},
-  {'path':'cart',component:CartComponent},
-  {'path':'buys',component:BuysComponent},
+  {'path':"main",component:MainComponent,canActivate:[AuthGuard]},
+  {'path':"newstore",component:NewstoreComponent,canActivate:[AuthGuard]},
+  {'path':"editstore/:id",component:EditstoreComponent,canActivate:[AuthGuard]},
+  {'path':'editstore/code/editcode/:id',component:EditcodeComponent,canActivate:[AuthGuard]},
+  {'path':'newpagew',component:WYSIWYGEditorComponent,canActivate:[AuthGuard]},
+  {'path':'profile',component:UserprofileComponent,canActivate:[AuthGuard]},
+  {'path':'storepage/:id',component:ViewpageComponent,canActivate:[AuthGuard]},
+  {'path':'admin',component:AdminComponent,canActivate:[AuthGuard,AdminGuard]},
+  {'path':'admin/companies',component:CompaniesComponent,canActivate:[AuthGuard,AdminGuard]},
+  {'path':'admin/templates',component:TemplatesComponent,canActivate:[AuthGuard,AdminGuard]},
+  {'path':'admin/plans',component:PlansComponent,canActivate:[AuthGuard,AdminGuard]},
+  {'path':'admin/templatepreview/:id',component:TemplatepreviewComponent,canActivate:[AuthGuard,AdminGuard]},
+  {'path':'admin/templateedit/:id',component:EdittemplateComponent,canActivate:[AuthGuard,AdminGuard]},
+  {'path':'databank/:id',component:DatabankComponent,canActivate:[AuthGuard]},
+  {'path':'client',component:ClientComponent,canActivate:[AuthGuard]},
+  {'path':'products/:id',component:ProductpreviewComponent,canActivate:[AuthGuard]},
+  {'path':'cart',component:CartComponent,canActivate:[AuthGuard]},
+  {'path':'buys',component:BuysComponent,canActivate:[AuthGuard]},
   
 ];
  
