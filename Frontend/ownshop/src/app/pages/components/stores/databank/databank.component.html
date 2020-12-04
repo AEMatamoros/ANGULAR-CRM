@@ -27,7 +27,8 @@
           <ng-container *ngFor="let folder of folders">
             <div class="col-md-3 mb-2" (click)="openFolder(folder._id)">
               <img class="rounded " src="assets/img/folder.png" height="200px" width="210px" alt="">
-              <p>{{folder.name}}</p>
+              <p class="center">{{folder.name}}<i class="far fa-trash-alt" style="color:red"(click)="removeFolder(folder['_id'])"></i></p>
+              
             </div>
           </ng-container>
         </ng-container>
@@ -54,6 +55,8 @@
             <div class="col-md-3 mb-2">
               <img class="rounded border" src="http://127.0.0.1:8888/{{image.route}}" height="200px" width="210px"
                 alt="">
+              <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(image['_id'])"></i></p>
+
               <label for="" class="form-control">{{image.shortcut}}</label>
             </div>
           </ng-container>
@@ -69,6 +72,7 @@
                 <source src="http://127.0.0.1:8888/{{video.route}}" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
+              <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(video['_id'])"></i></p>
               <label for="" class="form-control">{{video.shortcut}}</label>
             </div>
           </ng-container>
@@ -82,6 +86,7 @@
             <div class="col-md-3">
               <img class="rounded " src="assets/img/pdf.png" height="200px" width="210px" alt="">
               <label for="" class="form-control">{{pdf.shortcut}}</label>
+              <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(pdf['_id'])"></i></p>
             </div>
           </ng-container>
         </ng-container>
@@ -94,6 +99,7 @@
             <div class="col-md-3">
               <img class="rounded " src="assets/img/rar.png" height="200px" width="210px" alt="">
               <label for="" class="form-control">{{rar.shortcut}}</label>
+              <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(rar['_id'])"></i></p>
             </div>
           </ng-container>
         </ng-container>
@@ -106,6 +112,7 @@
             <div class="col-md-3">
               <img class="rounded " src="assets/img/other.png" height="200px" width="210px" alt="">
               <label for="" class="form-control">{{other.shortcut}}</label>
+              <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(other['_id'])"></i></p>
             </div>
           </ng-container>
         </ng-container>

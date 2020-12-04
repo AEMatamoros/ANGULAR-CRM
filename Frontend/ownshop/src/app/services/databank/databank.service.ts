@@ -56,4 +56,12 @@ export class DatabankService {
     return this.http.get<any>(this.API_Url_DataBank+`/folder/${storeId}/${parent}`,this.httpOptions)
   }
 
+  deleteBankFolder(folderId){
+    return this.http.delete(this.API_Url_DataBank+`/folder/${folderId}`,this.httpOptions)
+  }
+
+  deleteBankElement(elementId){
+    return this.http.delete(this.API_Url_DataBank+`/${elementId}`,this.httpOptions)
+  }
+
 }

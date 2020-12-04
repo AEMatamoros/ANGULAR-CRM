@@ -5,6 +5,7 @@ const DataBank = require('../models/databank')
 const DataBankFolder = require('../models/dataBankFolder')
 //INIT Multer
 const multer= require('multer');
+const dataBankFolder = require('../models/dataBankFolder');
 
 const storage= multer.diskStorage({
     destination:(req,file,callBack)=>{
@@ -158,5 +159,12 @@ router.get('/folder/:storeId/:parentId',(req,res)=>{
          .catch(err=>res.send(err))
     }
     
+})
+
+router.delete('/folder/:folderId',(req,res)=>{
+    console.log(req.params.folderId)
+    dataBankFolder.deleteOne({"_id":req.params.folderId})
+    .then(result=>res.send(result))
+    .catch(err=>res.send(err))
 })
 module.exports = router;

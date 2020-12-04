@@ -3,7 +3,6 @@ import { DatabankService } from 'src/app/services/databank/databank.service'
 import { ProductService } from 'src/app/services/product/product.service'
 import { StoreService } from 'src/app/services/store/store.service'
 import { Router,ActivatedRoute } from '@angular/router'
-import { subscribeOn } from 'rxjs/operators';
 import { FormControl,FormGroup,Validators } from '@angular/forms'
 
 @Component({
@@ -41,17 +40,7 @@ export class DatabankComponent implements OnInit {
   constructor(private databankService:DatabankService,private route:ActivatedRoute,private productService:ProductService,private storeService:StoreService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params=>{
-      this.storeId=params['id']
-      this.databankService.getBankImgs(this.storeId+'/none').subscribe(res=>{this.images=res,this.addShortCutImages(this.images);})
-      this.databankService.getBankVids(this.storeId+'/none').subscribe(res=>{this.videos=res,this.addShortCutVideos(this.videos)})
-      this.databankService.getBankPdf(this.storeId+'/none').subscribe(res=>{this.pdfs=res,this.addShortCutPdfs(this.pdfs)})
-      this.databankService.getBankRar(this.storeId+'/none').subscribe(res=>{this.rars=res,this.addShortCutRars(this.rars)})
-      this.databankService.getBankOther(this.storeId+'/none').subscribe(res=>{this.others=res,this.addShortCutOthers(this.others)})
-      this.databankService.getBankFolders(this.storeId,'none').subscribe(res=>this.folders=res);
-      this.productService.getStoreProducts(this.storeId).subscribe(res=>{this.products=res,this.addShortCutProducts(this.products)})
-      this.storeService.getStore(this.storeId).subscribe(res=>this.store=res)
-    })
+    this.callDataParent()
   }
 
   selectFile(event){
@@ -91,14 +80,19 @@ export class DatabankComponent implements OnInit {
       this.data.store=this.storeId
       this.data.parent=this.currentFolder
       this.databankService.postDataBankInfo(this.data).subscribe(res=>console.log(res))
-      this.callData(this.currentFolder)
+      if(this.currentFolder){
+        this.callData(this.currentFolder
+      )}else{this.callDataParent()}
     })
   }
 
   newFolder(){
     this.newFolderForm.controls['parentFolder'].setValue(this.currentFolder)
     this.databankService.postDataBankFolder(this.storeId,this.newFolderForm.value).subscribe(res=>console.log(res))
-    this.callData(this.currentFolder)
+    if(this.currentFolder){
+      this.callData(this.currentFolder
+    )}else{this.callDataParent()}
+    
   }
 
   openFolder(folderId){
@@ -135,6 +129,20 @@ export class DatabankComponent implements OnInit {
       
   }
 
+  callDataParent(){
+    this.route.params.subscribe(params=>{
+      this.storeId=params['id']
+      this.databankService.getBankImgs(this.storeId+'/none').subscribe(res=>{this.images=res,this.addShortCutImages(this.images);})
+      this.databankService.getBankVids(this.storeId+'/none').subscribe(res=>{this.videos=res,this.addShortCutVideos(this.videos)})
+      this.databankService.getBankPdf(this.storeId+'/none').subscribe(res=>{this.pdfs=res,this.addShortCutPdfs(this.pdfs)})
+      this.databankService.getBankRar(this.storeId+'/none').subscribe(res=>{this.rars=res,this.addShortCutRars(this.rars)})
+      this.databankService.getBankOther(this.storeId+'/none').subscribe(res=>{this.others=res,this.addShortCutOthers(this.others)})
+      this.databankService.getBankFolders(this.storeId,'none').subscribe(res=>this.folders=res);
+      this.productService.getStoreProducts(this.storeId).subscribe(res=>{this.products=res,this.addShortCutProducts(this.products)})
+      this.storeService.getStore(this.storeId).subscribe(res=>this.store=res)
+      this.isFolder=false
+    })
+  }
   addShortCutImages(images){
     images.forEach(img => {
       img['shortcut']=`{"tipo":"imagen","imagen":"${img['_id']}"}`
@@ -170,8 +178,20 @@ export class DatabankComponent implements OnInit {
       product['shortcut']=`{"tipo":"producto","producto":"${product['_id']}"}`
       //product['shortcut']=JSON.parse(product['shortcut'])
     });
-    console.log(products)
+    //console.log(products)
   }
   
-  
+  removeFolder(folderId){
+    console.log(folderId)
+      this.databankService.deleteBankFolder(folderId).subscribe(res=>{
+        this.callDataParent()
+
+      },err=>console.log(err))
+  }
+
+  removeBankElement(elementId){
+    this.databankService.deleteBankElement(elementId).subscribe(res=>{
+      this.callDataParent()
+    },err=>console.log(err))
+  }
 }
