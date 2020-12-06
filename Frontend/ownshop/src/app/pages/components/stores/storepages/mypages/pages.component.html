@@ -6,12 +6,17 @@
     <div class="col-md-8  text-success mt-1">
       <h3> Agregar Pagina</h3>  
   </div>
+  <ng-container *ngIf="!maxPages">
   <div class="col-md-4 mt-1 row ">
       <ng-container *ngIf="store">
         <app-addtemplate [store]="store" class="col-md-6"></app-addtemplate>
         <i class="fa fa-plus-square-o fa-2x col-md-6 text-success" aria-hidden="true" [routerLink]="['/newpagew',store]"></i>
       </ng-container>
   </div>
+</ng-container>
+<ng-container *ngIf="maxPages">
+  <span style="color: red;">Maximo numeo de paginas alcanzado</span>
+</ng-container>
   <div class="col-md-12">
     <hr>
   </div>

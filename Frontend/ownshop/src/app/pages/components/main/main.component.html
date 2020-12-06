@@ -1,7 +1,11 @@
 
 <ng-container *ngIf="data" >
-    <div class="col-md-12 p-0 mb-5">
-
+    <div class="col-md-12 p-0 mb-5 mt-5">
+      <div class="col-md-12 text-right">
+        <a [routerLink]="['/newstore']">
+          <button class="btn btn-success">Crear Tienda</button>
+      </a>
+      </div>
       <div class="full ">
         <h2 class="center mb-3 mt-3" >Tiendas de tu empresa</h2>
         <div class="row center">
