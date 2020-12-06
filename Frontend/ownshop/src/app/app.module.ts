@@ -56,7 +56,8 @@ import { EditcategoryComponent } from './pages/components/stores/category/editca
 import { ClientComponent } from './pages/components/client/client.component';
 import { ProductpreviewComponent } from './pages/components/client/productpreview/productpreview.component';
 import { CartComponent } from './pages/components/client/cart/cart.component';
-import { BuysComponent } from './pages/components/client/buys/buys.component'
+import { BuysComponent } from './pages/components/client/buys/buys.component';
+import { ShortcutmodalComponent } from './pages/components/stores/databank/shortcutmodal/shortcutmodal.component'
 
 
 
@@ -112,6 +113,7 @@ import { BuysComponent } from './pages/components/client/buys/buys.component'
     ProductpreviewComponent,
     CartComponent,
     BuysComponent,
+    ShortcutmodalComponent,
   ],
   imports: [
     BrowserModule,

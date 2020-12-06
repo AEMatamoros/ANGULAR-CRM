@@ -36,14 +36,21 @@
       <div class="col-md-12 row">
         <ng-container *ngIf="products">
           <h3 class="text-left col-md-12 mb-0">Productos </h3>
+          <span class="ml-4">Si desea incrustar todos los productos disponibles tambien puede usar el tag <'products></span>
           <hr class="col-md-12">
           <ng-container *ngFor="let product of products">
             <div class="col-md-3 mb-2">
-              <p>{{product.productName}}</p>
-              <img class="rounded border" src="http://127.0.0.1:8888/{{product.imgRoute}}" height="200px" width="210px"
+              <h4 class="center">{{product.productName}}</h4>
+              <img class="rounded border " src="http://127.0.0.1:8888/{{product.imgRoute}}" height="200px" width="100%"
                 alt="">
-              <label for="" class="form-control">{{product.shortcut}}</label>
+              <div class="row">
+                <app-shortcutmodal [element] ="product" class="col-md-4"></app-shortcutmodal>
+                <app-updateproduct class="col-md-4" [product]="product"></app-updateproduct>
+                <app-deleteproduct class="col-md-4" [product]="product"></app-deleteproduct>
+              </div>
+                
             </div>
+            
           </ng-container>
         </ng-container>
       </div>
@@ -53,11 +60,12 @@
           <hr class="col-md-12">
           <ng-container *ngFor="let image of images">
             <div class="col-md-3 mb-2">
-              <img class="rounded border" src="http://127.0.0.1:8888/{{image.route}}" height="200px" width="210px"
+              <h4 class="center">{{image.name}}</h4>
+              <img class="rounded border" src="http://127.0.0.1:8888/{{image.route}}" height="200px" width="100%"
                 alt="">
               <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(image['_id'])"></i></p>
-
-              <label for="" class="form-control">{{image.shortcut}}</label>
+              
+              <app-shortcutmodal [element] ="image" ></app-shortcutmodal>
             </div>
           </ng-container>
         </ng-container>
@@ -68,12 +76,13 @@
           <hr class="col-md-12">
           <ng-container *ngFor="let video of videos">
             <div class="col-md-3 mb-2">
-              <video width="228" height="218" controls class="ml-3 border">
+              <h4 class="center">{{video.name}}</h4>
+              <video width="100%" height="218" controls class=" border">
                 <source src="http://127.0.0.1:8888/{{video.route}}" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
               <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(video['_id'])"></i></p>
-              <label for="" class="form-control">{{video.shortcut}}</label>
+              <app-shortcutmodal [element] ="video" ></app-shortcutmodal>
             </div>
           </ng-container>
         </ng-container>
@@ -84,6 +93,7 @@
           <hr class="col-md-12">
           <ng-container *ngFor="let pdf of pdfs">
             <div class="col-md-3">
+              <h4 class="center">{{pdf.name}}</h4>
               <img class="rounded " src="assets/img/pdf.png" height="200px" width="210px" alt="">
               <label for="" class="form-control">{{pdf.shortcut}}</label>
               <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(pdf['_id'])"></i></p>
@@ -97,6 +107,7 @@
           <hr class="col-md-12">
           <ng-container *ngFor="let rar of rars">
             <div class="col-md-3">
+              <h4 class="center">{{rar.name}}</h4>
               <img class="rounded " src="assets/img/rar.png" height="200px" width="210px" alt="">
               <label for="" class="form-control">{{rar.shortcut}}</label>
               <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(rar['_id'])"></i></p>
@@ -110,6 +121,7 @@
           <hr class="col-md-12">
           <ng-container *ngFor="let other of others">
             <div class="col-md-3">
+              <h4 class="center">{{other.name}}</h4>
               <img class="rounded " src="assets/img/other.png" height="200px" width="210px" alt="">
               <label for="" class="form-control">{{other.shortcut}}</label>
               <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(other['_id'])"></i></p>
@@ -135,6 +147,11 @@
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
+            <form class="form-group col-md-12 row" [formGroup]="nameForm">
+              <label for="" class="col-md-2" >Nombre</label>
+            <input type="text" class="form-control" class="col-md-10" formControlName="name">
+            </form>
+            
             <div class="custom-file">
               <input type="file" class="custom-file-input text-left" id="customFile" (change)="selectFile($event)">
               <label class="custom-file-label" for="customFile"></label>

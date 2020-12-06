@@ -18,6 +18,10 @@ const dataBankSchema = new mongoose.Schema({
     parent:{
         type:String,
         default:"",
+    },
+    name:{
+        type:String,
+        default:"Unknown"
     }
 })
 

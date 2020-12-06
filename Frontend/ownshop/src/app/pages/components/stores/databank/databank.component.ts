@@ -12,12 +12,16 @@ import { FormControl,FormGroup,Validators } from '@angular/forms'
 })
 export class DatabankComponent implements OnInit {
   //Initializers
+  nameForm= new FormGroup({
+    name: new FormControl('')
+  })
+  name
   myFile
   segmentedFileName
   extension
   storeId
   store
-  data={type:'',route:'',store:'',parent:''}
+  data={type:'',route:'',store:'',parent:'',name:''}
   images
   videos
   pdfs
@@ -79,6 +83,8 @@ export class DatabankComponent implements OnInit {
       this.data.route=res.route
       this.data.store=this.storeId
       this.data.parent=this.currentFolder
+      this.data.name= this.nameForm.controls['name'].value
+      console.log(this.data)
       this.databankService.postDataBankInfo(this.data).subscribe(res=>console.log(res))
       if(this.currentFolder){
         this.callData(this.currentFolder

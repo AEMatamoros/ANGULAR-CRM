@@ -97,7 +97,7 @@ router.get('/other/:storeId/:parentId',(req,res)=>{
 router.post('/file',upload.single('file'),(req,res,next)=>{
 
     const file= req.file;
-    console.log(file.filename);
+    //console.log(file.filename);
 
     if(!file){
         const err=new Error('Upload a File!') 
@@ -108,11 +108,13 @@ router.post('/file',upload.single('file'),(req,res,next)=>{
     res.send({'route':`uploads/databank/databank${file.originalname}`})
 })
 router.post('/',(req,res)=>{
+    console.log(req.body)
     let dataBank= new DataBank({
         "type":req.body.type,
         "route":req.body.route,
         "store":req.body.store,
-        "parent":req.body.parent
+        "parent":req.body.parent.folderId,
+        'name':req.body.name
     });
 
     dataBank.save()
@@ -125,6 +127,23 @@ router.delete('/:id',(req,res)=>{
     DataBank.remove({"_id":req.params.id})
          .then(result=>res.send(result))
          .catch(err=>res.send(err))
+})
+
+router.put('/:id',(req,res)=>{
+
+    DataBank.updateOne(
+         {"_id":req.params.id},
+         {
+            "type":req.body.type,
+            "route":req.body.route,
+            "store":req.body.store,
+            "parent":req.body.parent.folderId,
+            'name':req.body.name
+            
+        })
+         .then(result=>res.send(result))
+         .catch(err=>res.send(err))
+
 })
 
 
