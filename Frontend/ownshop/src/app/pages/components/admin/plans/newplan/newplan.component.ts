@@ -18,7 +18,7 @@ export class NewplanComponent implements OnInit {
     templatesNumber:new FormControl(1,Validators.required),
     pagesNumber:new FormControl(1,Validators.required),
     price:new FormControl(0,Validators.required),
-    
+    storesNumber: new FormControl(0,Validators.required)
   });
 
 
@@ -48,6 +48,9 @@ export class NewplanComponent implements OnInit {
   }
   get pagesNumber(){
     return this.newPlanForm.get('pagesNumber');
+  }
+  get storesNumber(){
+    return this.newPlanForm.get('storesNumber')
   }
 
   newPlan(){

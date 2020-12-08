@@ -13,6 +13,7 @@ export class MainComponent implements OnInit {
   companyData:any
   user
   myPlan
+  maxStores:boolean=false
   constructor(private storeService:StoreService,private plansService: PlansServiceService) { }
 
   ngOnInit(): void {
@@ -22,14 +23,13 @@ export class MainComponent implements OnInit {
       plans.forEach(plan => {
         if(plan.name==this.user.plan){
           this.myPlan=plan
-        }
-        this.storeService.getCompanyStores(this.companyData['_id']).subscribe(
-          res=>{
+          this.storeService.getCompanyStores( this.companyData['_id']).subscribe(res=>{
             this.stores=res
             if(this.stores.length >0){this.data=true}
-                
+            if(this.stores.length >= this.myPlan.storesNumber){this.maxStores=true}
+        })
         }
-        )
+        
 
       });
     })

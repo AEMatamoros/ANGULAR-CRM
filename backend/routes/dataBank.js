@@ -113,7 +113,7 @@ router.post('/',(req,res)=>{
         "type":req.body.type,
         "route":req.body.route,
         "store":req.body.store,
-        "parent":req.body.parent.folderId,
+        "parent":req.body.parent,
         'name':req.body.name
     });
 
@@ -137,7 +137,7 @@ router.put('/:id',(req,res)=>{
             "type":req.body.type,
             "route":req.body.route,
             "store":req.body.store,
-            "parent":req.body.parent.folderId,
+            "parent":req.body.parent,
             'name':req.body.name
             
         })

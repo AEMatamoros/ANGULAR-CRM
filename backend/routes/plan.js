@@ -26,7 +26,8 @@ router.post('',(req,res)=>{
         "host":req.body.host,
         "templatesNumber":req.body.templatesNumber,
         "pagesNumber":req.body.pagesNumber,
-        "price":req.body.price
+        "price":req.body.price,
+        "storesNumber":req.body.storesNumber
     });
 
     plan.save()
@@ -36,7 +37,7 @@ router.post('',(req,res)=>{
 })
 
 router.put('/:id',(req,res)=>{
-
+    console.log(req.body)
     plans.updateOne(
          {"_id":req.params.id},
          {
@@ -46,6 +47,7 @@ router.put('/:id',(req,res)=>{
           "host":req.body.host,
           "templatesNumber":req.body.templatesNumber,
           "pagesNumber":req.body.pagesNumber,
+          "storesNumber":req.body.storesNumber
         })
          .then(result=>res.send(result))
          .catch(err=>res.send(err))

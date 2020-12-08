@@ -11,7 +11,7 @@ export class PlansComponent implements OnInit {
   constructor(private planService:PlansServiceService) { }
 
   ngOnInit(): void {
-    this.planService.getPlans().subscribe(result=>{this.plans=result},
+    this.planService.getPlans().subscribe(result=>{this.plans=result,console.log(this.plans)},
                                           err=>{console.log(err)})
   }
 

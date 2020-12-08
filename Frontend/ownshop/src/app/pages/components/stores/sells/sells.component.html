@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <h2 class="center">Mis Ventas</h2>
+<ng-container *ngIf="orders">
+<table class="table border">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Desc</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Unidades</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let order of orders">
+      <ng-container *ngFor="let product of order.products">
+      <tr>
+        <th scope="row">1</th>
+        <td>{{product.productName}}</td>
+        <td>{{product.productDesc}}</td>
+        <td>{{product.price}} &nbsp; L.</td>
+        <td>{{product.category}}</td>
+        <td>{{product.units}}</td>
+        <td>{{product.date | date:"dd-mm-yyyy"}}</td>
+        <td>{{product.total}} &nbsp; L. </td>
+      </tr>
+    </ng-container>
+    </ng-container>
+    </tbody>
+</table>
+    
+    
+
+</ng-container>
+<ng-container  *ngIf="!orders">
+    <h3 class="center">Todavia no ha realizado ninguna Venta</h3>
+</ng-container>
+</div>

@@ -6,7 +6,8 @@ export class PlanModel {
         public host:boolean,
         public templatesNumber:number,
         public pagesNumber:number,
-        public price:number
+        public price:number,
+        public storesNumber:number
 
     ){}
 }

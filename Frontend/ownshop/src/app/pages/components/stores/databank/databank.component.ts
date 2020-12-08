@@ -58,6 +58,7 @@ export class DatabankComponent implements OnInit {
   }
 
   upload(){
+    console.log(this.currentFolder)
     this.segmentedFileName=this.myFile.name.split('.')
     this.extension=this.segmentedFileName[this.segmentedFileName.length-1]
     switch(this.extension.toLowerCase()){

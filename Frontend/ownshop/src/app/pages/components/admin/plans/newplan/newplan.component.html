@@ -27,6 +27,11 @@
                             <input type="text" class="form form-control" formControlName='description' required>
                             <span *ngIf="description.invalid && description.dirty">Campo Obligatorio</span>
                         </div>
+                        <div class="col-md-2 mb-3 text-left">No. Tiendas </div>
+                        <div class="col-md-4 mb-3 ">
+                            <input type="text" class="form form-control" formControlName='storesNumber' required>
+                            <span *ngIf="storesNumber.invalid && storesNumber.dirty">Campo Obligatorio</span>
+                        </div>
                         <div class="col-md-2 mb-3 text-left">No. Paginas </div>
                         <div class="col-md-4 mb-3 ">
                             <input type="text" class="form form-control" formControlName='pagesNumber' required>

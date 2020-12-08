@@ -22,6 +22,7 @@ import { ClientComponent } from './pages/components/client/client.component'
 import { ProductpreviewComponent } from './pages/components/client/productpreview/productpreview.component'
 import { CartComponent } from './pages/components/client/cart/cart.component'
 import { BuysComponent } from './pages/components/client/buys/buys.component'
+import { SellsComponent } from 'src/app/pages/components/stores/sells/sells.component'
 
 //Guard
 import {AuthGuard} from 'src/app/guard/auth/auth.guard'
@@ -50,6 +51,7 @@ const routes: Routes = [
   {'path':'products/:id',component:ProductpreviewComponent,canActivate:[AuthGuard]},
   {'path':'cart',component:CartComponent,canActivate:[AuthGuard]},
   {'path':'buys',component:BuysComponent,canActivate:[AuthGuard]},
+  {'path':'sells/:id',component:SellsComponent,canActivate:[AuthGuard]},
   
 ];
  
