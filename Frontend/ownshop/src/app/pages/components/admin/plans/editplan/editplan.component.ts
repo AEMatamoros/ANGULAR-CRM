@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,ViewChild, ElementRef } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms'
 import { PlansServiceService } from 'src/app/services/plans/plans-service.service'
+import { PlansComponent} from 'src/app/pages/components/admin/plans/plans/plans.component'
 import { Router} from '@angular/router'
 
 @Component({
@@ -22,7 +23,9 @@ export class EditplanComponent implements OnInit {
     storesNumber:new FormControl(0,Validators.required)
     
   });
-  constructor(private planService:PlansServiceService,private router:Router ) { }
+  constructor(private planService:PlansServiceService,private router:Router,private plansComponent:PlansComponent ) { }
+
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
 
   ngOnInit(): void {
     this.editPlanForm.controls['name'].setValue(this.plan.name);
@@ -61,7 +64,10 @@ export class EditplanComponent implements OnInit {
   }
   editPlan(){
     this.planService.putPlan(this.plan['_id'],this.editPlanForm.value).subscribe(
-      result=>{console.log(result),location.reload()},
+      result=>{console.log(result),
+        this.closeAddExpenseModal.nativeElement.click()
+        this.plansComponent.ngOnInit()
+      },
       err=>{console.log(err)}
     )
   }

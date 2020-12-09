@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms'
 import { UserService } from 'src/app/services/user/user.service'
 import { CompanyServicesService } from 'src/app/services/company/company.service'
+import { CompaniesComponent } from 'src/app/pages/components/admin/companies/companies/companies.component'
 
 @Component({
   selector: 'app-newcompany',
@@ -9,8 +10,11 @@ import { CompanyServicesService } from 'src/app/services/company/company.service
   styleUrls: ['./newcompany.component.css']
 })
 export class NewcompanyComponent implements OnInit {
-  constructor(private userService:UserService,private companyService:CompanyServicesService) { }
+  constructor(private userService:UserService,private companyService:CompanyServicesService,private companiesComp:CompaniesComponent) { }
   users
+
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
   newCompanyForm= new FormGroup({
     companyName:new FormControl('',Validators.required),
     description:new FormControl('',Validators.required),
@@ -20,7 +24,7 @@ export class NewcompanyComponent implements OnInit {
   //owner
   ngOnInit(): void {
     
-    this.userService.getUsers().subscribe(result=>this.users=result,err=>console.log(err))
+    this.callData()
   }
 
   //Gets
@@ -37,6 +41,14 @@ export class NewcompanyComponent implements OnInit {
   
 
   newCompany(){
-    this.companyService.postCompany(this.newCompanyForm.value).subscribe(res=>location.reload(),err=>console.log(err))
+    this.companyService.postCompany(this.newCompanyForm.value).subscribe(res=>{
+      this.closeAddExpenseModal.nativeElement.click()
+      this.callData(),
+      this.companiesComp.ngOnInit()}
+      ,err=>console.log(err))
+  }
+
+  callData(){
+    this.userService.getUsers().subscribe(result=>this.users=result,err=>console.log(err))
   }
 }

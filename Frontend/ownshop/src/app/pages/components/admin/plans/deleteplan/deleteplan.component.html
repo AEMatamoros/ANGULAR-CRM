@@ -17,7 +17,7 @@
           ¿Esta seguro de eliminar la plantilla {{plan.name}}?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeAddExpenseModal>Cancelar</button>
           <button type="button" class="btn btn-danger" (click)="delete(plan['_id'])" >Eliminar</button>
         </div>
       </div>

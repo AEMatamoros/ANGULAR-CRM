@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ProductService } from 'src/app/services/product/product.service'
 import { CategoryService} from 'src/app/services/category/category.service'
+import { ProductsComponent} from 'src/app/pages/components/stores/storeproducts/products/products.component'
+
 
 @Component({
   selector: 'app-addproduct',
@@ -10,6 +12,8 @@ import { CategoryService} from 'src/app/services/category/category.service'
 })
 export class AddproductComponent implements OnInit {
   @Input() store
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
   images
   categories 
 
@@ -21,7 +25,7 @@ export class AddproductComponent implements OnInit {
     store: new FormControl('',Validators.required),
     category: new FormControl('',Validators.required)
   })
-  constructor(private productService:ProductService, private categoryService:CategoryService) { }
+  constructor(private productService:ProductService, private categoryService:CategoryService, private ProductsComponent:ProductsComponent) { }
 
   ngOnInit(): void {
     this.categoryService.getStoreCategories(this.store['_id']).subscribe(res=>this.categories=res)
@@ -60,7 +64,10 @@ export class AddproductComponent implements OnInit {
       this.productService.postProductImg(formData).subscribe(res=>{
         this.newProductForm.controls['imgRoute'].setValue(res.img_route)
         this.newProductForm.controls['store'].setValue(this.store['_id'])
-        this.productService.postProduct(this.newProductForm.value).subscribe(res=>location.reload())
+        this.productService.postProduct(this.newProductForm.value).subscribe(res=>{
+          this.closeAddExpenseModal.nativeElement.click();
+        this.ProductsComponent.ngOnInit()
+        })
       })
     
   }

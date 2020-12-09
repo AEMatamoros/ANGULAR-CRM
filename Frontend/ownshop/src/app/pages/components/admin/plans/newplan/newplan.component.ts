@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { FormControl,FormGroup,Validators} from '@angular/forms'
 import { PlansServiceService } from 'src/app/services/plans/plans-service.service'
+import { PlansComponent} from 'src/app/pages/components/admin/plans/plans/plans.component'
 import { Router } from '@angular/router'
 
 @Component({
@@ -9,6 +10,9 @@ import { Router } from '@angular/router'
   styleUrls: ['./newplan.component.css']
 })
 export class NewplanComponent implements OnInit {
+
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
 
   newPlanForm= new FormGroup({
     name:new FormControl('',Validators.required),
@@ -22,7 +26,7 @@ export class NewplanComponent implements OnInit {
   });
 
 
-  constructor(private plansService:PlansServiceService, private router:Router) { }
+  constructor(private plansService:PlansServiceService, private router:Router, private plansComponent:PlansComponent) { }
 
   ngOnInit(): void {
   }
@@ -56,7 +60,9 @@ export class NewplanComponent implements OnInit {
   newPlan(){
     this.plansService.postPlan(this.newPlanForm.value).subscribe(
       result=>{console.log(result)
-              location.reload()},
+        this.closeAddExpenseModal.nativeElement.click()
+        this.plansComponent.ngOnInit()
+      },
       err=>{console.log(err)})
   }
 }

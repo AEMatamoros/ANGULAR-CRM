@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service'
+import { UsersComponent} from 'src/app/pages/components/admin/users/users/users.component'
 
 @Component({
   selector: 'app-deleteuser',
@@ -8,13 +9,18 @@ import { UserService } from 'src/app/services/user/user.service'
 })
 export class DeleteuserComponent implements OnInit {
   @Input() user
-  constructor(private userService:UserService) { }
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
+  constructor(private userService:UserService,private UsersComponent:UsersComponent) { }
 
   ngOnInit(): void {
   }
 
   delete(){
-    this.userService.deleteUser(this.user['_id']).subscribe(res=>location.reload(),err=>console.log(err))
+    this.userService.deleteUser(this.user['_id']).subscribe(res=>{
+      this.closeAddExpenseModal.nativeElement.click();
+      this.UsersComponent.ngOnInit();
+    },err=>console.log(err))
   }
 
 }

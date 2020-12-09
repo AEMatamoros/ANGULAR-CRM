@@ -1,7 +1,8 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,ViewChild,ElementRef } from '@angular/core';
 import { Validators,FormControl,FormGroup } from '@angular/forms'
 import { ProductService} from 'src/app/services/product/product.service'
 import { CategoryService} from 'src/app/services/category/category.service'
+import { ProductsComponent} from 'src/app/pages/components/stores/storeproducts/products/products.component'
 
 @Component({
   selector: 'app-updateproduct',
@@ -11,6 +12,8 @@ import { CategoryService} from 'src/app/services/category/category.service'
 export class UpdateproductComponent implements OnInit {
 
   @Input() product
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
   images
   categories
 
@@ -22,7 +25,7 @@ export class UpdateproductComponent implements OnInit {
     store: new FormControl('',Validators.required),
     category:new FormControl('',Validators.required)
   })
-  constructor(private productService:ProductService, private categoryService:CategoryService) { }
+  constructor(private productService:ProductService, private categoryService:CategoryService, private ProductsComponent:ProductsComponent) { }
 
 
   ngOnInit(): void {
@@ -62,7 +65,8 @@ export class UpdateproductComponent implements OnInit {
     this.productService.postProductImg(formData).subscribe(res=>{
       this.updateProductForm.controls['imgRoute'].setValue(res.img_route)
       this.productService.putProduct(this.product['_id'],this.updateProductForm.value).subscribe(res=>{
-          location.reload()
+        this.closeAddExpenseModal.nativeElement.click();
+        this.ProductsComponent.ngOnInit()
       })
     })
   }

@@ -19,9 +19,9 @@ router.get('/:id',(req,res)=>{
 })
 
 router.get('/company/:companyId',(req,res)=>{
-    //console.log(req.params.companyId)
+    console.log(req.params.companyId)
     Store.find({"company":req.params.companyId})
-         .then(result=>{/*console.log(result),*/res.send(result)})
+         .then(result=>{console.log(result),res.send(result)})
          .catch(err=>res.send(err))
 })
 
@@ -46,7 +46,7 @@ router.put('/:id',(req,res)=>{
          {
             "storeName":req.body.storeName,
             "storeDescription":req.body.storeDescription,
-            "company":req.body.company
+            //"company":req.body.company
         })
          .then(result=>res.send(result))
          .catch(err=>res.send(err))

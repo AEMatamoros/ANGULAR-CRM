@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,ViewChild, ElementRef } from '@angular/core';
 import { TemplatesService } from 'src/app/services/templates/templates.service'
 import { StorepagesService} from 'src/app/services/storepages/storepages.service'
 import { FormGroup,FormControl,Validators } from '@angular/forms' 
+import { PagesComponent} from 'src/app/pages/components/stores/storepages/mypages/pages.component'
 
 @Component({
   selector: 'app-addtemplate',
@@ -10,6 +11,8 @@ import { FormGroup,FormControl,Validators } from '@angular/forms'
 })
 export class AddtemplateComponent implements OnInit {
   @Input() store
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
   
   templates
 
@@ -24,7 +27,7 @@ export class AddtemplateComponent implements OnInit {
     
   })
   
-  constructor(private templateService:TemplatesService,private storePagesService:StorepagesService) { }
+  constructor(private templateService:TemplatesService,private storePagesService:StorepagesService, private PagesComponent:PagesComponent) { }
 
   ngOnInit(): void {
     this.templateService.getTemplates().subscribe(res=>this.templates=res)
@@ -56,6 +59,9 @@ export class AddtemplateComponent implements OnInit {
         this.newPageForm.controls['js'].setValue('js')
       }
     });
-    this.storePagesService.postStorePage(this.newPageForm.value).subscribe(res=>location.reload(),err=>console.log(err))
+    this.storePagesService.postStorePage(this.newPageForm.value).subscribe(res=>{
+      this.closeAddExpenseModal.nativeElement.click();
+      this.PagesComponent.ngOnInit()
+    },err=>console.log(err))
   }
 }

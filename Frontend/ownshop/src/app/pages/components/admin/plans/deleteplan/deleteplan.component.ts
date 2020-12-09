@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { PlansServiceService } from 'src/app/services/plans/plans-service.service'
+import { PlansComponent } from 'src/app/pages/components/admin/plans/plans/plans.component'
 
 @Component({
   selector: 'app-deleteplan',
@@ -8,13 +9,19 @@ import { PlansServiceService } from 'src/app/services/plans/plans-service.servic
 })
 export class DeleteplanComponent implements OnInit {
   @Input() plan
-  constructor(private plansService:PlansServiceService) { }
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
+  constructor(private plansService:PlansServiceService, private PlansComponent:PlansComponent) { }
 
   ngOnInit(): void {
   }
 
   delete(id){
-    this.plansService.deletePlan(id).subscribe(result=>{location.reload()},
+    this.plansService.deletePlan(id).subscribe(result=>{
+    this.closeAddExpenseModal.nativeElement.click();
+    this.PlansComponent.ngOnInit();
+
+    },
                                               err=>console.log(err))
   }
 }

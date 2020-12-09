@@ -25,6 +25,8 @@ export class MainComponent implements OnInit {
           this.myPlan=plan
           this.storeService.getCompanyStores( this.companyData['_id']).subscribe(res=>{
             this.stores=res
+            console.log("Tiendas")
+            console.log(this.stores)
             if(this.stores.length >0){this.data=true}
             if(this.stores.length >= this.myPlan.storesNumber){this.maxStores=true}
         })

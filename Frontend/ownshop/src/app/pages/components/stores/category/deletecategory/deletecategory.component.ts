@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { CategoryService} from 'src/app/services/category/category.service'
+import { CategoriesComponent} from 'src/app/pages/components/stores/category/categories/categories.component'
+
 @Component({
   selector: 'app-deletecategory',
   templateUrl: './deletecategory.component.html',
@@ -7,13 +9,18 @@ import { CategoryService} from 'src/app/services/category/category.service'
 })
 export class DeletecategoryComponent implements OnInit {
   @Input() category
-  constructor(private categoryService:CategoryService) { }
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
+  constructor(private categoryService:CategoryService, private categoriesComponent:CategoriesComponent) { }
 
   ngOnInit(): void {
   }
 
   delete(){
-    this.categoryService.deleteCategory(this.category['_id']).subscribe(res=>location.reload())
+    this.categoryService.deleteCategory(this.category['_id']).subscribe(res=>{
+      this.closeAddExpenseModal.nativeElement.click();
+      this.categoriesComponent.ngOnInit()
+    })
   }
 
 }

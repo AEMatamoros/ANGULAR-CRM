@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms'
 import { CategoryService } from 'src/app/services/category/category.service'
+import { CategoriesComponent} from 'src/app/pages/components/stores/category/categories/categories.component'
 
 @Component({
   selector: 'app-addcategory',
@@ -10,6 +11,8 @@ import { CategoryService } from 'src/app/services/category/category.service'
 export class AddcategoryComponent implements OnInit {
 
   @Input() store
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
   newPlanForm= new FormGroup({
     name:new FormControl('',Validators.required),
     description:new FormControl('',Validators.required),
@@ -17,14 +20,17 @@ export class AddcategoryComponent implements OnInit {
 
   });
 
-  constructor(private categoryService:CategoryService) { }
+  constructor(private categoryService:CategoryService, private categoriesComponent:CategoriesComponent) { }
 
   ngOnInit(): void {
     this.newPlanForm.controls['store'].setValue(this.store['_id'])
   }
 
   newCat(){
-    this.categoryService.postCategory(this.newPlanForm.value).subscribe(res=>location.reload())
+    this.categoryService.postCategory(this.newPlanForm.value).subscribe(res=>{
+      this.closeAddExpenseModal.nativeElement.click();
+      this.categoriesComponent.ngOnInit()
+    })
   }
 
   //Gets

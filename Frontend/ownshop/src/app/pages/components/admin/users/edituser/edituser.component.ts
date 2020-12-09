@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms'
+import { UsersComponent } from 'src/app/pages/components/admin/users/users/users.component'
 import { Router } from '@angular/router'
 
 import { UserService } from 'src/app/services/user/user.service'
@@ -15,6 +16,8 @@ export class EdituserComponent implements OnInit {
   @Input() user
   plans:any
   passErr:boolean=false
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
   //editUserForm
   editUserForm= new FormGroup({
     email:new FormControl('',[Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),Validators.required]),
@@ -30,7 +33,7 @@ export class EdituserComponent implements OnInit {
   company={companyName:'',owner:''}
   userData:any
 
-  constructor(private userService:UserService, private router:Router,private plansService:PlansServiceService,private companyService:CompanyServicesService) { }
+  constructor(private userService:UserService, private router:Router,private plansService:PlansServiceService,private companyService:CompanyServicesService, private usersComponent:UsersComponent) { }
   created
   ngOnInit(): void {
     this.plansService.getPlans().subscribe(data=>this.plans=data)
@@ -80,6 +83,9 @@ export class EdituserComponent implements OnInit {
 
    
   update(userId){
-    this.userService.putUser(userId,this.editUserForm.value).subscribe(res=>location.reload(),err=>console.log(err))
+    this.userService.putUser(userId,this.editUserForm.value).subscribe(res=>{
+      this.closeAddExpenseModal.nativeElement.click();
+      this.usersComponent.ngOnInit();
+    },err=>console.log(err))
   }
 }

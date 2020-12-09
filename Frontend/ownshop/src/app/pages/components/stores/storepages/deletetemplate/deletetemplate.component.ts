@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { StorepagesService } from 'src/app/services/storepages/storepages.service'
 import { Router } from '@angular/router'
+import { PagesComponent} from 'src/app/pages/components/stores/storepages/mypages/pages.component'
+
 
 @Component({
   selector: 'app-deletetemplate',
@@ -9,12 +11,17 @@ import { Router } from '@angular/router'
 })
 export class DeletetemplateComponent implements OnInit {
   @Input() page
-  constructor(private storePageService:StorepagesService,private router:Router) { }
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
+  constructor(private storePageService:StorepagesService,private router:Router, private PagesComponent:PagesComponent) { }
 
   ngOnInit(): void {
   }
 
   delete(){
-    this.storePageService.deleteStorePage(this.page['_id']).subscribe(res=>location.reload(),err=>console.log(err))
+    this.storePageService.deleteStorePage(this.page['_id']).subscribe(res=>{
+      this.closeAddExpenseModal.nativeElement.click();
+      this.PagesComponent.ngOnInit()
+    },err=>console.log(err))
   }
 }

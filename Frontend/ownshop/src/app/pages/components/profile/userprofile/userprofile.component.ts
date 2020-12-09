@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
 import { FormGroup,FormControl,Validators } from '@angular/forms'
 
@@ -20,6 +20,8 @@ export class UserprofileComponent implements OnInit {
   company:any
   userData:any
   stores
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
   //editUserForm
   editUserForm= new FormGroup({
     email:new FormControl('',[Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),Validators.required]),
@@ -92,7 +94,10 @@ export class UserprofileComponent implements OnInit {
 
    
   update(userId){
-    this.userService.putUser(userId,this.editUserForm.value).subscribe(res=>location.reload(),err=>console.log(err))
+    this.userService.putUser(userId,this.editUserForm.value).subscribe(res=>{
+      this.closeAddExpenseModal.nativeElement.click()
+      this.ngOnInit();
+    },err=>console.log(err))
   }
 
   

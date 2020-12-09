@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from 'src/app/services/auth/auth.service'
 import { Router } from '@angular/router';
 import { PlansServiceService} from 'src/app/services/plans/plans-service.service'
 import { CompanyServicesService } from 'src/app/services/company/company.service'
+import { UsersComponent } from 'src/app/pages/components/admin/users/users/users.component'
 
 @Component({
   selector: 'app-newuser',
@@ -11,6 +12,7 @@ import { CompanyServicesService } from 'src/app/services/company/company.service
   styleUrls: ['./newuser.component.css']
 })
 export class NewuserComponent implements OnInit {
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
 
   plans:any
   passErr:boolean=false
@@ -31,7 +33,7 @@ export class NewuserComponent implements OnInit {
   company={companyName:'',owner:''}
   userData:any
 
-  constructor(private authService:AuthService, private router:Router,private plansService:PlansServiceService,private companyService:CompanyServicesService) { }
+  constructor(private authService:AuthService, private router:Router,private plansService:PlansServiceService,private companyService:CompanyServicesService, private UsersComponent:UsersComponent) { }
   created
   ngOnInit(): void {
     this.plansService.getPlans().subscribe(data=>this.plans=data)
@@ -90,9 +92,13 @@ export class NewuserComponent implements OnInit {
             
         
       });
-          location.reload()
+          this.UsersComponent.ngOnInit()
+          this.closeAddExpenseModal.nativeElement.click()
+
       })}
-      location.reload()
+      this.UsersComponent.ngOnInit()
+      this.closeAddExpenseModal.nativeElement.click()
+
       
       
     },err=>{

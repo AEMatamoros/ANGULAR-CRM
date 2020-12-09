@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { TemplatesService } from 'src/app/services/templates/templates.service'
 import { FormControl,FormGroup,Validators } from '@angular/forms'
+import { TemplatesComponent } from 'src/app/pages/components/admin/templates/templates/templates.component'
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./addnewtemplate.component.css']
 })
 export class AddnewtemplateComponent implements OnInit {
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
 
   images:any
 
@@ -20,7 +22,7 @@ export class AddnewtemplateComponent implements OnInit {
     js:new FormControl(''),
     
   });
-  constructor(private templatesService:TemplatesService, private router: Router) { }
+  constructor(private templatesService:TemplatesService, private router: Router, private templatesComponet:TemplatesComponent) { }
 
   ngOnInit(): void {
   }
@@ -65,7 +67,9 @@ export class AddnewtemplateComponent implements OnInit {
           console.log(this.newTemplateForm.value)
           this.templatesService.postTemplate(this.newTemplateForm.value).subscribe(
             res=>{console.log(res)
-              location.reload()
+              this.closeAddExpenseModal.nativeElement.click()
+              this.templatesComponet.ngOnInit();
+
             },
             err=>{console.log(err)}
       )

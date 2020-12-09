@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { DatabankService } from 'src/app/services/databank/databank.service'
 import { ProductService } from 'src/app/services/product/product.service'
 import { StoreService } from 'src/app/services/store/store.service'
@@ -11,6 +11,9 @@ import { FormControl,FormGroup,Validators } from '@angular/forms'
   styleUrls: ['./databank.component.css']
 })
 export class DatabankComponent implements OnInit {
+  @ViewChild('closeAddExpenseModalFile') closeAddExpenseModalFile: ElementRef;
+  @ViewChild('closeAddExpenseModalFolder') closeAddExpenseModalFolder: ElementRef;
+
   //Initializers
   nameForm= new FormGroup({
     name: new FormControl('')
@@ -88,8 +91,15 @@ export class DatabankComponent implements OnInit {
       console.log(this.data)
       this.databankService.postDataBankInfo(this.data).subscribe(res=>console.log(res))
       if(this.currentFolder){
-        this.callData(this.currentFolder
-      )}else{this.callDataParent()}
+        this.callData(this.currentFolder)
+        this.closeAddExpenseModalFile.nativeElement.click();
+        this.closeAddExpenseModalFolder.nativeElement.click();
+
+      }else{
+        this.callDataParent()
+        this.closeAddExpenseModalFile.nativeElement.click();
+        this.closeAddExpenseModalFolder.nativeElement.click();
+      }
     })
   }
 
@@ -98,7 +108,11 @@ export class DatabankComponent implements OnInit {
     this.databankService.postDataBankFolder(this.storeId,this.newFolderForm.value).subscribe(res=>console.log(res))
     if(this.currentFolder){
       this.callData(this.currentFolder
-    )}else{this.callDataParent()}
+    )}else{
+      this.callDataParent()
+      this.closeAddExpenseModalFile.nativeElement.click();
+      this.closeAddExpenseModalFolder.nativeElement.click();
+    }
     
   }
 
@@ -115,6 +129,9 @@ export class DatabankComponent implements OnInit {
     if(this.folderOrder.length>0){
       this.currentFolder=this.folderOrder.pop()
       this.callData(this.currentFolder)
+      this.closeAddExpenseModalFile.nativeElement.click();
+      this.closeAddExpenseModalFolder.nativeElement.click();
+
       //console.log(this.folderOrder.length)
 
     }else{

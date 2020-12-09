@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { ProductService } from 'src/app/services/product/product.service'
 import { StoreService } from 'src/app/services/store/store.service'
 import { Router, ActivatedRoute} from '@angular/router'
@@ -19,7 +19,8 @@ export class ProductpreviewComponent implements OnInit {
   products
   //Date
   today = new Date();
-  
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
 
   newProductForm= new FormGroup({
     productName:new FormControl('',Validators.required),
@@ -75,10 +76,12 @@ export class ProductpreviewComponent implements OnInit {
     if(localStorage.getItem('cart')===null){
       this.cart=[this.newProductForm.value]
       localStorage.setItem('cart',JSON.stringify(this.cart))
+      this.closeAddExpenseModal.nativeElement.click()
     }else{
       this.cart= JSON.parse(localStorage.getItem('cart'))
       this.cart.push(this.newProductForm.value)
       localStorage.setItem('cart',JSON.stringify(this.cart))
+      this.closeAddExpenseModal.nativeElement.click()
     }
     
     

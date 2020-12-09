@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,ViewChild, ElementRef } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms'
 import { CategoryService } from 'src/app/services/category/category.service'
+import { CategoriesComponent} from 'src/app/pages/components/stores/category/categories/categories.component'
 @Component({
   selector: 'app-editcategory',
   templateUrl: './editcategory.component.html',
@@ -8,7 +9,9 @@ import { CategoryService } from 'src/app/services/category/category.service'
 })
 export class EditcategoryComponent implements OnInit {
   @Input() category
-  constructor(private categoryService:CategoryService) { }
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
+
+  constructor(private categoryService:CategoryService, private categoriesComponent:CategoriesComponent) { }
   editPlanForm= new FormGroup({
     name:new FormControl('',Validators.required),
     description:new FormControl('',Validators.required),
@@ -31,7 +34,10 @@ export class EditcategoryComponent implements OnInit {
   }
 
   editCat(){
-    this.categoryService.putCategory(this.category['_id'],this.editPlanForm.value).subscribe(res=>location.reload())
+    this.categoryService.putCategory(this.category['_id'],this.editPlanForm.value).subscribe(res=>{
+      this.closeAddExpenseModal.nativeElement.click();
+      this.categoriesComponent.ngOnInit()
+    })
   }
 
 }
