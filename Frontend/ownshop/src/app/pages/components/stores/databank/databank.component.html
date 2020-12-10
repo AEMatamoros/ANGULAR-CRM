@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <h2 class="text-left col-md-12 mb-0 pb-0">Bienvenido a tu banco de datos</h2>
+    <h2 class="text-left col-md-12 mt-2 mb-0 pb-0">Bienvenido a tu banco de datos</h2>
     <p class="text-left col-md-12 mb-0">Aqui tendras disponible los archivos necesarios para crear atajos.</p>
     <hr class="col-md-12">
     <div class="col-md-12 text-right">
@@ -26,7 +26,8 @@
           <hr class="col-md-12">
           <ng-container *ngFor="let folder of folders">
             <div class="col-md-3 mb-2" (click)="openFolder(folder._id)">
-              <img class="rounded " src="assets/img/folder.png" height="200px" width="210px" alt="">
+              <img class="rounded " src="assets/img/folder2.png" height="210px" width="100%"alt="">
+
               <p class="center">{{folder.name}}<i class="far fa-trash-alt" style="color:red"(click)="removeFolder(folder['_id'])"></i></p>
               
             </div>
@@ -41,8 +42,7 @@
           <ng-container *ngFor="let product of products">
             <div class="col-md-3 mb-2">
               <h4 class="center">{{product.productName}}</h4>
-              <img class="rounded border " src="http://127.0.0.1:8888/{{product.imgRoute}}" height="200px" width="100%"
-                alt="">
+              <img class="rounded border " src="http://127.0.0.1:8888/{{product.imgRoute}}" height="200px" width="100%"alt="">
               <div class="row">
                 <app-shortcutmodal [element] ="product" class="col-md-4"></app-shortcutmodal>
                 <app-updateproduct class="col-md-4" [product]="product"></app-updateproduct>
@@ -138,7 +138,7 @@
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-success text-white">
         <h5 class="modal-title" id="exampleModalLabel">Agregar Archivo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -148,11 +148,10 @@
         <div class="container-fluid">
           <div class="row">
             <form class="form-group col-md-12 row" [formGroup]="nameForm">
-              <label for="" class="col-md-2" >Nombre</label>
-            <input type="text" class="form-control" class="col-md-10" formControlName="name">
+            <input type="text"  class="form-control col-md-12" formControlName="name"
+            placeholder="Nombre">
             </form>
-            
-            <div class="custom-file">
+            <div class="custom-file col-md-12">
               <input type="file" class="custom-file-input text-left" id="customFile" (change)="selectFile($event)">
               <label class="custom-file-label" for="customFile"></label>
             </div>
@@ -172,7 +171,7 @@
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-success text-white">
         <h5 class="modal-title" id="exampleModalLabel">Agregar Carpeta</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -182,8 +181,8 @@
         <div class="container-fluid">
           <div class="row">
             <form [formGroup]="newFolderForm" class="col-md-12 row">
-              <label for="">Nombre</label>
-              <input type="text" class="form-control col-md-12" formControlName='folderName'>
+              <label for="" class="col-md-2">Nombre</label>
+              <input type="text" class="form-control col-md-10" formControlName='folderName'>
             </form>
           </div>
         </div>

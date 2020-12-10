@@ -52,6 +52,8 @@ export class WYSIWYGEditorComponent implements OnInit {
   preview(){
       this.editorContent= this.editor.get('nombreTienda').value
       console.log(this.editorContent)
+      //this.onSubmit();
+      //this.router.navigateByUrl(`/storepage/${this.store['_id']}`) //"['/storepage',store['_id']]"
   }
 
 

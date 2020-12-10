@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 text-left">
-      <h2 class="m-0">Paginas</h2>
+      <h3 class="m-0">Paginas</h3>
     </div>
     <div class="col-md-8  text-success mt-1">
-      <h3> Agregar Pagina</h3>  
+      <h4> Agregar Pagina</h4>  
   </div>
   <ng-container *ngIf="!maxPages">
   <div class="col-md-4 mt-1 row ">
@@ -21,10 +21,10 @@
     <hr>
   </div>
   <div class="col-md-12 row mt-3 mb-3 border">
-      <div class="col-md-3"><Strong>Nombre</Strong></div>
-      <div class="col-md-3"><Strong>Tipo</Strong></div>
-      <div class="col-md-3"><Strong>Fecha</Strong></div>
-      <div class="col-md-3"><Strong>Opciones</Strong></div>
+      <div class="col-md-3 bg-success text-white"><Strong>Nombre</Strong></div>
+      <div class="col-md-3 bg-success text-white"><Strong>Tipo</Strong></div>
+      <div class="col-md-3 bg-success text-white"><Strong>Fecha</Strong></div>
+      <div class="col-md-3 bg-success text-white"><Strong>Opciones</Strong></div>
       <ng-container *ngFor="let page of pages">
         <div class="col-md-3">{{page.pageName}}</div>
         <div class="col-md-3">{{page.pageType}}</div>

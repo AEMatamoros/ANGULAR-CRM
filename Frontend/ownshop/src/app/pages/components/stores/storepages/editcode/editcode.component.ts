@@ -11,6 +11,9 @@ import { FormGroup,FormControl,Validators } from '@angular/forms'
 export class EditcodeComponent implements OnInit {
   pageId
   page
+  htmlEditor=true
+  cssEditor=false
+  jsEditor=false
 
   editPageForm= new FormGroup({
     pageName:new FormControl('',Validators.required),
@@ -35,7 +38,7 @@ export class EditcodeComponent implements OnInit {
         this.editPageForm.controls['pageName'].setValue(this.page.pageName)
         this.editPageForm.controls['pageType'].setValue(this.page.pageType)
         this.editPageForm.controls['store'].setValue(this.page.store)
-      
+        //console.log(this.page)
       })
       
     })
@@ -65,5 +68,22 @@ export class EditcodeComponent implements OnInit {
 
   get js(){
     return this.editPageForm.get('js');
+  }
+
+  change(editor){
+    console.log(editor)
+    if (editor=='html'){
+      this.htmlEditor=true
+      this.jsEditor=false
+      this.cssEditor=false
+    }else if(editor=='css'){
+      this.cssEditor=true
+      this.htmlEditor=false
+      this.jsEditor=false
+    }else if(editor=='js'){
+      this.jsEditor=true
+      this.htmlEditor=false
+      this.cssEditor=false
+    }
   }
 }

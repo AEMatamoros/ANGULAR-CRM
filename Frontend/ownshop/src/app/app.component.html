@@ -94,10 +94,10 @@
 
     <!-- Page content -->
     <div ng-sidebar-content>
-        <nav class="navbar navbar-success bg-success m-0 p-0" *ngIf="showNav">
+        <nav class="navbar navbar-success bg-success m-0 p-2" *ngIf="showNav">
             <a class="">
-                <button (click)="toggleSidebar()" class="btn-trans border-0"><img src="assets/img/LOGOWhite.png" alt=""
-                    height="50px" width="50px">
+                <button (click)="toggleSidebar()" class="btn-trans border-0">
+                    <img src="assets/img/LOGOWhite.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     <strong class="text-white">
                     <ng-container *ngIf="companyData">
                         {{companyData.companyName}}
@@ -110,6 +110,19 @@
                 <button class="btn btn-outline-light my-2 my-sm-0 mr-2 ml-2 d-none d-sm-block" (click)="logout()">Cerrar Sesion</button>
             </div>
           </nav>
+          <!--nav class="navbar navbar-dark bg-success fixed-top p-10 m-0">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/LOGOWhite.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <ng-container *ngIf="companyData">
+                    {{companyData.companyName}}
+                </ng-container>
+            </a>
+            <div class="form-inline text-white">
+              <a class="nav-link text-white" [routerLink]="['login']">Iniciar Sesion</a>
+              <a class="nav-link text-white " [routerLink]="['register']" >Registrate</a>
+              <a class="nav-link text-success btn btn-light " [routerLink]="['registerEnterprise']" >Unete a nosotros</a>
+            </div>
+        </nav-->
         
         <router-outlet></router-outlet>
     </div>
