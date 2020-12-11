@@ -50,10 +50,14 @@ export class WYSIWYGEditorComponent implements OnInit {
   }
 
   preview(){
-      this.editorContent= this.editor.get('nombreTienda').value
-      console.log(this.editorContent)
-      //this.onSubmit();
-      //this.router.navigateByUrl(`/storepage/${this.store['_id']}`) //"['/storepage',store['_id']]"
+     this.editorContent= this.editor.get('nombreTienda').value
+
+     
+     let exp= this.editorContent.match(/{.*?}/)
+     console.log(exp[0])
+     /*while(this.editorContent.match(/{.*?}/)){
+        
+     }*/
   }
 
 
@@ -67,3 +71,9 @@ export class WYSIWYGEditorComponent implements OnInit {
   }
 
 }
+
+/*
+let cadena = "Esta es una {'tipo':'1','codigo':'123456789'} cadena {2} de mrd {3} papa"
+
+let elements = cadena.match(/{.*?}/)
+*/ 
