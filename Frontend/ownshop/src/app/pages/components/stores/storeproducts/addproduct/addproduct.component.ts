@@ -25,7 +25,7 @@ export class AddproductComponent implements OnInit {
     store: new FormControl('',Validators.required),
     category: new FormControl('',Validators.required)
   })
-  constructor(private productService:ProductService, private categoryService:CategoryService, private ProductsComponent:ProductsComponent) { }
+  constructor(private productService:ProductService, private categoryService:CategoryService, private productsComponent:ProductsComponent) { }
 
   ngOnInit(): void {
     this.categoryService.getStoreCategories(this.store['_id']).subscribe(res=>this.categories=res)
@@ -66,7 +66,7 @@ export class AddproductComponent implements OnInit {
         this.newProductForm.controls['store'].setValue(this.store['_id'])
         this.productService.postProduct(this.newProductForm.value).subscribe(res=>{
           this.closeAddExpenseModal.nativeElement.click();
-        this.ProductsComponent.ngOnInit()
+        this.productsComponent.ngOnInit()
         })
       })
     

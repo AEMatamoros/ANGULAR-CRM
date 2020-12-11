@@ -10,9 +10,6 @@
         </button>
 
       </ng-container>
-      <ng-container *ngIf="store">
-        <app-addproduct [store]="store"></app-addproduct>
-      </ng-container>
       <button class="btn btn-success ml-2" data-toggle="modal" data-target="#exampleModal"><i
           class="fas fa-x3 fa-plus"></i></button>
       <button class="btn btn-warning text-white ml-2" data-toggle="modal" data-target="#exampleModalFolder"><i
@@ -36,17 +33,16 @@
       </div>
       <div class="col-md-12 row">
         <ng-container *ngIf="products">
-          <h3 class="text-left col-md-12 mb-0">Productos </h3>
-          <span class="ml-4">Si desea incrustar todos los productos disponibles tambien puede usar el tag <'products></span>
+          <h3 class="text-left col-md-10 mb-0">Productos </h3>
+          <button class="col-md-2 btn btn-warning " data-toggle="modal" data-target="#exampleModal34">ShortCut</button>
           <hr class="col-md-12">
           <ng-container *ngFor="let product of products">
             <div class="col-md-3 mb-2">
               <h4 class="center">{{product.productName}}</h4>
               <img class="rounded border " src="http://127.0.0.1:8888/{{product.imgRoute}}" height="200px" width="100%"alt="">
               <div class="row">
-                <app-shortcutmodal [element] ="product" class="col-md-4"></app-shortcutmodal>
-                <app-updateproduct class="col-md-4" [product]="product"></app-updateproduct>
-                <app-deleteproduct class="col-md-4" [product]="product"></app-deleteproduct>
+                <app-shortcutmodal [element] ="product" class="form-control"></app-shortcutmodal>
+                
               </div>
                 
             </div>
@@ -56,8 +52,11 @@
       </div>
       <div class="col-md-12 row">
         <ng-container *ngIf="images">
-          <h3 class="text-left col-md-12 mb-0">Imagenes </h3>
+          <h3 class="text-left col-md-10 mb-0">Imagenes </h3>
+          <button class="col-md-2 btn btn-warning " data-toggle="modal" data-target="#exampleModal35">ShortCut</button>
+
           <hr class="col-md-12">
+          
           <ng-container *ngFor="let image of images">
             <div class="col-md-3 mb-2">
               <h4 class="center">{{image.name}}</h4>
@@ -95,7 +94,7 @@
             <div class="col-md-3">
               <h4 class="center">{{pdf.name}}</h4>
               <img class="rounded " src="assets/img/pdf.png" height="200px" width="210px" alt="">
-              <label for="" class="form-control">{{pdf.shortcut}}</label>
+              <app-shortcutmodal [element] ="pdf" class="form-control"></app-shortcutmodal>
               <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(pdf['_id'])"></i></p>
             </div>
           </ng-container>
@@ -109,7 +108,7 @@
             <div class="col-md-3">
               <h4 class="center">{{rar.name}}</h4>
               <img class="rounded " src="assets/img/rar.png" height="200px" width="210px" alt="">
-              <label for="" class="form-control">{{rar.shortcut}}</label>
+              <app-shortcutmodal [element] ="rar" class="form-control"></app-shortcutmodal>
               <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(rar['_id'])"></i></p>
             </div>
           </ng-container>
@@ -123,7 +122,7 @@
             <div class="col-md-3">
               <h4 class="center">{{other.name}}</h4>
               <img class="rounded " src="assets/img/other.png" height="200px" width="210px" alt="">
-              <label for="" class="form-control">{{other.shortcut}}</label>
+              <app-shortcutmodal [element] ="other" class="form-control"></app-shortcutmodal>
               <p class="center"><i class="far fa-trash-alt" style="color:red"(click)="removeBankElement(other['_id'])"></i></p>
             </div>
           </ng-container>
@@ -190,6 +189,52 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeAddExpenseModalFolder>Cerrar</button>
         <button type="button" class="btn btn-primary" (click)="newFolder()">Agregar al Banco</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal34" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2 class="center">Galeria de Productos</h2>
+        <p>{{productsShortcut}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal35" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2 class="center">Galeria de Productos</h2>
+        <p>{{imagesShortcut}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

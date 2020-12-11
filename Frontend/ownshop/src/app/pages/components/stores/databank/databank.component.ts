@@ -37,7 +37,8 @@ export class DatabankComponent implements OnInit {
   folderCount
   folderOrder=[]
   products
-  //Shortcuts
+  productsShortcut
+  imagesShortcut
   
 
   newFolderForm= new FormGroup({
@@ -162,15 +163,22 @@ export class DatabankComponent implements OnInit {
       this.databankService.getBankRar(this.storeId+'/none').subscribe(res=>{this.rars=res,this.addShortCutRars(this.rars)})
       this.databankService.getBankOther(this.storeId+'/none').subscribe(res=>{this.others=res,this.addShortCutOthers(this.others)})
       this.databankService.getBankFolders(this.storeId,'none').subscribe(res=>this.folders=res);
-      this.productService.getStoreProducts(this.storeId).subscribe(res=>{this.products=res,this.addShortCutProducts(this.products)})
+      this.productService.getStoreProducts(this.storeId).subscribe(res=>{this.products=res,this.addShortCutProducts(this.products),console.log(this.products)})
       this.storeService.getStore(this.storeId).subscribe(res=>this.store=res)
       this.isFolder=false
     })
   }
   addShortCutImages(images){
+    this.imagesShortcut=`{"tipo":"galeria","imagenes":`
+    this.imagesShortcut+='['
+
     images.forEach(img => {
       img['shortcut']=`{"tipo":"imagen","imagen":"${img['_id']}"}`
+      this.imagesShortcut+=`"${img['_id']}",`
     });
+
+    this.imagesShortcut=this.imagesShortcut.slice(0, -1)
+    this.imagesShortcut+=']}'
   }
 
   addShortCutVideos(videos){
@@ -198,10 +206,15 @@ export class DatabankComponent implements OnInit {
   }
 
   addShortCutProducts(products){
+    this.productsShortcut=`{"tipo":"productos","productos":`
+    this.productsShortcut+='['
     products.forEach(product => {
       product['shortcut']=`{"tipo":"producto","producto":"${product['_id']}"}`
+      this.productsShortcut+=`"${product['_id']}",`
       //product['shortcut']=JSON.parse(product['shortcut'])
     });
+    this.productsShortcut=this.productsShortcut.slice(0, -1)
+    this.productsShortcut+=']}'
     //console.log(products)
   }
   

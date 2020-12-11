@@ -28,12 +28,13 @@ router.get('',(req,res)=>{
 })
 
 router.get('/:id',(req,res)=>{
+    console.log(req.params.id)
     DataBank.find({"_id":req.params.id})
          .then(result=>res.send(result[0]))
          .catch(err=>res.send(err))
 })
 
-router.get('/img/:storeId/:parentId',(req,res)=>{
+router.get('/imgs/:storeId/:parentId',(req,res)=>{
     if(req.params.parentId=='none' ){
         DataBank.find({"type":"img","store":req.params.storeId})
             .then(result=>{res.send(result)})
@@ -44,6 +45,7 @@ router.get('/img/:storeId/:parentId',(req,res)=>{
             .catch(err=>res.send(err))
     }
 })
+
 
 router.get('/vid/:storeId/:parentId',(req,res)=>{
     if(req.params.parentId=='none' ){

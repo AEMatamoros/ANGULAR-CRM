@@ -10,7 +10,7 @@ import { Databank } from 'src/app/models/databank/databank'
 export class DatabankService {
 
   constructor(private http:HttpClient) { }
-
+  data
   //HTTPOptions
   httpOptions = {
     headers: new HttpHeaders({
@@ -33,9 +33,15 @@ export class DatabankService {
   }
 
   getBankImgs(storeId){
-    return this.http.get<Databank[]>(this.API_Url_DataBank+`/img/${storeId}`,this.httpOptions)
+    return this.http.get<Databank[]>(this.API_Url_DataBank+`/imgs/${storeId}`,this.httpOptions)
   }
+  async getBankElement(imgId){
+    this.data= await this.http.get<Databank[]>(this.API_Url_DataBank+`/${imgId}`,this.httpOptions)
+  }
+  getBankElements(){
+    return this.http.get<Databank[]>(this.API_Url_DataBank,this.httpOptions)
 
+  }
   getBankVids(storeId){
     return this.http.get<Databank[]>(this.API_Url_DataBank+`/vid/${storeId}`,this.httpOptions)
   }

@@ -25,7 +25,7 @@ export class UpdateproductComponent implements OnInit {
     store: new FormControl('',Validators.required),
     category:new FormControl('',Validators.required)
   })
-  constructor(private productService:ProductService, private categoryService:CategoryService, private ProductsComponent:ProductsComponent) { }
+  constructor(private productService:ProductService, private categoryService:CategoryService, private productsComponent:ProductsComponent) { }
 
 
   ngOnInit(): void {
@@ -66,7 +66,7 @@ export class UpdateproductComponent implements OnInit {
       this.updateProductForm.controls['imgRoute'].setValue(res.img_route)
       this.productService.putProduct(this.product['_id'],this.updateProductForm.value).subscribe(res=>{
         this.closeAddExpenseModal.nativeElement.click();
-        this.ProductsComponent.ngOnInit()
+        this.productsComponent.ngOnInit()
       })
     })
   }
