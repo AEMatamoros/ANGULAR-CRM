@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorepagesService} from 'src/app/services/storepages/storepages.service'
 import { Router, ActivatedRoute} from '@angular/router'
 import { ProductService }  from 'src/app/services/product/product.service'
+import { SharedService } from 'src/app/services/shared/shared.service'
 @Component({
   selector: 'app-viewpage',
   templateUrl: './viewpage.component.html',
@@ -15,7 +16,8 @@ export class ViewpageComponent implements OnInit {
   html2:string
   isProductTemp:boolean
   products
-  constructor(private storePageService:StorepagesService, private router:Router,private route:ActivatedRoute, private productService:ProductService) { }
+  shareds
+  constructor(private storePageService:StorepagesService, private router:Router,private route:ActivatedRoute, private productService:ProductService, private sharedService:SharedService) { }
  
   ngOnInit():void{
     this.route.params.subscribe(params=>{
@@ -44,6 +46,8 @@ export class ViewpageComponent implements OnInit {
         //console.log(this.products)
       })
       })
+      this.sharedService.getStoreShared(this.storeId).subscribe(res=>this.shareds=res,err=>console.log(err))
+
     })
 
     

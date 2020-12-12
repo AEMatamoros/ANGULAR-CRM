@@ -40,6 +40,15 @@
             <a [routerLink]="['/databank',store['_id']]">
                 <button class="form-control btn-link mt-3" >Banco de datos</button>
             </a>
+            <ng-container *ngIf="!shareds">
+                <button class="form-control btn-link mt-3" data-toggle="modal" data-target="#sharedModal">Encabezado y pie de pagina</button>
+            </ng-container>
+            <ng-container *ngIf="shareds">
+                <button class="form-control btn-link mt-3" data-toggle="modal" data-target="#sharedModalUpdate">Actualizar Encabezado y pie de pagina</button>
+                <button class="form-control btn-danger mt-3"  (click)="deleteShareds()">Eliminar Encabezado y pie de pagina</button>
+            </ng-container>
+            
+            
             
             
          </div>
@@ -57,3 +66,101 @@
 </div>
 </ng-container>
 <app-footer class="mt-5"></app-footer>
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="sharedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Encabezado y pie de Pagina</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body container-fluid">
+            <div class="row container-fluid">
+          <div class="col-md-3"><button class="btn-primary btn form-control" (click)="change('htmlH')">HTML Encabezado</button></div>
+          <div class="col-md-3"><button class="btn-info btn form-control" (click)="change('htmlF')">HTML Pie</button></div>
+          <div class="col-md-3"><button class="btn-primary btn form-control" (click)="change('cssH')">CSS Encabezado</button></div>
+          <div class="col-md-3"><button class="btn-info btn form-control" (click)="change('cssF')">CSS Pie</button></div>
+          <form [formGroup]="sharedForm" class="col-md-12 row">
+              <ng-contain *ngIf="showHTMLHeader" class="col-md-12 row">
+                <div class="col-md-12  m-0 " >
+                    HTML Encabezado<ace-editor  mode="html" style=" min-height: 800px; overflow: auto;"  formControlName="htmlH"></ace-editor>
+                </div>
+             </ng-contain>
+             <ng-contain *ngIf="ShowCSSHeader" class="col-md-12 row">
+                <div class="col-md-12  m-0 " >
+                    CSS Encabezado<ace-editor  mode="css" style=" min-height: 800px; overflow: auto;"  formControlName="cssH"></ace-editor>
+                </div>
+             </ng-contain>
+             <ng-container *ngIf="ShowHTMLFooter" class="col-md-12 row">
+                <div class="col-md-12  m-0 " >
+                    HTML Pie<ace-editor  mode="html" style=" min-height: 800px; overflow: auto;"  formControlName="htmlF"></ace-editor>
+                </div>
+             </ng-container>
+             <ng-container *ngIf="ShowCSSFooter" class="col-md-12 row">
+                <div class="col-md-12  m-0 " >
+                    CSS Pie <ace-editor  mode="css" style=" min-height: 800px; overflow: auto;"  formControlName="cssF"></ace-editor>
+                </div>
+            </ng-container>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="saveShared()">Guardar</button>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="sharedModalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Encabezado y pie de Pagina</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body container-fluid">
+                <div class="row container-fluid">
+              <div class="col-md-3"><button class="btn-primary btn form-control" (click)="change('htmlH')">HTML Encabezado</button></div>
+              <div class="col-md-3"><button class="btn-info btn form-control" (click)="change('htmlF')">HTML Pie</button></div>
+              <div class="col-md-3"><button class="btn-primary btn form-control" (click)="change('cssH')">CSS Encabezado</button></div>
+              <div class="col-md-3"><button class="btn-info btn form-control" (click)="change('cssF')">CSS Pie</button></div>
+              <form [formGroup]="sharedFormUpdate" class="col-md-12 row">
+                  <ng-contain *ngIf="showHTMLHeader" class="col-md-12 row">
+                    <div class="col-md-12  m-0 " >
+                        HTML Encabezado<ace-editor  mode="html" style=" min-height: 800px; overflow: auto;"  formControlName="htmlH"></ace-editor>
+                    </div>
+                 </ng-contain>
+                 <ng-contain *ngIf="ShowCSSHeader" class="col-md-12 row">
+                    <div class="col-md-12  m-0 " >
+                        CSS Encabezado<ace-editor  mode="css" style=" min-height: 800px; overflow: auto;"  formControlName="cssH"></ace-editor>
+                    </div>
+                 </ng-contain>
+                 <ng-container *ngIf="ShowHTMLFooter" class="col-md-12 row">
+                    <div class="col-md-12  m-0 " >
+                        HTML Pie<ace-editor  mode="html" style=" min-height: 800px; overflow: auto;"  formControlName="htmlF"></ace-editor>
+                    </div>
+                 </ng-container>
+                 <ng-container *ngIf="ShowCSSFooter" class="col-md-12 row">
+                    <div class="col-md-12  m-0 " >
+                        CSS Pie <ace-editor  mode="css" style=" min-height: 800px; overflow: auto;"  formControlName="cssF"></ace-editor>
+                    </div>
+                </ng-container>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" (click)="updateShared()">Actualizar</button>
+            </div>
+        </div>
+          </div>
+        </div>
+      </div>
