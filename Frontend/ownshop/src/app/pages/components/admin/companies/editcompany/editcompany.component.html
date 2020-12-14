@@ -45,7 +45,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeAddExpenseModal>Cancelar</button>
-                <button type="button" class="btn btn-success" (click)="editcompany();">Actualizar</button>
+                <button type="button" class="btn btn-success" (click)="editcompany();" [disabled]="!editCompanyForm.valid">Actualizar</button>
             </div>
         </div>
     </div>

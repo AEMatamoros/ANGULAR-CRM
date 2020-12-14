@@ -6,7 +6,7 @@
         </div>
         <div class="col-md-6 mt-3 mb-2 row ">
             <button class="btn btn-success mr-3 col-md-2" (click)="edit()">Guardar</button>
-            <button class="btn btn-danger mr-3 col-md-2">Cancelar</button>
+            <button class="btn btn-danger mr-3 col-md-2" [routerLink]="['/editstore', page.store]">Cancelar</button>
             <button class="btn btn-info mr-3 col-md-2" (click)="change('html')">HTML</button>
             <button class="btn btn-info mr-3 col-md-2" (click)="change('css')">CSS</button>
             <button class="btn btn-info mr-3 col-md-2" (click)="change('js')">JS</button>

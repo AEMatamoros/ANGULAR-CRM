@@ -17,6 +17,9 @@ export class EdittemplateComponent implements OnInit {
   tempManage
   html1
   html2
+  htmlEditor=true
+  cssEditor=false
+  jsEditor=false
   admin:boolean=true
   productTemp:string=`<div class='container alert-success'><div class="row ">
                       <ng-container *ngFor="let store of products">
@@ -71,8 +74,25 @@ export class EdittemplateComponent implements OnInit {
   guardar(){
     console.log(this.editTemplateForm.value)
     this.templateService.putTemplate(this.template['_id'],this.editTemplateForm.value).subscribe(
-      res=>{this.router.navigateByUrl('/admin/templates'),console.log(res)},
+      res=>{this.router.navigateByUrl('/admin'),console.log(res)},
       err=>console.log(err))
     
+  }
+
+  change(editor){
+    console.log(editor)
+    if (editor=='html'){
+      this.htmlEditor=true
+      this.jsEditor=false
+      this.cssEditor=false
+    }else if(editor=='css'){
+      this.cssEditor=true
+      this.htmlEditor=false
+      this.jsEditor=false
+    }else if(editor=='js'){
+      this.jsEditor=true
+      this.htmlEditor=false
+      this.cssEditor=false
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlansServiceService} from 'src/app/services/plans/plans-service.service'
+import { AuthService } from 'src/app/services/auth/auth.service'
 
 
 @Component({

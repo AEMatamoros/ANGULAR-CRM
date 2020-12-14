@@ -1,31 +1,35 @@
 <ng-container *ngIf="template">
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 mt-3 mb-0 ">
-            <h2 class="mb-0">Editando plantilla- &nbsp;{{template.templateName}}</h2>
+        <div class="col-md-6 mt-3 mb-0 ">
+            <h2 class="mb-0">Editando {{template.templateName}}</h2>
         </div>
-        <div class="col-md-4 mt-3 mb-0  row">
-            <button class="btn btn-success mr-3" (click)="guardar()">Guardar</button>
-            <a [routerLink]="['/admin/templates']" class="col-md-4">
-            <button class="btn btn-danger mr-3">Cancelar</button>
-            </a>
-            
-            <a [routerLink]="['/admin/templatepreview', template['_id']]" class="col-md-4"><button type="button" class="btn btn-info" data-toggle="modal"  >
-                <i class="far fa-eye"></i>
-              </button></a>
+        <div class="col-md-6 mt-3 mb-2 row ">
+            <button class="btn btn-success mr-3 col-md-2" (click)="guardar()">Guardar</button>
+            <button class="btn btn-danger mr-3 col-md-2" [routerLink]="['/admin']">Cancelar</button>
+            <button class="btn btn-info mr-3 col-md-2" (click)="change('html')">HTML</button>
+            <button class="btn btn-info mr-3 col-md-2" (click)="change('css')">CSS</button>
+            <button class="btn btn-info mr-3 col-md-2" (click)="change('js')">JS</button>
         </div>
+
         <div class="col-md-12">
             <div class="row">
                 <form [formGroup]='editTemplateForm' class="col-md-12 row">
-                <div class="col-md-12  m-0">
-                    HTML<ace-editor  mode="html" style=" min-height: 300px;"  formControlName='html' ></ace-editor>
-                </div>
-                <div class="col-md-12  m-0">
-                    CSS<ace-editor  mode="css" style=" min-height: 300px; overflow: auto;"  formControlName='css'></ace-editor>
-                </div>
-                <div class="col-md-12 mb-5">
-                    JS<ace-editor  mode="javascript" style=" min-height: 300px; overflow: auto;"  formControlName='js'></ace-editor>
-                </div>
+                <ng-container *ngIf="htmlEditor">
+                    <div class="col-md-12  m-0" >
+                        HTML<ace-editor  mode="html" style=" min-height: 800px; overflow: auto;"  formControlName="html"></ace-editor>
+                    </div>
+                    </ng-container>
+                    <ng-container *ngIf="cssEditor">
+                    <div class="col-md-12  m-0" *ngIf="cssEditor">
+                        CSS<ace-editor  mode="css" style=" min-height: 800px; overflow: auto;"  formControlName="css"></ace-editor>
+                    </div>
+                    </ng-container>
+                    <ng-container *ngIf="jsEditor">
+                    <div class="col-md-12 mb-5" *ngIf="jsEditor">
+                        JS<ace-editor  mode="javascript" style=" min-height: 800px; overflow: auto;"  formControlName="js"></ace-editor>
+                    </div>
+                    </ng-container>
             </form>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { StoreService } from 'src/app/services/store/store.service'
 import { Router, ActivatedRoute} from '@angular/router'
 import { FormGroup, FormControl,Validators } from '@angular/forms'
 import { BuysService } from 'src/app/services/buys/buys.service'
+import { SharedService } from 'src/app/services/shared/shared.service'
 
 @Component({
   selector: 'app-productpreview',
@@ -17,6 +18,7 @@ export class ProductpreviewComponent implements OnInit {
   cart
   user
   products
+  shareds
   //Date
   today = new Date();
   @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
@@ -33,13 +35,19 @@ export class ProductpreviewComponent implements OnInit {
     date: new FormControl('',Validators.required),
     _id:new FormControl('',Validators.required),
   })
-  constructor(private productService:ProductService, private route:ActivatedRoute, private storeService:StoreService, private buysService:BuysService) { }
+  constructor(private productService:ProductService, private route:ActivatedRoute, private storeService:StoreService, private buysService:BuysService, private sharedService:SharedService) { }
 
   ngOnInit(): void {
     this.user= JSON.parse( localStorage.getItem('userData') )
     this.route.params.subscribe(params=>{this.productId=params['id']
     this.productService.getProduct(this.productId).subscribe(res=>{this.product=res
-      this.storeService.getStore(this.product['store']).subscribe(res=>this.store=res)
+      this.storeService.getStore(this.product['store']).subscribe(res=>{
+        this.store=res
+        this.sharedService.getStoreShared(this.product['store']).subscribe(res=>{
+          console.log(res)
+          this.shareds=res
+        })
+      })
     })
     
   })

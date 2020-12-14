@@ -1,5 +1,7 @@
 <ng-container *ngIf="shareds">
-  {{shareds.htmlH}}
+  <div [innerHTML]='shareds.htmlH | safehtml'>
+
+  </div>
 </ng-container>
     <div class="col-md-12">
       <ng-container *ngIf="pages" class="alert-danger" class="text-center">
@@ -41,7 +43,9 @@
       </div>
     </ng-container>
 <ng-container *ngIf="shareds">
-      {{shareds.htmlF}}
+  <div [innerHTML]='shareds.htmlF | safehtml'>
+
+  </div>
 </ng-container>   
       
 

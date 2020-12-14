@@ -8,7 +8,7 @@
                       <span *ngIf="pageName.invalid && pageName.dirty">Campo Obligatorio</span>
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary form-control" (click)="onSubmit()">Guardar</button>
+                        <button type="submit" class="btn btn-primary form-control" (click)="onSubmit()" [disabled]="!newPageForm.valid">Guardar</button>
                     </div>
                     <div class="col-md-4 mb-3">Tipo</div>
                     <div class="col-md-6 mb-3">
@@ -32,12 +32,12 @@
                         </button>
                     </div>
                 </form>
-        <form [formGroup]="editor" (ngSubmit)="onSubmit()" class="col-md-10 row">
+        <form [formGroup]="editor" (ngSubmit)="onSubmit()" class="col-md-12 row">
             <div class="editor-div col-md-12">
                 <quill-editor  formControlName="nombreTienda"></quill-editor>                
             </div>
         </form>
-        <div class="col-md-2 border ml-2 mr-2">
+        <div class="col-md-2 border ml-2 mr-2" hidden>
             Short
         </div>
     </div>

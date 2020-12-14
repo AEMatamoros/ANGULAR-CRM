@@ -8,8 +8,8 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header ">
-                <h5 class="modal-title  " id="exampleModalLongTitle">Nueva Usuario
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title  " id="exampleModalLongTitle">Nuevo Usuario
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -81,7 +81,7 @@
                             <span *ngIf="password.invalid && password.dirty">Campo Obligatorio</span>
                         </div>
                         <div class="form-group col-md-6 text-left">
-                            <ng-container *ngIf="plan.value!='Free'">
+                            <ng-container *ngIf="plan.value!='Cliente'">
                                 <label for="companyName">Nombre de la empresa</label>
                                 <input type="text" class="form-control" id="companyName" placeholder="John"
                                     formControlName='companyName' required>
@@ -96,7 +96,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeAddExpenseModal>Cancelar</button>
-                <button type="button" class="btn btn-primary" (click)="onRegister()">Agregar</button>
+                <button type="button" class="btn btn-primary" (click)="onRegister()" [disabled]="!registerForm.valid">Agregar</button>
             </div>
         </div>
     </div>

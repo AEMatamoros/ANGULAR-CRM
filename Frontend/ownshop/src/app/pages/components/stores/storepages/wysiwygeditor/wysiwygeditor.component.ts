@@ -25,10 +25,10 @@ export class WYSIWYGEditorComponent implements OnInit {
   newPageForm= new FormGroup({
     pageName:new FormControl('',Validators.required),
     pageType:new FormControl('',Validators.required),
-    store:new FormControl('',Validators.required),
-    html:new FormControl('',Validators.required),
-    css:new FormControl('',Validators.required),
-    js:new FormControl('',Validators.required)
+    store:new FormControl(''),
+    html:new FormControl(''),
+    css:new FormControl(''),
+    js:new FormControl('')
     
   })
 
@@ -134,7 +134,7 @@ export class WYSIWYGEditorComponent implements OnInit {
                   <h5 class="card-title p-0 m-0">${product.productName}</h5>
                   <p class="card-text p-0 m-0">${product.productDesc} <strong>L${product.price}</strong></p>
                   
-                  <a [routerLink]="['/products',${product['_id']}]" class="btn btn-warning m-1 center form-control">Comprar</a>
+                  <a href="/products/${product['_id']}" class="btn btn-warning m-1 center form-control">Comprar</a>
                 </div>
               </div>`
             }
@@ -160,6 +160,25 @@ export class WYSIWYGEditorComponent implements OnInit {
         str+=`</div></div>`
         this.editorContent= this.editorContent.replace(exp[0],str)
        
+      }else if(expObject['tipo']=='producto'){
+        var str=""
+          this.products.forEach(product => {
+            if(product['_id']==(expObject['producto'])){
+              str+=`<div class="card m-2 col-md-4 col-lg-3 col-xl-3 col-sm-12 col-xs-12 p-0 border" style="width: 18rem;">
+              <img class="card-img-top" src="http://127.0.0.1:8888/${product.imgRoute}" height="250px" width="100%" alt="Card image cap">
+                <div class="card-body ">
+                  <h5 class="card-title p-0 m-0">${product.productName}</h5>
+                  <p class="card-text p-0 m-0">${product.productDesc} <strong>L${product.price}</strong></p>
+                  
+                  <a href="/products/${product['_id']}" class="btn btn-warning m-1 center form-control">Comprar</a>
+                </div>
+              </div>`
+            }
+          });
+          
+        
+        this.editorContent= this.editorContent.replace(exp[0],str)
+        //console.log(expObject)
       }
       
     }

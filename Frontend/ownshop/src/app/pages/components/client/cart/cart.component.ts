@@ -28,6 +28,7 @@ export class CartComponent implements OnInit {
         return element['_id']!=id
     })
     localStorage.setItem('cart',JSON.stringify(filtered))
+    this.total=0
     this.callData()
   }
 

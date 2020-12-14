@@ -26,7 +26,7 @@ export class NewuserComponent implements OnInit {
     csv:new FormControl('',Validators.required),
     cardNum:new FormControl('',Validators.required),
     plan: new FormControl('',Validators.required),
-    companyName:new FormControl('',Validators.required),
+    companyName:new FormControl(''),
     owner:new FormControl('',Validators.required)
   });
   //CreateCompanyInitData

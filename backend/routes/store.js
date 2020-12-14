@@ -46,6 +46,7 @@ router.put('/:id',(req,res)=>{
          {
             "storeName":req.body.storeName,
             "storeDescription":req.body.storeDescription,
+            "category":req.body.category,
             //"company":req.body.company
         })
          .then(result=>res.send(result))

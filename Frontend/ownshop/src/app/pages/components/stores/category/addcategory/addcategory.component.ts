@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms'
 import { CategoryService } from 'src/app/services/category/category.service'
 import { CategoriesComponent} from 'src/app/pages/components/stores/category/categories/categories.component'
-
+import { EditstoreComponent } from 'src/app/pages/components/stores/editstore/editstore.component'
 @Component({
   selector: 'app-addcategory',
   templateUrl: './addcategory.component.html',
@@ -20,7 +20,7 @@ export class AddcategoryComponent implements OnInit {
 
   });
 
-  constructor(private categoryService:CategoryService, private categoriesComponent:CategoriesComponent) { }
+  constructor(private categoryService:CategoryService, private categoriesComponent:CategoriesComponent,private editStoreComponent:EditstoreComponent) { }
 
   ngOnInit(): void {
     this.newPlanForm.controls['store'].setValue(this.store['_id'])
@@ -29,7 +29,7 @@ export class AddcategoryComponent implements OnInit {
   newCat(){
     this.categoryService.postCategory(this.newPlanForm.value).subscribe(res=>{
       this.closeAddExpenseModal.nativeElement.click();
-      this.categoriesComponent.ngOnInit()
+      this.editStoreComponent.ngOnInit()
     })
   }
 
